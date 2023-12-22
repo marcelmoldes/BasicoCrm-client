@@ -1,6 +1,6 @@
 <template>
-  <header class="bg-indigo-600">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <header class="">
+    <nav class="hidden lg:flex mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
@@ -15,19 +15,23 @@
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Contacts</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Accounts</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Deals</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Tasks</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Activities</a>
+      <div class="lg:flex justify-end lg:gap-x-12">
+        <a @click="$router.push('/dashboard')" class="text-sm font-semibold cursor-pointer leading-6 text-gray-400">Dashboard</a>
+        <a @click="$router.push('/contacts')" class="text-sm font-semibold cursor-pointer leading-6 text-gray-400">Contacts</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Accounts</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Deals</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Tasks</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Activities</a>
+      </div>
+      <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
+        <button  @click="$router.push('/login')"  class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-500 hover:bg-blue-600/50  text-white underline-offset-2 underline-gray">Login</button>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+        <button @click="$router.push('/register')" href="#" class="px-8 font-semibold hover:bg-blue-600/50 rounded-full py-2 bg-blue-500 text-white ">Register</button>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
+    <div class="lg:hidden" role="dialog" aria-modal="true" v-if="1==2">
       <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-10"></div>
       <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -46,10 +50,12 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+              <a @click="$router.push('/dashboard')" class="text-sm font-semibold cursor-pointer leading-6 text-white">Dashboard</a>
+              <a @click="$router.push('/contacts')" class="text-sm font-semibold cursor-pointer leading-6 text-white">Contacts</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-white">Accounts</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-white">Deals</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-white">Tasks</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-white">Activities</a>
             </div>
             <div class="py-6">
               <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
@@ -58,6 +64,7 @@
         </div>
       </div>
     </div>
+    <hr>
   </header>
 
 

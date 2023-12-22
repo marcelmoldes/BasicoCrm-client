@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4  bg-white rounded-md">
+  <div class="p-4 p-4  border-2 border-gray-300 rounded-md bg-white rounded-md">
     <h1 class="text-gray-700 text-xl font-bold">My Tasks</h1>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>

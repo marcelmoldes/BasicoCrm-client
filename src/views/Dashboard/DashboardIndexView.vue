@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-900">
+  <div class="">
     <kpi-dashlet></kpi-dashlet>
     <div class="grid grid-cols-2 px-12 pb-12 gap-12">
       <accounts-dashlet></accounts-dashlet>

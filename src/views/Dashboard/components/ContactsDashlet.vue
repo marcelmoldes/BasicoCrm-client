@@ -1,9 +1,9 @@
 <template>
-  <div class="p-4  bg-white rounded-md">
+  <div class="p-4  border-2 border-gray-300 rounded-md">
     <h1 class="text-gray-600 text-xl font-bold">My Contacts</h1>
-    <table class="min-w-full divide-y divide-gray-300">
+    <table class="min-w-full  divide-y divide-gray-300">
       <thead>
-      <tr>
+      <tr class="">
         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">First Name</th>
         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Last Name</th>
         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Phone</th>
