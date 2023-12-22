@@ -18,9 +18,16 @@ export default {
   async mounted() {
     if (this.$route.query.action === 'registered') {
       Toastify({
-        text: "Welcome to BasicoCrm",
+        text: "You have successfully registered!",
         position: "center",
-        duration: 1000,
+        duration: 3000,
+      }).showToast();
+    }
+    if (this.$route.query.action === 'expired') {
+      Toastify({
+        text: "Your session has expired, please log in again.",
+        position: "center",
+        duration: 3000,
       }).showToast();
     }
   },

@@ -3,7 +3,7 @@
     <kpi-dashlet></kpi-dashlet>
     <div class="grid grid-cols-2 px-12 pb-12 gap-12">
       <accounts-dashlet></accounts-dashlet>
-      <contacts-dashlet></contacts-dashlet>
+      <contacts-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></contacts-dashlet>
       <deals-dashlet></deals-dashlet>
       <tasks-dashlet></tasks-dashlet>
       <sales-funnel-dashlet></sales-funnel-dashlet>
@@ -22,6 +22,7 @@ import RevenueChartDashlet from "@/views/Dashboard/components/RevenueChartDashle
 import SalesFunnelDashlet from "@/views/Dashboard/components/SalesFunnelDashlet.vue";
 
 export default {
+  props: ['user'],
   components: {
     SalesFunnelDashlet,
     RevenueChartDashlet,

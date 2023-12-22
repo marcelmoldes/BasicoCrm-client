@@ -36,6 +36,7 @@
                      type="password">
               <div v-if="errors.password" class="text-sm text-red-400">{{ errors.password }}</div>
             </div>
+            <div v-if="error" class="bg-red-700 text-white rounded-lg py-1 text-center text-sm text-red-400">{{ error }}</div>
             <button class="font-semibold rounded-full py-2 bg-blue-500 hover:bg-blue-600 text-white "
                     @click="save">
               Register
@@ -82,17 +83,21 @@ export default {
         password: ""
       },
       errors: false,
+      error: false
     }
   },
   methods: {
     async save() {
       this.errors = false;
-      const response = await axios.post("http://localhost:8081/users", this.form);
+      this.error = false;
+      const response = await axios.post("http://localhost:8081/auth/register", this.form);
 
       if (response.data.success) {
         this.$router.push("/login?action=registered");
       } else if (response.data.errors) {
         this.errors = response.data.errors
+      } else if (response.data.error) {
+        this.error = response.data.error;
       }
 
     }

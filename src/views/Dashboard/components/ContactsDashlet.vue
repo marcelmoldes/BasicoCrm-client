@@ -59,5 +59,28 @@
   </div>
 
 </template>
-<script setup>
+<script>
+import axios from "axios";
+
+export default {
+  props: ['user'],
+  data() {
+    return {
+      contacts: []
+    }
+  },
+  async mounted() {
+    const response = await axios.get('http://localhost:8081/contacts?recordsPerPage=5',
+        {
+          headers: {
+            Authorization: this.user ? "Bearer " + this.user.token : null,
+          },
+        });
+    if (response.data.success) {
+      this.contacts = response.data;
+    } else {
+      this.$emit('sessionExpired');
+    }
+  }
+}
 </script>
