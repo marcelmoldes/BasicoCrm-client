@@ -8,29 +8,19 @@
 
             <div class="flex flex-col gap-y-1">
               <label class="text-sm font-medium text-white" for="email">Email</label>
-              <input id="email" v-model="user.email"
+              <input id="email"
                      class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="email"
                      placeholder="basicocrm@example.com"
                      type="email">
 
             </div>
-            <div class="flex flex-col gap-y-1">
 
-              <label class="text-sm font-medium text-white" for="password">Password</label>
 
-              <input id="password" v-model="user.password"
-                     class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                     placeholder="*******"
-                     type="password">
-
-            </div>
-            <div v-if="error" class="bg-red-700 text-white rounded-lg py-1 text-center text-sm text-red-400">{{ error }}</div>
             <button class="font-semibold rounded-full py-2 bg-blue-500 hover:bg-blue-600 text-white "
-                    @click="login">
-            Login
+                    >
+              Send Email
             </button>
-            <a href="/forgot-password"><h1 class="text-gray-400  hover:text-white text-center text-md">Forgot Password?
-            </h1></a>
+
           </div>
         </div>
       </div>
@@ -43,8 +33,7 @@
             <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86"/>
           </svg>
           <blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
-            <p>BasicoCrm,is a new basic crm,with many options for give to your company ,organization with
-              clients,sales,meetings,and more </p>
+            <p>Have you forgotten your password? Enter your email and we will send you a message so you can recover your account </p>
           </blockquote>
           <figcaption class="mt-8 text-base">
             <div class="font-semibold text-white">Marcel Moldes</div>
@@ -57,39 +46,18 @@
 </template>
 
 <script>
-import Cookies from "js-cookie"
-import axios from "axios";
 
 
 export default {
 
+
   data() {
     return {
-      user: {
-        email: "",
-        password: ""
-      },
+
 
       error: false
     }
   },
-  methods: {
-    async login() {
-      this.error = false;
-      const response = await axios.post("http://localhost:8081/auth/login",{
-        email: this.user.email,
-        password: this.user.password
-      });
-      if (response.data.success) {
-        let user = response.data.user;
-        user.token = response.data.token;
-        Cookies.set("user", JSON.stringify(user));
-        this.$emit('userLoggedIn')
-      }
-      else if (response.data.error) {
-        this.error = response.data.error;
-      }
-    }
-  }
+  methods: {}
 }
 </script>

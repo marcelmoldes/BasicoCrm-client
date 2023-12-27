@@ -6,6 +6,8 @@ import ContactEditView from "@/views/Contacts/ContactEditView.vue";
 import RegisterIndexView from "@/views/Register/RegisterIndexView.vue";
 import LoginIndexView from "@/views/LogIn/LoginIndexView.vue";
 
+import ForgotPasswordIndexView from "@/views/LogIn/ForgotPasswordIndexView.vue";
+
 const routes = [
   {
     path: "/dashboard",
@@ -36,6 +38,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginIndexView,
+  },
+  {
+    path: "/forgot-password",
+    name: "forgot-password",
+    component: ForgotPasswordIndexView,
   },
 
 ];

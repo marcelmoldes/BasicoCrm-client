@@ -2,12 +2,12 @@
   <div class="">
     <kpi-dashlet></kpi-dashlet>
     <div class="grid grid-cols-2 px-12 pb-12 gap-12">
-      <accounts-dashlet></accounts-dashlet>
+      <accounts-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></accounts-dashlet>
       <contacts-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></contacts-dashlet>
-      <deals-dashlet></deals-dashlet>
-      <tasks-dashlet></tasks-dashlet>
-      <sales-funnel-dashlet></sales-funnel-dashlet>
-      <revenue-chart-dashlet></revenue-chart-dashlet>
+      <deals-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></deals-dashlet>
+      <tasks-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></tasks-dashlet>
+      <sales-funnel-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></sales-funnel-dashlet>
+      <revenue-chart-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></revenue-chart-dashlet>
     </div>
   </div>
 </template>

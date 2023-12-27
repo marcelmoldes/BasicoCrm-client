@@ -12,52 +12,41 @@
         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Revenue</th>
       </tr>
       </thead>
-      <tbody class="divide-y divide-gray-200 px-50">
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+      <tbody v-for="account in accounts.records" :key="account" class="divide-y divide-gray-200">
+      <tr >
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{account.name}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.phone_id}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.website}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.address_id}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.industry}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.annual_revenue}}</td>
       </tr>
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-      </tr>
-
-      <!-- More people... -->
       </tbody>
     </table>
   </div>
 </template>
-<script setup>
+<script>
+import axios from "axios";
+
+export default {
+  props: ['user'],
+  data() {
+    return {
+      accounts: []
+    }
+  },
+  async mounted() {
+    const response = await axios.get('http://localhost:8081/accounts?recordsPerPage=5',
+        {
+          headers: {
+            Authorization: this.user ? "Bearer " + this.user.token : null,
+          },
+        });
+    if (response.data.success) {
+      this.accounts = response.data;
+    } else {
+      this.$emit('sessionExpired');
+    }
+  }
+}
 </script>
