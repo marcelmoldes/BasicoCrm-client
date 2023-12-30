@@ -5,8 +5,9 @@ import ContactDetailsView from "@/views/Contacts/ContactDetailsView.vue";
 import ContactEditView from "@/views/Contacts/ContactEditView.vue";
 import RegisterIndexView from "@/views/Register/RegisterIndexView.vue";
 import LoginIndexView from "@/views/LogIn/LoginIndexView.vue";
-
 import ForgotPasswordIndexView from "@/views/LogIn/ForgotPasswordIndexView.vue";
+import PersonalAccountIndexView from "@/views/PersonalAccount/PersonalAccountIndexView.vue";
+
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/forgot-password",
     name: "forgot-password",
     component: ForgotPasswordIndexView,
+  },
+  {
+    path: "/personal-account",
+    name: "personal-account",
+    component: PersonalAccountIndexView,
   },
 
 ];

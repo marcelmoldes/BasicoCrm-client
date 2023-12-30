@@ -17,7 +17,7 @@
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{account.name}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.PhoneNumber ? account.PhoneNumber.number : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.website}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.address_id}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.Address ? account.Address.street_address1 : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.industry}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.annual_revenue}}</td>
       </tr>

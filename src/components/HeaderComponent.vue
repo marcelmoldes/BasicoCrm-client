@@ -16,15 +16,15 @@
           </svg>
         </button>
       </div>
-      <div class="lg:flex justify-end lg:gap-x-12" v-if="user">
+      <div class="lg:flex justify-end lg:gap-x-12 " v-if="user">
         <a @click="$router.push('/dashboard')"
-           class="text-sm font-semibold cursor-pointer leading-6 text-gray-400">Dashboard</a>
+           class="text-sm hover:text-gray-500 hover:underline  font-semibold cursor-pointer leading-6 text-gray-400">Dashboard</a>
         <a @click="$router.push('/contacts')"
-           class="text-sm font-semibold cursor-pointer leading-6 text-gray-400">Contacts</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Accounts</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Deals</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Tasks</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-400">Activities</a>
+           class="text-sm hover:text-gray-500  hover:underline  font-semibold cursor-pointer leading-6 text-gray-400">Contacts</a>
+        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Accounts</a>
+        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Deals</a>
+        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Tasks</a>
+        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Activities</a>
       </div>
       <div class="lg:flex lg:gap-x-12">
         <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
@@ -45,10 +45,10 @@
         </div>
       </div>
       <span v-if="user" class="relative inline-block">
-        <img class="h-12 w-12 ml-10 rounded-full"
-             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-             alt="">
-        <span class="absolute right-0 top-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white"></span>
+        <a class="hover:bg-gray-400" @click="$router.push('/personal-account')"><img class="h-12 w-12 ml-10 rounded-full"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""></a>
+        <span class="absolute right-0  top-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white"></span>
       </span>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -71,11 +71,11 @@
           </button>
         </div>
         <div class="mt-6 flow-root">
-          <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
+          <div class="-my-6 divide-y hover:text-white divide-gray-500/10">
+            <div class="space-y-2   py-6">
               <a @click="$router.push('/dashboard')" class="text-sm font-semibold cursor-pointer leading-6 text-white">Dashboard</a>
               <a @click="$router.push('/contacts')" class="text-sm font-semibold cursor-pointer leading-6 text-white">Contacts</a>
-              <a href="#" class="text-sm font-semibold leading-6 text-white">Accounts</a>
+              <a href="#" class="text-sm  font-semibold leading-6 text-white">Accounts</a>
               <a href="#" class="text-sm font-semibold leading-6 text-white">Deals</a>
               <a href="#" class="text-sm font-semibold leading-6 text-white">Tasks</a>
               <a href="#" class="text-sm font-semibold leading-6 text-white">Activities</a>
