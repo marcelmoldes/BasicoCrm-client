@@ -19,7 +19,7 @@
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.website}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.Address ? account.Address.street_address1 : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.industry}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.annual_revenue}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatAmount(account.annual_revenue, '$') }}</td>
       </tr>
       </tbody>
     </table>
@@ -27,12 +27,14 @@
 </template>
 <script>
 import axios from "axios";
+import formatters from "@/helpers/formatters";
 
 export default {
   props: ['user'],
   data() {
     return {
-      accounts: []
+      accounts: [],
+      formatters
     }
   },
   async mounted() {

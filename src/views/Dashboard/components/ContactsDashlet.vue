@@ -16,7 +16,7 @@
       <tr >
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{contact.first_name}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.last_name}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.phone_id}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.PhoneNumber ? contact.PhoneNumber.number : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><div class="w-48 truncate">{{contact.email}}</div></td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.website}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.lead_source}}</td>

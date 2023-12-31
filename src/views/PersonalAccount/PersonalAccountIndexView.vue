@@ -1,6 +1,10 @@
 <template>
-  <profile-details-form></profile-details-form>
-  <change-password-form></change-password-form>
+  <div class="bg-blue-600 m-12 border border-2 border-white ">
+
+    <profile-details-form></profile-details-form>
+    <change-password-form></change-password-form>
+  </div>
+
 
 
 </template>

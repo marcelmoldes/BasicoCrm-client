@@ -14,9 +14,9 @@
       <tbody v-for="deal in deals.records" :key="deal" class="divide-y divide-gray-200">
       <tr>
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{deal.deal_name}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{deal.account_id}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ deal.deal_value }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ deal.close_date }}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{deal.Account ? deal.Account.name : '-' }}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatAmount(deal.deal_value , '$') }}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatDate(deal.close_date) }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ deal.status }}</td>
       </tr>
 
@@ -28,12 +28,14 @@
 </template>
 <script>
 import axios from "axios";
+import formatters from "@/helpers/formatters";
 
 export default {
   props: ['user'],
   data() {
     return {
-      deals: []
+      deals: [],
+      formatters
     }
   },
   async mounted() {

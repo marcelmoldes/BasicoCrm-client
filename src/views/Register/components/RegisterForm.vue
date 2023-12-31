@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-800 pb-20 mt-40 sm:pb-24 xl:pb-0">
+  <div class="bg-blue-600 pb-20 mt-40 sm:pb-24 xl:pb-0">
     <div
         class="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
       <div class="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
@@ -41,8 +41,7 @@
                     @click="save">
               Register
             </button>
-            <a href="/login"><h1 class="text-gray-400  hover:text-white text-center text-md">Or Create A New
-              Account</h1></a>
+            <a href="/login"><h1 class="text-gray-400  hover:text-white text-center text-md">You have an account?</h1></a>
           </div>
         </div>
       </div>
