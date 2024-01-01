@@ -1,14 +1,12 @@
 <template>
-  <div class="  p-4   py-20 lg:px-8">
-    <div>
-      <h1 class="text-2xl  font-bold text-white">Change Your Password</h1>
-    </div>
-    <div class=" sm:mx-auto rounded-md  px-28  py-12 bg-gray-800">
+  <div class="flex  py-12 lg:px-8">
+    <div id="bg-blue" class="sm:mx-auto rounded-md  px-8  py-6 ">
+        <h1 class="text-2xl py-4  font-bold text-white">Change Your Password</h1>
+
+        <form class="">
 
 
-      <form class="">
-
-        <div class="grid grid-cols-1 gap-x-6 mr-20  sm:grid-cols-6">
+          <div class="grid grid-cols-1 gap-x-6 mr-20  sm:grid-cols-6">
 
           <div class="sm:col-span-3">
             <label class=" text-sm font-medium text-white">Current Password</label>
@@ -28,7 +26,9 @@
 
           </div>
 <div class="col-end-9">
-  <button class="text-white text-l font-bold mt-8 text-center hover:bg-blue-700  bg-blue-600 py-2.5 px-8 rounded-full ">
+
+
+<button class="text-white text-l font-bold mt-8 text-center hover:bg-blue-700  bg-blue-600 py-2.5 px-8 rounded-full ">
     Save
   </button>
 </div>
@@ -38,7 +38,9 @@
       </form>
 
     </div>
-  </div>
+    </div>
+
+
 
 </template>
 <script >

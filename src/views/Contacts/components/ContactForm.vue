@@ -1,10 +1,10 @@
 <template>
   <div class="flex  px-56  justify-end gap-6">
-    <button class="rounded-full bg-blue-700 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button"
     >Save Contact
     </button>
-    <button class="rounded-full bg-blue-700 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button">Delete
       Contact
     </button>

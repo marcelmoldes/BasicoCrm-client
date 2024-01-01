@@ -1,12 +1,12 @@
 <template>
-  <header class="">
-    <nav class="hidden lg:flex mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-      <div class="flex w-48">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=blue" alt="">
+  <header  class="bg-gray-50">
+    <nav class="hidden lg:flex mx-auto flex max-w-7xl items-center justify-between p-3.5 lg:px-8">
+
+        <a href="/dashboard" class="">
+
+          <img class="w-16 mr-20  rounded-md border border-gray-200" src="../assets/images/basico-logo.jpeg" alt="">
         </a>
-      </div>
+
       <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-300">
           <span class="sr-only">Open main menu</span>
@@ -16,7 +16,7 @@
           </svg>
         </button>
       </div>
-      <div class="lg:flex justify-end lg:gap-x-12 " v-if="user">
+      <div class="lg:flex ml-20 justify-end lg:gap-x-12 " v-if="user">
         <a @click="$router.push('/dashboard')"
            class="text-sm hover:text-gray-500 hover:underline  font-semibold cursor-pointer leading-6 text-gray-400">Dashboard</a>
         <a @click="$router.push('/contacts')"
@@ -26,7 +26,7 @@
         <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Tasks</a>
         <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Activities</a>
       </div>
-      <div class="lg:flex lg:gap-x-12">
+      <div class="lg:flex ml-32 lg:gap-x-12">
         <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
           <button v-if="!user" @click="$router.push('/login')"
                   class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-500 hover:bg-blue-600/50  text-white underline-offset-2 underline-gray">

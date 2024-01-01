@@ -1,10 +1,21 @@
 <template>
+
+
+
+
+
+
+
+
+
+
+
   <div class="bg-blue-600 pb-20 mt-40 sm:pb-24 xl:pb-0">
     <div
-        class="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
-      <div class="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
-        <div class="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
-          <div class="flex flex-col gap-y-6 px-12 py-12 justify-center inset-0 w-full rounded-2xl bg-gray-800 object-cover shadow-2xl">
+        class="mx-auto flex max-w-7xl   gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
+      <div class="">
+        <div class="">
+          <div class="flex flex-col gap-y-6 px-12 py-20 justify-center inset-0 w-full rounded-2xl bg-gray-800 object-cover shadow-2xl">
 
             <div class="flex flex-col gap-y-1">
               <label class="text-sm font-medium text-white" for="email">Email</label>

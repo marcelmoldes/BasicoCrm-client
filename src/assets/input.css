@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#bg-blue {
+    background-image: url(../assets/images/fondo.jpeg);
+    with: 20px
+}

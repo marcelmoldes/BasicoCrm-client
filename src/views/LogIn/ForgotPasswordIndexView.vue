@@ -1,5 +1,8 @@
 <template>
-<forgot-password-form></forgot-password-form>
+
+
+
+  <forgot-password-form></forgot-password-form>
 
 
 </template>
