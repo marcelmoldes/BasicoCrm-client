@@ -1,5 +1,5 @@
 <template>
-  <div class=" m-12 border border-2 border-white ">
+  <div id="form" class=" rounded-md m-10   ">
 
     <profile-details-form></profile-details-form>
     <change-password-form></change-password-form>

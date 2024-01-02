@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-3 ml-0 mt-1 m-14 py-4 p-10">
+  <div class="">
     <contact-form></contact-form>
   </div>
 </template>

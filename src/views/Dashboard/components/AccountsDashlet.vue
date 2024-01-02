@@ -14,7 +14,7 @@
       </thead>
       <tbody v-for="account in accounts.records" :key="account" class="divide-y divide-gray-200">
       <tr >
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{account.name}}</td>
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{formatters.toProperCase(account.name)}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.PhoneNumber ? account.PhoneNumber.number : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.website}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{account.Address ? account.Address.street_address1 : '-' }}</td>

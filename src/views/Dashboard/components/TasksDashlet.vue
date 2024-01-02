@@ -15,11 +15,11 @@
       <tbody v-for="task in tasks.records" :key="task" class="divide-y divide-gray-200">
       <tr>
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{task.Contact ? task.Contact.first_name : '-' }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> {{task.name}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> {{formatters.toProperCase(task.name)}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatDate(task.due_date) }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{task.status}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{task.Account ? task.Account.name   : '-' }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{task.priority}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(task.status)}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(task.Account ? task.Account.name   : '-') }}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(task.priority)}}</td>
       </tr>
 
       <!-- More people... -->

@@ -16,6 +16,13 @@ export default {
             }
         );
     },
+    toProperCase(value){
+        const firstLetter = value.charAt(0);
+        const rest = value.slice(1);
+        return firstLetter.toUpperCase() + rest
+
+
+    }
 
 
 

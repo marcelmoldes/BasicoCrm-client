@@ -14,12 +14,12 @@
       </thead>
       <tbody v-for="contact in contacts.records" :key="contact" class="divide-y divide-gray-200">
       <tr >
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{contact.first_name}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.last_name}}</td>
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{formatters.toProperCase(contact.first_name)}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(contact.last_name)}}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.PhoneNumber ? contact.PhoneNumber.number : '-' }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><div class="w-48 truncate">{{contact.email}}</div></td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.website}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{contact.lead_source}}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(contact.lead_source)}}</td>
       </tr>
 
       <!-- More people... -->
@@ -30,8 +30,14 @@
 </template>
 <script>
 import axios from "axios";
+import formatters from "../../../helpers/formatters";
 
 export default {
+  computed: {
+    formatters() {
+      return formatters
+    }
+  },
   props: ['user'],
   data() {
     return {

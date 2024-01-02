@@ -10,15 +10,15 @@
 
 
 
-  <div class="bg-blue-600 pb-20 mt-40 sm:pb-24 xl:pb-0">
+  <div id="bg-blue" class=" pb-20 mt-40 sm:pb-24 xl:pb-0">
     <div
         class="mx-auto flex max-w-7xl   gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
       <div class="">
         <div class="">
-          <div class="flex flex-col gap-y-6 px-12 py-20 justify-center inset-0 w-full rounded-2xl bg-gray-800 object-cover shadow-2xl">
+          <div id="form" class="flex flex-col gap-y-6 px-12 py-20 justify-center rounded-md w-full m-3  object-cover shadow-black shadow-2xl">
 
             <div class="flex flex-col gap-y-1">
-              <label class="text-sm font-medium text-white" for="email">Email</label>
+              <label class="text-sm font-medium text-gray-600 ml-1" for="email">Email</label>
               <input id="email"
                      class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="email"
                      placeholder="basicocrm@example.com"
@@ -44,7 +44,7 @@
             <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86"/>
           </svg>
           <blockquote class="text-xl font-semibold leading-8 text-white sm:text-2xl sm:leading-9">
-            <p>Have you forgotten your password? Enter your email and we will send you a message so you can recover your account </p>
+            <p>Have you forgotten your password? Enter your email and we will send you a message for recover your account </p>
           </blockquote>
           <figcaption class="mt-8 text-base">
             <div class="font-semibold text-white">Marcel Moldes</div>
