@@ -86,4 +86,44 @@
 
 </template>
 <script >
+import axios from "axios";
+
+
+export default {
+
+  data() {
+    return {
+      form: {
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+        employees: "",
+        industry: "",
+        annual_revenue: "",
+        company_name: "",
+        website: ""
+      },
+      errors: false,
+      error: false
+    }
+  },
+  methods: {
+    async save() {
+      this.errors = false;
+      this.error = false;
+      const response = await axios.put("http://localhost:8081/auth/register", this.form);
+
+      if (response.data.success) {
+        this.$router.push("/login?action=registered");
+      } else if (response.data.errors) {
+        this.errors = response.data.errors
+      } else if (response.data.error) {
+        this.error = response.data.error;
+      }
+
+    }
+
+  }
+}
 </script>
