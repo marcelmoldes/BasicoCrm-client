@@ -1,7 +1,7 @@
 <template>
   <div class="ml-0 mt-1 m-14 py-4 p-10">
     <h2 class="text-2xl font-bold mb-3">Contacts</h2>
-    <contacts-grid></contacts-grid>
+    <contacts-grid :user="user"></contacts-grid>
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 import ContactsGrid from "@/views/Contacts/components/ContactsGrid.vue";
 
 export default {
+  props:['user'],
   components: {
     ContactsGrid
   },

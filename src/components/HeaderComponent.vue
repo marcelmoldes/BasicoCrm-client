@@ -28,19 +28,19 @@
       </div>
       <div class="lg:flex ml-32 lg:gap-x-12">
         <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
-          <button v-if="!user" @click="$router.push('/login')"
-                  class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-500 hover:bg-blue-600/50  text-white underline-offset-2 underline-gray">
+          <button id="form" v-if="!user" @click="$router.push('/login')"
+                  class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-500 hover:opacity-90  text-white underline-offset-2 underline-gray">
             Login
           </button>
         </div>
         <div v-if="!user" class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button @click="$router.push('/register')" href="#"
-                  class="px-8 font-semibold hover:bg-blue-600/50 rounded-full py-2 bg-blue-500 text-white ">Register
+          <button  id="form" @click="$router.push('/register')" href="#"
+                  class="px-8 font-semibold hover:opacity-90 rounded-full py-2  text-white ">Register
           </button>
         </div>
         <div v-if="user" class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button @click="$emit('logUserOut')"
-                  class="px-8 font-semibold hover:bg-blue-600/50 rounded-full py-2 bg-blue-500 text-white ">Logout
+          <button id="bg-blue" @click="$emit('logUserOut')"
+                  class="px-8 font-semibold hover:opacity-90 rounded-full py-2 bg-blue-500 text-white ">Logout
           </button>
         </div>
       </div>

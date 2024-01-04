@@ -1,5 +1,8 @@
 <template>
-  <login-form></login-form>
+  <div class="flex ml-20 mt-20">
+    <login-form></login-form>
+  </div>
+
 </template>
 <script>
 import Toastify from 'toastify-js'

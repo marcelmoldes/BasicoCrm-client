@@ -19,27 +19,27 @@
           <div class="sm:col-span-3">
             <label for="first-name" class="block text-sm font-medium leading-6 text-white">First name</label>
             <div class="mt-2">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input v-model="form.first_name" type="text" name="first-name" id="first-name" autocomplete="given-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-3">
             <label for="last-name" class="block text-sm font-medium leading-6 text-white">Last name</label>
             <div class="mt-2">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input v-model="form.last_name" type="text" name="last-name" id="last-name" autocomplete="family-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
           <div class="sm:col-span-3">
             <label for="first-name" class="block text-sm font-medium leading-6 text-white">Annual Revenue</label>
             <div class="mt-2">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input v-model="form.annual_revenue" type="text" name="first-name" id="first-name" autocomplete="given-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
 
           <div class="sm:col-span-3">
             <label for="last-name" class="block text-sm font-medium leading-6 text-white">Number Of Employees</label>
             <div class="mt-2">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input v-model="form.employees" type="text" name="last-name" id="last-name" autocomplete="family-name" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
           <div class="col-span-full">
@@ -51,7 +51,7 @@
           <div class="col-span-full">
             <label for="email" class="block text-sm font-medium leading-6 text-white">Company Name</label>
             <div class="mt-2">
-              <input id="email" name="email" type="email" autocomplete="email" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input  id="email" name="email" type="email" autocomplete="email" class="p-2 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
           <div class="col-span-full">
@@ -74,7 +74,7 @@
           <div class="col-span-full">
             <label for="email" class="block text-sm font-medium leading-6 text-white">Email address</label>
             <div class="mt-2">
-              <input id="email" name="email" type="email" autocomplete="email" class="p-4 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
+              <input v-model="form.email" id="email" name="email" type="email" autocomplete="email" class="p-4 w-full rounded-md border-0 bg-white py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ import axios from "axios";
 
 
 export default {
-
+props:['user'],
   data() {
     return {
       form: {
@@ -108,22 +108,41 @@ export default {
       error: false
     }
   },
+async mounted() {
+await this.loadData()
+},
+
   methods: {
     async save() {
-      this.errors = false;
       this.error = false;
-      const response = await axios.put("http://localhost:8081/auth/register", this.form);
+      let response = await axios.put(
+          "http://localhost:8081/users/" + this.user.id,
+          {},
+          {
+            headers: {
+              Authorization: this.user ? "Bearer " + this.user.token : null,
+            },
+          }
+      );
 
       if (response.data.success) {
-        this.$router.push("/login?action=registered");
-      } else if (response.data.errors) {
-        this.errors = response.data.errors
-      } else if (response.data.error) {
-        this.error = response.data.error;
+       alert("utku")
+        this.$router.push("/dashboard");
+      } else {
+        this.error = true;
       }
-
-    }
-
+    },
+    async loadData() {
+      let response = await axios.get(
+          "http://localhost:8081/users/" + this.user.id,
+          {
+            headers: {
+              Authorization: this.user ? "Bearer " + this.user.token : null,
+            },
+          }
+      );
+      this.form = response.data.user;
+    },
   }
 }
 </script>

@@ -113,100 +113,20 @@
         </th>
       </tr>
 
-      <tbody class=" divide-y divide-blue-100 " @click="$router.push('/contact-details')">
+      <tbody v-for="contact in contacts.records" :key="contact" class=" divide-y divide-blue-100 " @click="$router.push('/contact-details')">
       <tr>
-        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
+        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">{{formatters.toProperCase(contact.first_name)}}</td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{formatters.toProperCase(contact.last_name)}}</td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{formatters.formatPhoneNumber(contact.PhoneNumber ? contact.PhoneNumber.number : '-') }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.email }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{contact.website}}</td>
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ contact.lead_source }}</td>
 
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(contact.created_at) }}</td>
 
       </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
 
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
-      <tr>
-        <td class="whitespace-nowrap px-5 pl-4   text-sm font-medium text-gray-900 ">Lindsay Walton</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Front-end Developer</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Member</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">23/12/2023</td>
-      </tr>
 
       </tbody>
     </table>
@@ -248,7 +168,35 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+import formatters from "../../../helpers/formatters";
 
-<script setup>
+export default {
+  computed: {
+    formatters() {
+      return formatters
+    }
+  },
+  props: ['user'],
+  data() {
+    return {
+      contacts: []
+    }
+  },
+  async mounted() {
+    const response = await axios.get('http://localhost:8081/contacts',
+        {
+          headers: {
+            Authorization: this.user ? "Bearer " + this.user.token : null,
+          },
+        });
+    if (response.data.success) {
+      this.contacts = response.data;
+    } else {
+      this.$emit('sessionExpired');
+    }
+  }
+}
 </script>
 

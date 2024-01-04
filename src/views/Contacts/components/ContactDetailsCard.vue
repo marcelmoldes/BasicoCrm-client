@@ -11,7 +11,7 @@
   </div>
 
 
-  <div class="flex justify-center gap-x-10 mt-3 px-3">
+  <div  class="flex justify-center gap-x-10 mt-3 px-3">
 
     <div
         class="grid max-w-2xl bg-white ring-2 ring-gray-300 mt-8 p-10 rounded-md grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
@@ -101,7 +101,7 @@
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium leading-6 text-gray-900 " for="first-name">Annual Revenue</label>
 
-        <input id="first-name" autocomplete="given-name"
+        <input v-model="contacts.annual_revenue" id="first-name" autocomplete="given-name"
                class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                name="first-name"
                type="text">
@@ -176,7 +176,7 @@
     <div
         class="grid  max-w-2xl mt-10 border-2 border-gray-300 justify-center p-10 rounded-md grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
       <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Street Address</label>
+        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Address</label>
         <div class="mt-2">
           <input id="first-name" autocomplete="given-name"
                  class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -227,5 +227,29 @@
 
 
 </template>
-<script setup>
+<script>
+import axios from "axios";
+
+
+export default {
+  props: ['user'],
+  data() {
+    return {
+      contacts: []
+    }
+  },
+  async mounted() {
+    const response = await axios.get('http://localhost:8081/contacts',
+        {
+          headers: {
+            Authorization: this.user ? "Bearer " + this.user.token : null,
+          },
+        });
+    if (response.data.success) {
+      this.contacts = response.data;
+    } else {
+      this.$emit('sessionExpired');
+    }
+  }
+}
 </script>

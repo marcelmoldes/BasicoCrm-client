@@ -1,8 +1,8 @@
 <template>
   <div id="form" class=" rounded-md m-10   ">
 
-    <profile-details-form></profile-details-form>
-    <change-password-form></change-password-form>
+    <profile-details-form :user="user"></profile-details-form>
+    <change-password-form :user="user"></change-password-form>
   </div>
 
 
@@ -14,6 +14,7 @@
 import ChangePasswordForm from "@/views/PersonalAccount/components/ChangePasswordForm.vue";
 import ProfileDetailsForm from "@/views/PersonalAccount/components/ProfileDetailsForm.vue";
 export default  {
+  props:['user'],
   components:{
     ChangePasswordForm,
     ProfileDetailsForm

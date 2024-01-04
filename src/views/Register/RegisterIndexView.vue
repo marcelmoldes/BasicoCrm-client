@@ -1,5 +1,5 @@
 <template>
-  <div class="flex ml-20 mt-5">
+  <div class="flex ml-20 mt-20">
   <register-form></register-form></div>
 </template>
 <script>

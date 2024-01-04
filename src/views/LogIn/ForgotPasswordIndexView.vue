@@ -1,8 +1,11 @@
 <template>
+  <div class="flex ml-20 mt-20">
+
+    <forgot-password-form></forgot-password-form>
+  </div>
 
 
 
-  <forgot-password-form></forgot-password-form>
 
 
 </template>
