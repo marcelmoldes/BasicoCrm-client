@@ -26,7 +26,7 @@ export  default  {
       this.user = Cookies.get("user");
       if (this.user) {
         this.user = JSON.parse(this.user);
-        this.$router.push("/dashboard");
+        this.$router.push('/dashboard');
       }
     },
     logUserOut(expired) {

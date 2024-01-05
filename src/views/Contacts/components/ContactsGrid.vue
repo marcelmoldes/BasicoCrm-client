@@ -22,7 +22,7 @@
               class="block w-full rounded-md border ring-1 ring-inset ring-gray-300 bg-gray-50 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:text-gray-900 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
               placeholder="Search">
         </div>
-        <button class="px-8 gap-x-2 font-semibold hover:bg-blue-600/50 rounded-full py-2 bg-blue-500 text-white"
+        <button id="form" class="px-8 gap-x-2 font-semibold hover:opacity-90  border-gray-400 border  rounded-full py-2 bg-blue-500 text-white"
                 href="#"
                 @click="$router.push('/contact-edit')">Create
           Contact

@@ -71,7 +71,7 @@
             <div v-if="error" class="bg-red-500 text-white  py-1 text-center text-sm text-red-400">{{ error }}</div>
             <button id="form"
                     class="font-semibold border-gray-200 border rounded-full py-2 bg-blue-500 hover:opacity-90 text-white "
-                    @click="login">
+                    @click="login" >
             Login
             </button>
             <a href="/forgot-password"><h1 class="text-white  hover:text-gray-500 text-center text-md">Forgot Password?

@@ -1,10 +1,12 @@
 <template>
-  <div class="flex bg-gray-100 shadow-gray-400 shadow  p-6 px-28   justify-end gap-6">
-    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+  <div class="flex   shadow-gray-400 shadow  p-3 px-28   justify-end gap-6">
+    <button id="form"
+            class="rounded-full border-gray-200 border  px-4 py-3  font-semibold text-white shadow-sm hover:opacity-90"
             type="button"
     >Save Contact
     </button>
-    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button id="form"
+            class="rounded-full border border-gray-200  px-4 py-3  font-semibold text-white shadow-sm hover:opacity-90"
             type="button">Delete
       Contact
     </button>
@@ -17,6 +19,7 @@
         class="grid max-w-2xl bg-white ring-2 ring-gray-300 mt-8 p-10 rounded-md grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium decoration-blue-500 leading-6 text-gray-900" for="first-name">First
+
           name</label>
         <div class="mt-2">
           <input id="first-name" autocomplete="given-name"

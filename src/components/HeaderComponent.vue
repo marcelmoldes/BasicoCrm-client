@@ -1,5 +1,5 @@
 <template>
-  <header  class="bg-gray-50">
+  <header id="form"  class="bg-gray-50">
     <nav class="hidden lg:flex mx-auto flex max-w-7xl items-center justify-between p-3.5 lg:px-8">
 
         <a href="/dashboard" class="">
@@ -18,37 +18,37 @@
       </div>
       <div class="lg:flex ml-20 justify-end lg:gap-x-12 " v-if="user">
         <a @click="$router.push('/dashboard')"
-           class="text-sm hover:text-gray-500 hover:underline  font-semibold cursor-pointer leading-6 text-gray-400">Dashboard</a>
+           class="text-sm hover:text-gray-600 hover:underline  font-semibold cursor-pointer leading-6 text-gray-500">Dashboard</a>
         <a @click="$router.push('/contacts')"
-           class="text-sm hover:text-gray-500  hover:underline  font-semibold cursor-pointer leading-6 text-gray-400">Contacts</a>
-        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Accounts</a>
-        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Deals</a>
-        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Tasks</a>
-        <a href="#" class="text-sm hover:text-gray-500  hover:underline  font-semibold leading-6 text-gray-400">Activities</a>
+           class="text-sm hover:text-gray-600  hover:underline  font-semibold cursor-pointer leading-6 text-gray-500">Contacts</a>
+        <a href="#" class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500">Accounts</a>
+        <a href="#" class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500">Deals</a>
+        <a href="#" class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500">Tasks</a>
+        <a href="#" class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500">Activities</a>
       </div>
       <div class="lg:flex ml-32 lg:gap-x-12">
         <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
           <button id="form" v-if="!user" @click="$router.push('/login')"
-                  class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-500 hover:opacity-90  text-white underline-offset-2 underline-gray">
+                  class=" font-semibold leading-6 px-8 rounded-full py-2 border border-gray-200 hover:opacity-90  text-white underline-offset-2 underline-gray">
             Login
           </button>
         </div>
         <div v-if="!user" class="hidden lg:flex lg:flex-1 lg:justify-end">
           <button  id="form" @click="$router.push('/register')" href="#"
-                  class="px-8 font-semibold hover:opacity-90 rounded-full py-2  text-white ">Register
+                  class="px-8 font-semibold hover:opacity-90 rounded-full py-2 border-gray-200 border  text-white ">Register
           </button>
         </div>
         <div v-if="user" class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button id="bg-blue" @click="$emit('logUserOut')"
-                  class="px-8 font-semibold hover:opacity-90 rounded-full py-2 bg-blue-500 text-white ">Logout
+          <button id="form" @click="$emit('logUserOut')"
+                  class="px-8 font-semibold hover:opacity-90 border border-gray-200 rounded-full py-2 bg-blue-500 text-white ">Logout
           </button>
         </div>
       </div>
       <span v-if="user" class="relative inline-block">
-        <a class="hover:bg-gray-400" @click="$router.push('/personal-account')"><img class="h-12 w-12 ml-10 rounded-full"
+        <a class="hover:opacity-80" @click="$router.push('/personal-account')"><img class="h-14 w-14 ml-10 border border-gray-200 rounded-full"
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt=""></a>
-        <span class="absolute right-0  top-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white"></span>
+        <span class="absolute right-0  top-0 block h-3 w-3 rounded-full bg-green-400   ring-1 ring-white"></span>
       </span>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
