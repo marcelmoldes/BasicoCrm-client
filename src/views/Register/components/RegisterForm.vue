@@ -89,9 +89,9 @@
           <div class="">
             <label class="block text-sm ml-6 font-medium leading-6 text-gray-600">Phone</label>
 
-            <input v-model="form.employees" :class="errors.employees ? 'border-red-300' : 'border-gray-300'"
+            <input v-model="form.phone" :class="errors.phone ? 'border-red-300' : 'border-gray-300'"
                    class="p-3  ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <div v-if="errors.employees" class="text-sm text-red-400">{{ errors.employees }}</div>
+            <div v-if="errors.phone" class="text-sm text-red-400">{{ errors.phone }}</div>
           </div>
           <div>
             <label class="block text-sm ml-3 font-medium  text-gray-600">Industry</label>
@@ -177,7 +177,7 @@ export default {
   data() {
     return {
       form: {
-        tenant_id: "",
+
         first_name: "",
         last_name: "",
         email: "",

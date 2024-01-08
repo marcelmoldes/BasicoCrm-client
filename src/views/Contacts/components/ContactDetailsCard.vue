@@ -1,15 +1,14 @@
 <template>
-  <div class="flex bg-gray-100 shadow-gray-400 shadow  p-6 px-28  justify-end gap-6">
-    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+  <div class="flex  shadow-gray-400 shadow  p-3 px-28  justify-end gap-6">
+    <button id="form" class="rounded-full hover:opacity-90  px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button"
             @click="$router.push('/contact-edit')">Edit Contact
     </button>
-    <button class="rounded-full bg-blue-500 px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button id="form" class="rounded-full hover:opacity-90   px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button">Delete
       Contact
     </button>
   </div>
-
 
   <div  class="flex justify-center gap-x-10 mt-3 px-3">
 
@@ -101,7 +100,7 @@
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium leading-6 text-gray-900 " for="first-name">Annual Revenue</label>
 
-        <input v-model="contacts.annual_revenue" id="first-name" autocomplete="given-name"
+        <input  id="first-name" autocomplete="given-name"
                class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                name="first-name"
                type="text">
@@ -178,7 +177,7 @@
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Address</label>
         <div class="mt-2">
-          <input id="first-name" autocomplete="given-name"
+          <input  id="first-name" autocomplete="given-name"
                  class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                  name="first-name"
                  type="text">
@@ -232,21 +231,21 @@ import axios from "axios";
 
 
 export default {
-  props: ['user'],
+  props: ['user',],
   data() {
     return {
-      contacts: []
+      contact: {}
     }
   },
   async mounted() {
-    const response = await axios.get('http://localhost:8081/contacts',
+    const response = await axios.get('http://localhost:8081/contacts/' + this.$route.params.id,
         {
           headers: {
             Authorization: this.user ? "Bearer " + this.user.token : null,
           },
         });
     if (response.data.success) {
-      this.contacts = response.data;
+      this.contact = response.data.contact;
     } else {
       this.$emit('sessionExpired');
     }

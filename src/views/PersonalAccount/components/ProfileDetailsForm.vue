@@ -2,7 +2,7 @@
   <div class="flex-col flex px-44 lg:px-36">
     <h1 class="text-2xl font-bold text-gray-700">Welcome To Your Personal Account
       {{ user.first_name + " " + user.last_name }}</h1>
-    <button class="text-black bg-blue-800 p-2" type="button" @click="removeUser(user.id)">Delete Your Account</button>
+
     <div id="form" class="mt-20 shadow-2xl shadow-gray-700  sm:mx-auto  rounded-md ">
 
 
@@ -108,6 +108,10 @@
 
       </form>
     </div>
+<div class="">
+  <button @click="removeUser(user.id)" id="form" class="px-2 flex ml-96  mt-6 py-4 hover:opacity-90 font-bold border border-gray-600  text-white rounded-full">Delete your account</button>
+</div>
+
 
   </div>
 
@@ -138,6 +142,7 @@ props:['user'],
   },
   async mounted() {
     await this.loadData()
+
   },
   methods: {
     async save() {
@@ -172,11 +177,11 @@ props:['user'],
                 Authorization: this.user ? "Bearer " + this.user.token : null,
               },
             }
-        );
+        ); await this.loadData()
+        this.$router.push('/login')
 
       }
-      this.$router.push('/register')
-      await this.loadData()
+
     },
     async loadData() {
       let response = await axios.get(

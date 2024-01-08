@@ -113,7 +113,7 @@
         </th>
       </tr>
 
-      <tbody v-for="contact in contacts.records" :key="contact" class=" divide-y divide-blue-100 " @click="$router.push('/contact-details')">
+      <tbody v-for="contact in contacts.records" :key="contact" class=" divide-y divide-blue-100 ">
       <tr>
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">{{formatters.toProperCase(contact.first_name)}}</td>
         <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{formatters.toProperCase(contact.last_name)}}</td>
@@ -121,7 +121,7 @@
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.email }}</td>
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{contact.website}}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ contact.lead_source }}</td>
-
+        <a  :href="`/contact-details/${contact.id}`">Details</a>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(contact.created_at) }}</td>
 
@@ -178,7 +178,7 @@ export default {
       return formatters
     }
   },
-  props: ['user'],
+  props: ['user','contact'],
   data() {
     return {
       contacts: []
@@ -192,7 +192,7 @@ export default {
           },
         });
     if (response.data.success) {
-      this.contacts = response.data;
+      this.contacts = response.data.contacts;
     } else {
       this.$emit('sessionExpired');
     }

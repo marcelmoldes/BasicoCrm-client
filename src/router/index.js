@@ -21,7 +21,7 @@ const routes = [
     component: ContactsIndexView,
   },
   {
-    path: "/contact-details",
+    path: "/contact-details/:id",
     name: "contact-details",
     component: ContactDetailsView,
   },

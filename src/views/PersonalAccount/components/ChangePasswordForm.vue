@@ -13,7 +13,7 @@
 
 
               <input v-model="userPassword.currentPassword"
-                     class="p-3 mt-2 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm "
+                     class="p-3 mt-2 w-full ring  rounded-md border-0 py-3 text-gray-900 shadow-sm  ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm "
                      type="password">
           </div>
 
@@ -22,15 +22,12 @@
             <label class=" text-sm font-medium  text-white">New Password</label>
 
             <input v-model="userPassword.newPassword"
-                   class="mt-2 w-full p-3 rounded-md border-0 py-3 text-gray-900 shadow-sm  ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm "
+                   class="mt-2 w-full p-3 ring ring-inset rounded-md  py-3 text-gray-900 shadow-sm  ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm "
                    type="password">
 
 
           </div>
-            <div v-if="error" class="bg-red-700 text-white rounded-lg py-1 text-center text-sm text-red-400">{{
-                error
-              }}
-            </div>
+
 <div class="col-end-9">
 
 
@@ -43,6 +40,10 @@
 
         </div>
       </form>
+      <div v-if="error" class="bg-red-300 mt-4 p-5 border border-red-800 text-white rounded-lg py-1 text-center font-bold text-lg ">{{
+        error
+      }}
+    </div>
 
     </div>
     </div>
@@ -88,9 +89,9 @@ export default {
       );
       if (response.data.success) {
         Toastify({
-          text: "Tus cambios han sido guardados!",
+          text: "Your password has changed!",
           position: "center",
-          duration: 10000,
+          duration: 2000,
         }).showToast();
       } else if (response.data.error) {
         this.error = response.data.error;

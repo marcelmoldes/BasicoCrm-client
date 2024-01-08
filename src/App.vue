@@ -18,7 +18,7 @@ export  default  {
       user: false
     }
   },
-  mounted() {
+  async mounted() {
     this.authenticateUser();
   },
   methods: {
