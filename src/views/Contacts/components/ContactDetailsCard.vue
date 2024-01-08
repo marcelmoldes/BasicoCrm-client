@@ -1,16 +1,18 @@
 <template>
   <div class="flex  shadow-gray-400 shadow  p-3 px-28  justify-end gap-6">
-    <button id="form" class="rounded-full hover:opacity-90  px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button id="form"
+            class="rounded-full hover:opacity-90  px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button"
             @click="$router.push('/contact-edit')">Edit Contact
     </button>
-    <button id="form" class="rounded-full hover:opacity-90   px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
+    <button id="form"
+            class="rounded-full hover:opacity-90   px-4 py-3  font-semibold text-white shadow-sm hover:bg-blue-600/50"
             type="button">Delete
       Contact
     </button>
   </div>
 
-  <div  class="flex justify-center gap-x-10 mt-3 px-3">
+  <div class="flex justify-center gap-x-10 mt-3 px-3">
 
     <div
         class="grid max-w-2xl bg-white ring-2 ring-gray-300 mt-8 p-10 rounded-md grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
@@ -100,7 +102,7 @@
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium leading-6 text-gray-900 " for="first-name">Annual Revenue</label>
 
-        <input  id="first-name" autocomplete="given-name"
+        <input id="first-name" autocomplete="given-name"
                class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                name="first-name"
                type="text">
@@ -177,7 +179,7 @@
       <div class="sm:col-span-3">
         <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Address</label>
         <div class="mt-2">
-          <input  id="first-name" autocomplete="given-name"
+          <input id="first-name" autocomplete="given-name"
                  class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                  name="first-name"
                  type="text">

@@ -107,20 +107,20 @@
 
         </div>
         <div class="grid grid-cols-2 ">
-        <div>
-          <label class="block text-sm ml-6  font-medium leading-6 text-gray-600">Company Name</label>
+          <div>
+            <label class="block text-sm ml-6  font-medium leading-6 text-gray-600">Company Name</label>
 
-          <input v-model="form.company_name" :class="errors.company_name ? 'border-red-300' : 'border-gray-300'"
-                 class=" ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <div v-if="errors.company_name" class="text-sm text-red-400">{{ errors.company_name }}</div>
-        </div>
-        <div>
-          <label class="block ml-2   text-sm font-medium leading-6 text-gray-600" for="email">Website</label>
+            <input v-model="form.company_name" :class="errors.company_name ? 'border-red-300' : 'border-gray-300'"
+                   class=" ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <div v-if="errors.company_name" class="text-sm text-red-400">{{ errors.company_name }}</div>
+          </div>
+          <div>
+            <label class="block ml-2   text-sm font-medium leading-6 text-gray-600" for="email">Website</label>
 
-          <input v-model="form.website" :class="errors.website ? 'border-red-300' : 'border-gray-300'"
-                 class="rounded-md ml-2 px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <div v-if="errors.website" class="text-sm text-red-400">{{ errors.website }}</div>
-        </div>
+            <input v-model="form.website" :class="errors.website ? 'border-red-300' : 'border-gray-300'"
+                   class="rounded-md ml-2 px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <div v-if="errors.website" class="text-sm text-red-400">{{ errors.website }}</div>
+          </div>
         </div>
 
 
@@ -130,20 +130,20 @@
 
             <input v-model="form.email" :class="errors.email ? 'border-red-300' : 'ring-gray-300'"
                    class="rounded-md px-5 ml-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 type="email">
-          <div v-if="errors.email" class="text-sm text-red-400">{{ errors.email }}</div>
-        </div>
-        <div>
-          <div class="">
-            <label class="block ml-3 text-sm font-medium leading-6 text-gray-600" for="password">Password</label>
-
+                   type="email">
+            <div v-if="errors.email" class="text-sm text-red-400">{{ errors.email }}</div>
           </div>
+          <div>
+            <div class="">
+              <label class="block ml-3 text-sm font-medium leading-6 text-gray-600" for="password">Password</label>
 
-          <input v-model="form.password" :class="errors.password ? 'border-red-300' : 'border-gray-300' "
-                 class="rounded-md px-5 ml-2 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 type="password">
-          <div v-if="errors.password" class="text-sm text-red-400">{{ errors.password }}</div>
-        </div>
+            </div>
+
+            <input v-model="form.password" :class="errors.password ? 'border-red-300' : 'border-gray-300' "
+                   class="rounded-md px-5 ml-2 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   type="password">
+            <div v-if="errors.password" class="text-sm text-red-400">{{ errors.password }}</div>
+          </div>
         </div>
 
 

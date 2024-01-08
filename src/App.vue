@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header-component @logUserOut="logUserOut" :user="user"></header-component>
-    <router-view :user="user" @userLoggedIn="authenticateUser" @sessionExpired="logUserOut(true)"/>
+    <header-component :user="user" @logUserOut="logUserOut"></header-component>
+    <router-view :user="user" @sessionExpired="logUserOut(true)" @userLoggedIn="authenticateUser"/>
   </div>
 </template>
 
@@ -9,8 +9,8 @@
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import Cookies from "js-cookie";
 
-export  default  {
-  components:{
+export default {
+  components: {
     HeaderComponent
   },
   data() {
@@ -32,7 +32,7 @@ export  default  {
     logUserOut(expired) {
       Cookies.remove("user");
       this.user = false;
-      if(expired) {
+      if (expired) {
         this.$router.push("/login?action=expired");
       } else {
         this.$router.push("/login");

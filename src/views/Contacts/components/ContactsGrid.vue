@@ -18,11 +18,12 @@
             </svg>
           </div>
           <input
-              type="text"
               class="block w-full rounded-md border ring-1 ring-inset ring-gray-300 bg-gray-50 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:text-gray-900 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
-              placeholder="Search">
+              placeholder="Search"
+              type="text">
         </div>
-        <button id="form" class="px-8 gap-x-2 font-semibold hover:opacity-90  border-gray-400 border  rounded-full py-2 bg-blue-500 text-white"
+        <button id="form"
+                class="px-8 gap-x-2 font-semibold hover:opacity-90  border-gray-400 border  rounded-full py-2 bg-blue-500 text-white"
                 href="#"
                 @click="$router.push('/contact-edit')">Create
           Contact
@@ -32,81 +33,97 @@
     <table class="min-w-full divide-y divide-blue-100 rounded-md px-3 border-2 border-gray-300">
       <tr class="p-4  ">
         <th class=" ml-5 text-sm font-semibold text-gray-900 sm:pl-0" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             First Name
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Last Name
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class="py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Phone
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             E-mail
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Website
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Lead source
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Account owner
             <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a href="#" class="group inline-flex">
+          <a class="group inline-flex" href="#">
             Created at
             <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path clip-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            fill-rule="evenodd"/>
                     </svg>
                   </span>
           </a>
@@ -115,13 +132,17 @@
 
       <tbody v-for="contact in contacts.records" :key="contact" class=" divide-y divide-blue-100 ">
       <tr>
-        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">{{formatters.toProperCase(contact.first_name)}}</td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{formatters.toProperCase(contact.last_name)}}</td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{formatters.formatPhoneNumber(contact.PhoneNumber ? contact.PhoneNumber.number : '-') }}</td>
+        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
+          {{ formatters.toProperCase(contact.first_name) }}
+        </td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(contact.last_name) }}</td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">
+          {{ formatters.formatPhoneNumber(contact.PhoneNumber ? contact.PhoneNumber.number : '-') }}
+        </td>
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.email }}</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{contact.website}}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.website }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ contact.lead_source }}</td>
-        <a  :href="`/contact-details/${contact.id}`">Details</a>
+        <a :href="`/contact-details/${contact.id}`">Details</a>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(contact.created_at) }}</td>
 
@@ -178,7 +199,7 @@ export default {
       return formatters
     }
   },
-  props: ['user','contact'],
+  props: ['user', 'contact'],
   data() {
     return {
       contacts: []
