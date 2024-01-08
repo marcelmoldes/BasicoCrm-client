@@ -21,12 +21,17 @@ const routes = [
         component: ContactsIndexView,
     },
     {
-        path: "/contact-details/:id",
+        path: "/contacts/:id",
         name: "contact-details",
         component: ContactDetailsView,
     },
     {
-        path: "/contact-edit",
+        path: "/contacts/create",
+        name: "contact-create",
+        component: ContactEditView,
+    },
+    {
+        path: "/contacts/:id/edit",
         name: "contact-edit",
         component: ContactEditView,
     },

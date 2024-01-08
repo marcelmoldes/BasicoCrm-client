@@ -240,7 +240,7 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get('http://localhost:8081/contacts/' + this.$route.params.id,
+    const response = await axios.get('http://localhost:8081/contacts/' + this.contact.id,
         {
           headers: {
             Authorization: this.user ? "Bearer " + this.user.token : null,

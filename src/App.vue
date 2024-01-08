@@ -15,18 +15,23 @@ export default {
   },
   data() {
     return {
-      user: false
+      user: false,
     }
   },
-  async mounted() {
-    this.authenticateUser();
+  watch: {
+    $route() {
+      if(this.user) return;
+      this.authenticateUser()
+    }
   },
   methods: {
     authenticateUser() {
       this.user = Cookies.get("user");
       if (this.user) {
         this.user = JSON.parse(this.user);
-        this.$router.push('/dashboard');
+        if(this.$route.path === '/' || this.$route.path === '/login') {
+          this.$router.push('/dashboard');
+        }
       }
     },
     logUserOut(expired) {

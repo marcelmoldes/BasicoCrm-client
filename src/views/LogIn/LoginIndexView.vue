@@ -1,6 +1,6 @@
 <template>
   <div class="flex ml-20 mt-20">
-    <login-form></login-form>
+    <login-form @userLoggedIn="$emit('userLoggedIn')"></login-form>
   </div>
 
 </template>

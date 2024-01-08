@@ -90,14 +90,13 @@ import axios from "axios";
 
 
 export default {
-
+  emits: ['userLoggedIn'],
   data() {
     return {
       user: {
         email: "",
         password: ""
       },
-
       error: false
     };
   },
@@ -113,8 +112,6 @@ export default {
         user.token = response.data.token;
         Cookies.set("user", JSON.stringify(user));
         this.$emit('userLoggedIn')
-
-
       }
       else if (response.data.error) {
         this.error = response.data.error;

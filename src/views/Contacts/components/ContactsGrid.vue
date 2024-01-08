@@ -2,11 +2,12 @@
   <div class="flex flex-col gap-y-3">
     <div class="flex justify-between">
       <select
-          class="w-30 rounded-md  py-2.5 pl-3 pr-10 text-black ring-1 ring-inset ring-gray-300 focus:ring-2  sm:text-sm "
+          class="w-30 rounded-md  py-2.5 pl-3 pr-10 text-black ring-1 ring-inset ring-gray-300 focus:ring-2  sm:text-sm"
+          v-model="params.recordsPerPage"
       >
-        <option>10 Records Per Page</option>
-        <option selected="">20 Records Per Page</option>
-        <option>30 Records Per Page</option>
+        <option value=10>10 Records Per Page</option>
+        <option value=20>20 Records Per Page</option>
+        <option value=30>30 Records Per Page</option>
       </select>
       <div class="flex gap-x-3 items-center">
         <div class="relative">
@@ -20,6 +21,7 @@
           <input
               class="block w-full rounded-md border ring-1 ring-inset ring-gray-300 bg-gray-50 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:text-gray-900 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
               placeholder="Search"
+              v-model="params.searchString"
               type="text">
         </div>
         <button id="form"
@@ -33,122 +35,83 @@
     <table class="min-w-full divide-y divide-blue-100 rounded-md px-3 border-2 border-gray-300">
       <tr class="p-4  ">
         <th class=" ml-5 text-sm font-semibold text-gray-900 sm:pl-0" scope="col">
-          <a class="group inline-flex" href="#">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('first_name')">
             First Name
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
         <th class=" text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('last_name')">
             Last Name
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'last_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'last_name' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
         <th class="py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
             Phone
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
-                  </span>
-          </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('email')">
             E-mail
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'email' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'email' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('website')">
             Website
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'website' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'website' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
-            Lead source
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('lead_source')">
+            Lead Source
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'lead_source' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'lead_source' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
             Account owner
-            <span class="invisible ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
-                  <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
-                  </span>
-          </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex" href="#">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
             Created at
-            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path clip-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                            fill-rule="evenodd"/>
-                    </svg>
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'created_at' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'created_at' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
           </a>
         </th>
       </tr>
 
-      <tbody v-for="contact in contacts.records" :key="contact" class=" divide-y divide-blue-100 ">
-      <tr>
+      <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
+      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/contacts/${record.id}`)">
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
-          {{ formatters.toProperCase(contact.first_name) }}
+          {{ formatters.toProperCase(record.first_name) }}
         </td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(contact.last_name) }}</td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(record.last_name) }}</td>
         <td class="whitespace-nowrap px-5  text-sm text-gray-500">
-          {{ formatters.formatPhoneNumber(contact.PhoneNumber ? contact.PhoneNumber.number : '-') }}
+          {{ formatters.formatPhoneNumber(record.PhoneNumber ? record.PhoneNumber.number : '-') }}
         </td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.email }}</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ contact.website }}</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ contact.lead_source }}</td>
-        <a :href="`/contact-details/${contact.id}`">Details</a>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.email }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.website }}</td>
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.lead_source }}</td>
+
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(contact.created_at) }}</td>
-
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
       </tr>
-
-
       </tbody>
     </table>
     <div class="flex items-center justify-between">
@@ -157,33 +120,35 @@
         <div>
           <p class="text-l text-gray-400">
             Showing
-            <span class="font-medium">1</span>
+            <span class="font-medium">{{ pagination.fromRecord }}</span>
             to
-            <span class="font-medium">10</span>
+            <span class="font-medium">{{ pagination.toRecord }}</span>
             of
-            <span class="font-medium">97</span>
+            <span class="font-medium">{{ pagination.totalRecords }}</span>
             results
           </p>
         </div>
         <div class="">
-          <a class="relative inline-flex items-centre bg-white  rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0"
-             href="#">
+          <button class="relative inline-flex items-centre bg-white rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
+             :class="params.pageNumber === 1 ? 'opacity-50' : 'hover:bg-gray-100'"
+             @click="params.pageNumber--" :disabled="params.pageNumber === 1">
             <span class="sr-only ">Previous</span>
             <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
               <path clip-rule="evenodd"
                     d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
                     fill-rule="evenodd"/>
             </svg>
-          </a>
-          <a class="relative inline-flex items-center bg-white rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-             href="#">
+          </button>
+          <button class="relative inline-flex items-center bg-white rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0"
+                  :class="params.pageNumber === pagination.totalPages ? 'opacity-50' : 'hover:bg-gray-100'"
+                  @click="params.pageNumber++" :disabled="params.pageNumber === pagination.totalPages">
             <span class="sr-only">Next</span>
             <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
               <path clip-rule="evenodd"
                     d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
                     fill-rule="evenodd"/>
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -192,31 +157,64 @@
 <script>
 import axios from "axios";
 import formatters from "../../../helpers/formatters";
+import {ChevronDownIcon, ChevronUpIcon} from '@heroicons/vue/20/solid';
 
 export default {
+  components: {ChevronDownIcon, ChevronUpIcon},
   computed: {
     formatters() {
       return formatters
     }
   },
-  props: ['user', 'contact'],
+  props: ['user'],
   data() {
     return {
-      contacts: []
+      records: [],
+      pagination: {},
+      params: {
+        searchString: '',
+        recordsPerPage: 10,
+        pageNumber: 1,
+        sortBy: 'created_at',
+        sortOrder: 'asc'
+      }
+    }
+  },
+  watch: {
+    params: {
+      handler() {
+        this.fetchRecords()
+      },
+      deep: true
     }
   },
   async mounted() {
-    const response = await axios.get('http://localhost:8081/contacts',
-        {
-          headers: {
-            Authorization: this.user ? "Bearer " + this.user.token : null,
-          },
-        });
-    if (response.data.success) {
-      this.contacts = response.data.contacts;
-    } else {
-      this.$emit('sessionExpired');
-    }
+    await this.fetchRecords();
+  },
+  methods: {
+    async fetchRecords() {
+      const response = await axios.get('http://localhost:8081/contacts',
+          {
+            params: this.params,
+            headers: {
+              Authorization: this.user ? "Bearer " + this.user.token : null,
+            },
+          });
+      if (response.data.success) {
+        this.records = response.data.records;
+        this.pagination = response.data.pagination;
+      } else {
+        this.$emit('sessionExpired');
+      }
+    },
+    async toggleSortOrder(sortBy) {
+      if(this.params.sortBy === sortBy) {
+        this.params.sortOrder = this.params.sortOrder === 'asc' ? 'desc' : 'asc';
+      } else {
+        this.params.sortBy = sortBy;
+        this.params.sortOrder = 'asc';
+      }
+    },
   }
 }
 </script>
