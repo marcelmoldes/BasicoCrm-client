@@ -1,7 +1,7 @@
 <template>
   <div id="" class="">
     <kpi-dashlet  @sessionExpired="$emit('sessionExpired')" :user="user"></kpi-dashlet>
-    <div class="grid grid-cols-2 px-12 pb-12 gap-12">
+    <div class="grid grid-cols-2 gap-12">
       <accounts-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></accounts-dashlet>
       <contacts-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></contacts-dashlet>
       <deals-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></deals-dashlet>

@@ -27,7 +27,7 @@
         <button id="form"
                 class="px-8 gap-x-2 font-semibold hover:opacity-90  border-gray-400 border  rounded-full py-2 bg-blue-500 text-white"
                 href="#"
-                @click="$router.push('/contact-edit')">Create
+                @click="$router.push('/contacts/create')">Create
           Contact
         </button>
       </div>
@@ -161,14 +161,10 @@ import {ChevronDownIcon, ChevronUpIcon} from '@heroicons/vue/20/solid';
 
 export default {
   components: {ChevronDownIcon, ChevronUpIcon},
-  computed: {
-    formatters() {
-      return formatters
-    }
-  },
-  props: ['user'],
+  props: ['user','record'],
   data() {
     return {
+      formatters,
       records: [],
       pagination: {},
       params: {

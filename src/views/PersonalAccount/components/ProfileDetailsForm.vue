@@ -6,8 +6,8 @@
     <div id="form" class="mt-20 shadow-2xl shadow-gray-700  sm:mx-auto  rounded-md ">
 
 
-      <form action="#" class="space-y-6 ml-1 mr-2 py-3 " method="POST">
-        <div class="grid grid-cols-2 ">
+      <form action="#" class="space-y-6 ml-1 mr-2 py-3" method="POST">
+        <div class="grid grid-cols-2 bg-blue-600">
           <div class="">
             <label class="block text-sm ml-6 mt-2 font-bold leading-6 text-gray-700" for="email">First Name</label>
 

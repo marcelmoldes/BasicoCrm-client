@@ -1,7 +1,6 @@
 <template>
-  <div class="">
+  <div>
     <contact-details-card
-
         :user="user"></contact-details-card>
   </div>
 
@@ -10,7 +9,7 @@
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
 
 export default {
-  props: ['user', ],
+  props: ['user'],
   components: {
     ContactDetailsCard
   }

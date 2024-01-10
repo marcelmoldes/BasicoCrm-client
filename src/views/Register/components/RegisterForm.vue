@@ -47,120 +47,90 @@
 
   <div class="flex-col flex   justify-center  lg:px-36">
 
-    <div id="form" class="mt-20 shadow-2xl shadow-gray-700  sm:mx-auto  rounded-md ">
+    <div id="form" class="py-4 px-4 shadow-2xl shadow-gray-700 bg-blue-600 sm:mx-auto  rounded-md ">
 
-
-      <form action="#" class="space-y-6 ml-1 mr-2 " method="POST">
-        <div class="grid grid-cols-2 ">
+      <form action="#" class="flex flex-col space-y-4" method="POST">
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2">
           <div class="">
-            <label class="block  ml-6 mt-2 text-sm font-medium text-gray-600   leading-6 " for="email">First
+            <label class="block text-sm font-medium leading-6 text-white" for="email">First
               Name</label>
-
             <input v-model="form.first_name" :class="errors.first_name ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3  ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.first_name" class="text-sm text-red-400">{{ errors.first_name }}</div>
           </div>
-
           <div>
-            <label class="block ml-3 mt-2  text-sm font-medium leading-6 text-gray-600">Last Name</label>
+            <label class="block text-sm font-medium leading-6 text-white">Last Name</label>
             <input v-model="form.last_name" :class="errors.last_name ? 'border-red-300' : 'border-gray-300'"
-                   class="ml-2 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.last_name" class="text-sm text-red-400">{{ errors.last_name }}</div>
           </div>
-        </div>
-        <div class="grid grid-cols-2 ">
           <div class="">
-            <label class="block text-sm ml-6 font-mediumleading-6 text-gray-600">Number Of Employees</label>
-
+            <label class="block text-sm font-medium leading-6 text-white">Number Of Employees</label>
             <input v-model="form.employees" :class="errors.employees ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3  ml-5  rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.employees" class="text-sm text-red-400">{{ errors.employees }}</div>
           </div>
-
           <div>
-            <label class="block ml-3 text-sm font-medium leading-6 text-gray-600" for="email">Annual Revenue</label>
-
+            <label class="block text-sm font-medium leading-6 text-white" for="email">Annual Revenue</label>
             <input v-model="form.annual_revenue" :class="errors.annual_revenue ? 'border-red-300' : 'border-gray-300'"
-                   class="ml-2  rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.annual_revenue" class="text-sm text-red-400">{{ errors.annual_revenue }}</div>
           </div>
-        </div>
-        <div class="grid grid-cols-2 ">
           <div class="">
-            <label class="block text-sm ml-6 font-medium leading-6 text-gray-600">Phone</label>
-
+            <label class="block text-sm font-medium leading-6 text-white">Phone</label>
             <input v-model="form.phone" :class="errors.phone ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3  ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.phone" class="text-sm text-red-400">{{ errors.phone }}</div>
           </div>
           <div>
-            <label class="block text-sm ml-3 font-medium  text-gray-600">Industry</label>
+            <label class="block text-sm font-medium text-white">Industry</label>
             <select v-model="form.industry" :class="errors.industry ? 'border-red-300' : 'border-gray-300'"
-                    class="px-24 ml-2 py-3 mt-1 rounded-md">
-              <option></option>
-              <option>oioi</option>
-              <option></option>
+                    class="py-3 mt-1 rounded-md w-full">
+              <option>Entertainment</option>
+              <option>Professional Services</option>
+              <option>Manufacturing</option>
             </select>
+            <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
           </div>
-          <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
-
-
-        </div>
-        <div class="grid grid-cols-2 ">
           <div>
-            <label class="block text-sm ml-6  font-medium leading-6 text-gray-600">Company Name</label>
-
+            <label class="block text-sm font-medium leading-6 text-white">Company Name</label>
             <input v-model="form.company_name" :class="errors.company_name ? 'border-red-300' : 'border-gray-300'"
-                   class=" ml-5 rounded-md px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.company_name" class="text-sm text-red-400">{{ errors.company_name }}</div>
           </div>
           <div>
-            <label class="block ml-2   text-sm font-medium leading-6 text-gray-600" for="email">Website</label>
-
+            <label class="block text-sm font-medium leading-6 text-white" for="email">Website</label>
             <input v-model="form.website" :class="errors.website ? 'border-red-300' : 'border-gray-300'"
-                   class="rounded-md ml-2 px-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.website" class="text-sm text-red-400">{{ errors.website }}</div>
           </div>
-        </div>
-
-
-        <div class="grid grid-cols-2">
           <div>
-            <label class="block text-sm ml-6  font-medium leading-6 text-gray-600" for="email">Email address</label>
-
+            <label class="block text-sm font-medium leading-6 text-white" for="email">Email address</label>
             <input v-model="form.email" :class="errors.email ? 'border-red-300' : 'ring-gray-300'"
-                   class="rounded-md px-5 ml-4 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                    type="email">
             <div v-if="errors.email" class="text-sm text-red-400">{{ errors.email }}</div>
           </div>
           <div>
             <div class="">
-              <label class="block ml-3 text-sm font-medium leading-6 text-gray-600" for="password">Password</label>
-
+              <label class="block text-sm font-medium leading-6 text-white" for="password">Password</label>
             </div>
-
             <input v-model="form.password" :class="errors.password ? 'border-red-300' : 'border-gray-300' "
-                   class="rounded-md px-5 ml-2 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                    type="password">
             <div v-if="errors.password" class="text-sm text-red-400">{{ errors.password }}</div>
           </div>
         </div>
-
-
         <div v-if="error" class="bg-red-700 text-white rounded-lg py-1 text-center text-sm text-red-400">{{
             error
           }}
         </div>
-        <button id="form"
-                class="font-semibold rounded-full border border-gray-200 py-2 px-20  justify ml-36  hover:opacity-90 text-white "
+        <button
+                class="font-semibold border-gray-200 border rounded-full py-2 bg-blue-500 hover:opacity-90 text-white"
                 type="button"
                 @click="save">
           Register
         </button>
-        <a href="/login"><h1 class="text-gray-700 m-2  p-2 hover:text-gray-500 text-center text-lg">You have an
-          account?</h1>
-        </a>
-
       </form>
     </div>
 
