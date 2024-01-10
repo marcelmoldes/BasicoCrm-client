@@ -11,45 +11,38 @@
         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
       </tr>
       </thead>
-      <tbody v-for="deal in deals.records" :key="deal" class="divide-y divide-gray-200">
-      <tr>
-        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">{{formatters.toProperCase(deal.deal_name)}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(deal.Account ? deal.Account.name : '-' )}}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatAmount(deal.deal_value , '$') }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatDate(deal.close_date) }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{formatters.toProperCase(deal.status) }}</td>
+      <tbody class="divide-y divide-gray-200">
+      <tr v-if="deals.length === 0">
+        <td colspan="5" class="text-center text-gray-500 py-2">No deals found</td>
       </tr>
-
-
+      <tr v-for="deal in deals" :key="deal">
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+          {{ formatters.toProperCase(deal.deal_name) }}
+        </td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          {{ formatters.toProperCase(deal.Account ? deal.Account.name : '-') }}
+        </td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{
+            formatters.formatAmount(deal.deal_value, '$')
+          }}
+        </td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.formatDate(deal.close_date) }}</td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatters.toProperCase(deal.status) }}</td>
+      </tr>
       </tbody>
     </table>
   </div>
 
 </template>
 <script>
-import axios from "axios";
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['user'],
+  props: ['deals'],
   data() {
     return {
-      deals: [],
       formatters
     }
   },
-  async mounted() {
-    const response = await axios.get('http://localhost:8081/deals?recordsPerPage=5',
-        {
-          headers: {
-            Authorization: this.user ? "Bearer " + this.user.token : null,
-          },
-        });
-    if (response.data.success) {
-      this.deals = response.data;
-    } else {
-      this.$emit('sessionExpired');
-    }
-  }
 }
 </script>

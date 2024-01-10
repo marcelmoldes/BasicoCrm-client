@@ -16,18 +16,25 @@
         </button>
       </div>
     </div>
-    <contact-details-card
-        :contact="contact"></contact-details-card>
+    <div class="flex flex-col gap-y-8">
+      <contact-details-card
+          :contact="contact"></contact-details-card>
+      <contact-address-card :contact="contact"></contact-address-card>
+      <tasks-dashlet :tasks="contact.Tasks"></tasks-dashlet>
+    </div>
   </div>
+
 
 </template>
 <script>
 import axios from "axios";
 import formatters from "@/helpers/formatters";
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
+import ContactAddressCard from "@/views/Contacts/components/ContactAddressCard.vue";
+import TasksDashlet from "@/components/dashlets/TasksDashlet.vue";
 
 export default {
-  components: {ContactDetailsCard},
+  components: {TasksDashlet, ContactDetailsCard, ContactAddressCard},
   props: ['user'],
   data() {
     return {

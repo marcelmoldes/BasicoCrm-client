@@ -3,7 +3,7 @@
     <h1 class="text-gray-600 text-xl font-bold">My Contacts</h1>
     <table class="min-w-full  divide-y divide-gray-300">
       <thead>
-      <tr class="">
+      <tr>
         <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0" scope="col">First Name</th>
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Last Name</th>
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Phone</th>
@@ -12,8 +12,11 @@
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Lead Source</th>
       </tr>
       </thead>
-      <tbody v-for="contact in contacts.records" :key="contact" class="divide-y divide-gray-200">
-      <tr>
+      <tbody class="divide-y divide-gray-200">
+      <tr v-if="contacts.length === 0">
+        <td colspan="6" class="text-center text-gray-500 py-2">No contacts found</td>
+      </tr>
+      <tr v-for="contact in contacts" :key="contact">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(contact.first_name) }}
         </td>
@@ -38,8 +41,7 @@
 
 </template>
 <script>
-import axios from "axios";
-import formatters from "../../../helpers/formatters";
+import formatters from "../../helpers/formatters";
 
 export default {
   computed: {
@@ -47,24 +49,6 @@ export default {
       return formatters
     }
   },
-  props: ['user'],
-  data() {
-    return {
-      contacts: []
-    }
-  },
-  async mounted() {
-    const response = await axios.get('http://localhost:8081/contacts?recordsPerPage=5',
-        {
-          headers: {
-            Authorization: this.user ? "Bearer " + this.user.token : null,
-          },
-        });
-    if (response.data.success) {
-      this.contacts = response.data;
-    } else {
-      this.$emit('sessionExpired');
-    }
-  }
+  props: ['contacts'],
 }
 </script>
