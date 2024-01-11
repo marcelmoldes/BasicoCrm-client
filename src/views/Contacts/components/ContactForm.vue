@@ -1,238 +1,171 @@
 <template>
-  <div class="flex   shadow-gray-400 shadow  p-3 px-28   justify-end gap-6">
-    <button id="form"
-            class="rounded-full border-gray-200 border  px-4 py-3  font-semibold text-white shadow-sm hover:opacity-90"
-            type="button"
-    >Save Contact
-    </button>
-
-  </div>
+  <div class="space-y-10 divide-y divide-gray-900/10">
 
 
-  <div class="flex justify-center gap-3 mt-3 px-3">
+    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
+      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Contact Information</h2>
 
-    <div id="form"
-        class="grid max-w-2xl    mt-8 p-10  grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium decoration-blue-500 leading-6 text-gray-900" for="first-name">First
 
-          name</label>
-        <div class="mt-2">
-          <input   :value="contact.first_name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
+      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+        <div class="px-4 py-6 sm:p-8">
+          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">First name</label>
+
+              <input :value="contact.first_name" autocomplete="given-name"
+                     class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Last name</label>
+
+              <input :value="contact.last_name"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+
+              <input :value="contact.title"
+                     class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+
+              <input :value="contact.email" autocomplete="email"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     type="email">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Lead Source</label>
+
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>{{ contact.lead_source }}</option>
+
+              </select>
+
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Website</label>
+
+              <input v-model="contact.website"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     type="email">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Industry</label>
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option :value="contact.industry"></option>
+              </select>
+
+            </div>
+
+
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Lead Status</label>
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>{{ contact.lead_status }}</option>
+              </select>
+
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Annual Revenue</label>
+              <input :value="formatters.formatAmount(contact.annual_revenue)"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Notes</label>
+              <textarea :value="contact.notes" class="w-96 border border-gray-200 p-2 px-4" rows="5"></textarea>
+            </div>
+
+
+          </div>
+
         </div>
-      </div>
 
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Last name</label>
-        <div class="mt-2">
-          <input  id="last-name" autocomplete="family-name" :value="contact.last_name"
-                 class="block p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="last-name"
-                 type="text">
-        </div>
-      </div>
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Address</label>
-        <div class="mt-2">
-          <input id="first-name" autocomplete="given-name"
-                 class="p-3  w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
-        </div>
-      </div>
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Email </label>
-
-        <input    :value="contact.email"
-               class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-               name="last-name"
-               type="text">
-      </div>
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Phone</label>
-
-        <input 
-               class="p-3  w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-               name="first-name"
-               type="text">
-      </div>
-
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Website </label>
-
-        <input :value="contact.website"
-               class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-               name="last-name"
-               type="text">
-      </div>
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Lead Source</label>
-
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </select>
-      </div>
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Lead Status</label>
-
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </select>
-      </div>
-
+      </form>
     </div>
-    <div id="form"
-        class="grid max-w-2xl   mt-8 p-10  grid-cols-4 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900 " for="first-name">Annual Revenue</label>
+    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
+      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Address Information</h2>
 
-        <input :value="contact.annual_revenue"
-               class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-               name="first-name"
-               type="text">
-      </div>
 
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Industry</label>
+      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+        <div class="px-4 py-6 sm:p-8">
+          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">StreetAddress 1</label>
 
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </select>
-      </div>
+              <input :value="contact.Address ? contact.Address.street_address1 : '-'" autocomplete="given-name"
+                     class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Street Address 2 </label>
 
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Account Name</label>
+              <input :value="contact.Address ? contact.Address.street_address2 : '-'"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
 
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </select>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">State</label>
 
-      </div>
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Title </label>
+              <input :value="contact.Address ? contact.Address.state : '-'"
+                     class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
 
-        <input :value="contact.title"
-               class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-               name="last-name"
-               type="text">
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">City</label>
 
-      </div>
+              <input :value="contact.Address ? contact.Address.city : '-'"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     type="email">
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Country</label>
 
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Account Owner</label>
+              <input :value="contact.Address ? contact.Address.country : '-'"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     type="email">
+            </div>
 
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option></option>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Postal Code</label>
 
-        </select>
-      </div>
+              <input :value="contact.Address ? contact.Address.postal_code : '-'"
+                     class="block p-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     type="email">
+            </div>
 
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900">Lead Status</label>
 
-        <select id="country"
-                class=" w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </select>
-      </div>
+          </div>
 
-      <div class="mt-2"><label class=" text-sm font-medium text-center text-gray-900">Notes</label>
-        <textarea :value="contact.notes"
-                  class="block w-full rounded-md border-0  px-40 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  name="comment"
-              ></textarea>
-      </div>
+        </div>
+
+      </form>
     </div>
   </div>
 
-
-  <div class="ml-52  px-28 p-4">
-
-    <div   id="form"
-        class="grid  max-w-2xl mt-10 border-2 border-gray-300 justify-center p-10 rounded-md grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Street Address</label>
-        <div class="mt-2">
-          <input id="first-name" autocomplete="given-name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
-        </div>
-      </div>
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">State</label>
-        <div class="mt-2">
-          <input id="first-name" autocomplete="given-name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
-        </div>
-      </div>
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">City</label>
-        <div class="mt-2">
-          <input id="first-name" autocomplete="given-name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
-        </div>
-      </div>
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Country </label>
-        <div class="mt-2">
-          <input id="last-name" autocomplete="family-name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="last-name"
-                 type="text">
-        </div>
-      </div>
-
-      <div class="sm:col-span-3">
-        <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">Postal Code</label>
-        <div class="mt-1 p-4">
-          <input id="first-name" autocomplete="given-name"
-                 class="p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                 name="first-name"
-                 type="text">
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 </template>
-<script >
+<script>
 import axios from "axios";
+import formatters from "@/helpers/formatters";
 
 
 export default {
+  computed: {
+    formatters() {
+      return formatters
+    }
+  },
   props: ['user'],
   data() {
     return {
-      contact: {}
+      contact: false
     }
   },
   async mounted() {

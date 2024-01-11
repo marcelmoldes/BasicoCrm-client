@@ -21,6 +21,8 @@
           :contact="contact"></contact-details-card>
       <contact-address-card :contact="contact"></contact-address-card>
       <tasks-dashlet :tasks="contact.Tasks"></tasks-dashlet>
+      <activities-dashlet :activities="contact.Activities"></activities-dashlet>
+      <attachments-dashlet :attachments="contact.Attachments"></attachments-dashlet>
     </div>
   </div>
 
@@ -32,9 +34,11 @@ import formatters from "@/helpers/formatters";
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
 import ContactAddressCard from "@/views/Contacts/components/ContactAddressCard.vue";
 import TasksDashlet from "@/components/dashlets/TasksDashlet.vue";
+import ActivitiesDashlet from "@/components/dashlets/ActivitiesDashlet.vue";
+import AttachmentsDashlet from "@/components/dashlets/AttachmentsDashlet.vue";
 
 export default {
-  components: {TasksDashlet, ContactDetailsCard, ContactAddressCard},
+  components: {AttachmentsDashlet, ActivitiesDashlet, TasksDashlet, ContactDetailsCard, ContactAddressCard},
   props: ['user'],
   data() {
     return {

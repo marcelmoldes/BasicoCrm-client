@@ -1,5 +1,5 @@
 <template>
-  <div>{{contact.Tasks.name}}
+  <div>
     <div class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
       <div class="border-b border-1 border-gray-150 text-lg text-gray-900 font-semibold bg-gray-50 p-4 py-2">Contact
         Details
@@ -49,7 +49,13 @@
           <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Contact Owner</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {{ contact.User ? contact.User.first_name + contact.User.last_name : '-' }}
+              {{ contact.User ? contact.User.first_name + ' ' + contact.User.last_name : '-' }}
+            </dd>
+          </div>
+          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+            <dt class="text-sm font-medium leading-6 text-gray-900">Notes</dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+       {{contact.notes}}
             </dd>
           </div>
         </dl>
