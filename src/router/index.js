@@ -21,14 +21,14 @@ const routes = [
         component: ContactsIndexView,
     },
     {
-        path: "/contacts/:id",
-        name: "contact-details",
-        component: ContactDetailsView,
-    },
-    {
         path: "/contacts/create",
         name: "contact-create",
         component: ContactEditView,
+    },
+    {
+        path: "/contacts/:id",
+        name: "contact-details",
+        component: ContactDetailsView,
     },
     {
         path: "/contacts/:id/edit",

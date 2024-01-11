@@ -1,7 +1,12 @@
-import { createApp } from "vue";
+import {createApp} from "vue";
 import App from "./App.vue";
 import "./assets/main.css";
 import store from "./store";
 import router from './router'
+import mitt from 'mitt'
 
-createApp(App).use(router).use(store).use(router).mount("#app");
+createApp(App).use(router).use(store).use({
+    install: (app) => {
+        app.config.globalProperties.$eventBus = mitt();
+    }
+}).mount("#app");

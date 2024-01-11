@@ -22,7 +22,7 @@ export default {
   },
   watch: {
     $route() {
-      if(this.user) return;
+      if (this.user) return;
       this.authenticateUser()
     }
   },
@@ -31,7 +31,7 @@ export default {
       this.user = Cookies.get("user");
       if (this.user) {
         this.user = JSON.parse(this.user);
-        if(this.$route.path === '/' || this.$route.path === '/login') {
+        if (this.$route.path === '/' || this.$route.path === '/login') {
           this.$router.push('/dashboard');
         }
       }
