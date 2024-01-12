@@ -172,7 +172,7 @@ export default {
         recordsPerPage: 10,
         pageNumber: 1,
         sortBy: 'created_at',
-        sortOrder: 'asc'
+        sortOrder: 'desc'
       }
     }
   },

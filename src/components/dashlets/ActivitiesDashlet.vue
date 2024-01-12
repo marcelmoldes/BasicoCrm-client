@@ -15,7 +15,7 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
       <tr v-if="activities.length === 0">
-        <td class="text-center text-gray-500 py-2" colspan="6">No activities found</td>
+        <td class="text-center text-gray-500 py-2" colspan="7">No activities found</td>
       </tr>
       <tr v-for="activity in activities" :key="activity">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
