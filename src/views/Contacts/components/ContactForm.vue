@@ -89,7 +89,7 @@
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
               <div class="flex items-center justify-center gap-x-1">
-                <select v-model="contact.PhoneNumber.country_code" :class="errors.lead_status ? 'border border-red-300' : 'border-0'"
+                <select v-model="contact.PhoneNumber.country_code" :class="errors.country_code ? 'border border-red-300' : 'border-0'"
                         class="bg-white py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                   <option value="01">+1</option>
                   <option value="34">+34</option>

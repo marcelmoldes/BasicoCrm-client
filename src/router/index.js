@@ -7,6 +7,9 @@ import RegisterIndexView from "@/views/Register/RegisterIndexView.vue";
 import LoginIndexView from "@/views/LogIn/LoginIndexView.vue";
 import ForgotPasswordIndexView from "@/views/LogIn/ForgotPasswordIndexView.vue";
 import PersonalAccountIndexView from "@/views/PersonalAccount/PersonalAccountIndexView.vue";
+import ActivitiesIndexView from "@/views/Activities/ActivitiesIndexView.vue";
+import ActivityEditView from "@/views/Activities/ActivityEditView.vue";
+import ActivityDetailsView from "@/views/Activities/ActivityDetailsView.vue";
 
 
 const routes = [
@@ -35,6 +38,28 @@ const routes = [
         name: "contact-edit",
         component: ContactEditView,
     },
+    {
+        path: "/activities",
+        name: "activities",
+        component: ActivitiesIndexView,
+    },
+    {
+        path: "/activities/create",
+        name: "activity-create",
+        component: ActivityEditView,
+    },
+    {
+        path: "/activities/:id",
+        name: "activity-details",
+        component: ActivityDetailsView,
+    },
+    {
+        path: "/activities/:id/edit",
+        name: "activity-edit",
+        component: ActivityEditView,
+    },
+
+
     {
         path: "/register",
         name: "register",

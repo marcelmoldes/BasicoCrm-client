@@ -83,7 +83,13 @@
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-            Account owner
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
+    Account owner
+            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+                    <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"/>
+                    <ChevronUpIcon class="h-5 w-5" v-else/>
+                  </span>
+          </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
@@ -109,7 +115,7 @@
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.website }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.lead_source }}</td>
 
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">Marcel</td>
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
       </tr>
       </tbody>
