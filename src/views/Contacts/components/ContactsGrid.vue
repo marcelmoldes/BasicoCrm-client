@@ -83,8 +83,9 @@
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
-    Account owner
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('first_name')">
+
+ Contact owner
             <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
                     <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"/>
                     <ChevronUpIcon class="h-5 w-5" v-else/>
@@ -101,7 +102,6 @@
           </a>
         </th>
       </tr>
-
       <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
       <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/contacts/${record.id}`)">
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">

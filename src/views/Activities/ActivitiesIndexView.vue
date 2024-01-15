@@ -6,7 +6,7 @@
 </template>
 
 <script>
-
+import formatters from "@/helpers/formatters";
 import ActivityGrid from "@/views/Activities/components/ActivitiesGrid.vue";
 
 export default {
@@ -16,7 +16,10 @@ export default {
 
   },
   data() {
-    return {}
+    return {
+      formatters,
+
+    }
 
   }
 }

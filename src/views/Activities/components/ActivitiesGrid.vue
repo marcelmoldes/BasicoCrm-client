@@ -2,8 +2,8 @@
   <div class="flex flex-col gap-y-3">
     <div class="flex justify-between">
       <select
-          v-model="params.recordsPerPage"
           class="w-30 rounded-md  py-2.5 pl-3 pr-10 text-black ring-1 ring-inset ring-gray-300 focus:ring-2  sm:text-sm"
+          v-model="params.recordsPerPage"
       >
         <option value=10>10 Records Per Page</option>
         <option value=20>20 Records Per Page</option>
@@ -19,24 +19,23 @@
             </svg>
           </div>
           <input
-              v-model="params.searchString"
               class="block w-full rounded-md border ring-1 ring-inset ring-gray-300 bg-gray-50 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:text-gray-900 focus:ring-inset focus:ring-gray-300 sm:text-sm sm:leading-6"
               placeholder="Search"
+              v-model="params.searchString"
               type="text">
-
         </div>
         <button id="form"
                 class="px-8 gap-x-2 font-semibold hover:opacity-90  border-gray-400 border  rounded-full py-2 bg-blue-500 text-white"
-
-                @click="$router.push('/activities/create')">Create Activity
-
+                href="#"
+                @click="$router.push('/activities/create')">Create
+          Activity
         </button>
       </div>
     </div>
     <table class="min-w-full divide-y divide-blue-100 rounded-md px-3 border-2 border-gray-300">
-      <tr class="p-4">
+      <tr class="p-4  ">
         <th class=" ml-5 text-sm font-semibold text-gray-900 sm:pl-0" scope="col">
-          <a class="group inline-flex cursor-pointer" @click="toggleSortOrder('subject')">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('subject')">
             Title
             <span :class="params.sortBy === 'subject' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                   class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
@@ -45,7 +44,17 @@
                   </span>
           </a>
         </th>
-
+        <th class=" text-sm font-semibold text-gray-900" scope="col">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('first_name')">
+            Contact Name
+            <span :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                    <ChevronDownIcon v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"
+                                     class="h-5 w-5"/>
+                    <ChevronUpIcon v-else class="h-5 w-5"/>
+                  </span>
+          </a>
+        </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('activity_date')">
             Activity Date
@@ -57,20 +66,43 @@
                   </span>
           </a>
         </th>
+
+        <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('name')">
+            Account Name
+            <span :class="params.sortBy === 'name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                    <ChevronDownIcon v-if="params.sortBy === 'name' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronUpIcon v-else class="h-5 w-5"/>
+                  </span>
+          </a>
+        </th>
+
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('location')">
             Location
             <span :class="params.sortBy === 'location' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                   class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <ChevronDownIcon v-if="params.sortBy === 'website' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronDownIcon v-if="params.sortBy === 'location' && params.sortOrder === 'desc'"
+                                     class="h-5 w-5"/>
+                    <ChevronUpIcon v-else class="h-5 w-5"/>
+                  </span>
+          </a>
+        </th>
+        <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('status')">
+            Status
+            <span :class="params.sortBy === 'status' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                    <ChevronDownIcon v-if="params.sortBy === 'status' && params.sortOrder === 'desc'" class="h-5 w-5"/>
                     <ChevronUpIcon v-else class="h-5 w-5"/>
                   </span>
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('first_name')">
-            Account Owner
-            <span :class="params.sortBy === 'status' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+            Contact owner
+            <span :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                   class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                     <ChevronDownIcon v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"
                                      class="h-5 w-5"/>
@@ -78,7 +110,6 @@
                   </span>
           </a>
         </th>
-
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
             Created at
@@ -91,16 +122,22 @@
           </a>
         </th>
       </tr>
-
       <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
       <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/activities/${record.id}`)">
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
           {{ formatters.toProperCase(record.subject) }}
         </td>
         <td class="whitespace-nowrap px-5  text-sm text-gray-500">
+          {{ record.Contact ? record.Contact.first_name + ' ' + record.Contact.last_name : '-' }}
+        </td>
+        <td class="whitespace-nowrap px-5  text-sm text-gray-500">
           {{ formatters.formatDate(record.activity_date) }}
         </td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(record.location) }}</td>
+        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">
+          {{ formatters.toProperCase(record.Account ? record.Account.name + ' ' + record.Account.name : '-') }}
+        </td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.location }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.status }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">
           {{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}
         </td>
@@ -109,8 +146,8 @@
       </tbody>
     </table>
     <div class="flex items-center justify-between">
-
       <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+
         <div>
           <p class="text-l text-gray-400">
             Showing
@@ -122,10 +159,11 @@
             results
           </p>
         </div>
+
         <div class="">
           <button
-              :class="params.pageNumber === 1 ? 'opacity-50' : 'hover:bg-gray-100'"
               :disabled="params.pageNumber === 1"
+              :class="params.pageNumber === 1 ? 'opacity-50' : 'hover:bg-gray-100'"
               class="relative inline-flex items-centre bg-white rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0" @click="params.pageNumber--">
             <span class="sr-only ">Previous</span>
             <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -135,8 +173,8 @@
             </svg>
           </button>
           <button
-              :class="params.pageNumber === pagination.totalPages ? 'opacity-50' : 'hover:bg-gray-100'"
               :disabled="params.pageNumber === pagination.totalPages"
+              :class="params.pageNumber === pagination.totalPages ? 'opacity-50' : 'hover:bg-gray-100'"
               class="relative inline-flex items-center bg-white rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-offset-0" @click="params.pageNumber++">
             <span class="sr-only">Next</span>
             <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">

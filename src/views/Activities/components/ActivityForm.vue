@@ -7,7 +7,6 @@
           <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Activity Title</label>
-
               <input v-model="activity.subject" :class="errors.subject ? 'border border-red-300' : 'border-0'"
                      autocomplete="given-name"
                      class="block w-full p-2 rounded-md py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -23,32 +22,58 @@
             </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Location</label>
-
               <input v-model="activity.location" :class="errors.location ? 'border border-red-300' : 'border-0'"
                      class="block w-full p-2 rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <div v-if="errors.location" class="text-sm text-red-400">{{ errors.location }}</div>
             </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Activity Owner</label>
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Marcel</option>
+              </select>
 
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Contact Name</label>
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>sfdgfg</option>
+
+              </select>
+
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Account</label>
+
+              <select
+                  class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Marcel</option>
+
+              </select>
+
+            </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Status</label>
 
-              <input v-model="activity.status" :class="errors.status ? 'border border-red-300' : 'border-0'"
-
-                     class="block p-2 w-full rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                     type="email">
+              <select v-model="activity.status" :class="errors.status ? 'border border-red-300' : 'border-0'"
+                      class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option>Marcel</option>
+              </select>
               <div v-if="errors.status" class="text-sm text-red-400">{{ errors.status }}</div>
             </div>
+
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Notes</label>
               <textarea v-model="activity.notes" :class="errors.notes ? 'border border-red-300' : 'border-0 '"
-                        class="w-96 border-gray-400 border  p-2 px-4" rows="5"></textarea>
+                        class="w-96  ring-1 ring-black  p-2 px-4" rows="5"></textarea>
               <div v-if="errors.notes" class="text-sm text-red-400">{{ errors.notes }}</div>
             </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Description</label>
               <textarea v-model="activity.description"
                         :class="errors.description ? 'border border-red-300' : 'border-0 '"
-                        class="w-96 border-gray-400 border  p-2 px-4" rows="5"></textarea>
+                        class="w-96 ring-1 ring-black ml-74  p-2 px-4" rows="5"></textarea>
               <div v-if="errors.description" class="text-sm text-red-400">{{ errors.description }}</div>
             </div>
           </div>

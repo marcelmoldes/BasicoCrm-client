@@ -3,7 +3,8 @@
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-          {{activity.subject }}</h2>
+          {{ formatters.toProperCase(activity.subject) }}</h2>
+        <h1>Activity for {{ activity.Contact.first_name + ' ' + activity.Contact.last_name }}</h1>
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
         <button @click="$router.push(`/activities/${activity.id}/edit`)"
@@ -18,8 +19,7 @@
     </div>
     <div class="flex flex-col gap-y-8">
       <activity-details-card
-          :acivity="activity"></activity-details-card>
-
+          :activity="activity"></activity-details-card>
     </div>
   </div>
 
