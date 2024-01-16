@@ -16,26 +16,31 @@ export default {
             }
         );
     },
-    toProperCase(value){
+    formatDateYmd(date) {
+        date = new Date(date);
+        const year = date.getFullYear();
+        const month = `0${date.getMonth() + 1}`.slice(-2);
+        const day = `0${date.getDate()}`.slice(-2);
+        return `${year}-${month}-${day}`;
+    },
+    toProperCase(value) {
+        if(!value) return ''
         const firstLetter = value.charAt(0);
         const rest = value.slice(1);
         return firstLetter.toUpperCase() + rest
-
-
     },
-
-formatPhoneNumber(number) {
-    const phoneNumber = number.replace(/D/g, '');
-    const phoneNumberLength = phoneNumber.length;
-    if (phoneNumberLength < 4) return phoneNumber;
-    if (phoneNumberLength < 7) {
-        return `(${phoneNumber.slice(0,3)}) ${phoneNumber.slice(3)}`;
+    formatPhoneNumber(number) {
+        const phoneNumber = number.replace(/D/g, '');
+        const phoneNumberLength = phoneNumber.length;
+        if (phoneNumberLength < 4) return phoneNumber;
+        if (phoneNumberLength < 7) {
+            return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+        }
+        return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+            3,
+            6
+        )}-${phoneNumber.slice(6, 10)}`
     }
-    return `(${phoneNumber.slice(0,3)}) ${phoneNumber.slice(
-        3,
-        6
-    )}-${phoneNumber.slice(6,10)}`
-}
 
 
 }

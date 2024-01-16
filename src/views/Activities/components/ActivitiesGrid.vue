@@ -35,11 +35,11 @@
     <table class="min-w-full divide-y divide-blue-100 rounded-md px-3 border-2 border-gray-300">
       <tr class="p-4  ">
         <th class=" ml-5 text-sm font-semibold text-gray-900 sm:pl-0" scope="col">
-          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('subject')">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('title')">
             Title
-            <span :class="params.sortBy === 'subject' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+            <span :class="params.sortBy === 'title' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                   class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <ChevronDownIcon v-if="params.sortBy === 'subject' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronDownIcon v-if="params.sortBy === 'title' && params.sortOrder === 'desc'" class="h-5 w-5"/>
                     <ChevronUpIcon v-else class="h-5 w-5"/>
                   </span>
           </a>
@@ -90,11 +90,11 @@
           </a>
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
-          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('status')">
-            Status
-            <span :class="params.sortBy === 'status' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+          <a class="group inline-flex cursor-pointer" >
+            Completed
+            <span
                   class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <ChevronDownIcon v-if="params.sortBy === 'status' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronDownIcon v-if="params.sortBy === 'completed' && params.sortOrder === 'desc'" class="h-5 w-5"/>
                     <ChevronUpIcon v-else class="h-5 w-5"/>
                   </span>
           </a>
@@ -137,7 +137,7 @@
           {{ formatters.toProperCase(record.Account ? record.Account.name + ' ' + record.Account.name : '-') }}
         </td>
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.location }}</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.status }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500 text-center">{{ record.completed ? 'Yes' : 'No' }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">
           {{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}
         </td>

@@ -102,7 +102,7 @@
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Notes</label>
               <textarea v-model="contact.notes" :class="errors.notes ? 'border border-red-300' : 'border-0 '"
-                        class="w-96 border-gray-400 border  p-2 px-4" rows="5"></textarea>
+                        class="border-0 bg-white py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" rows="5"></textarea>
               <div v-if="errors.notes" class="text-sm text-red-400">{{ errors.notes }}</div>
             </div>
           </div>
