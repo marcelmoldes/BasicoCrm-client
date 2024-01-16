@@ -10,6 +10,9 @@ import PersonalAccountIndexView from "@/views/PersonalAccount/PersonalAccountInd
 import ActivitiesIndexView from "@/views/Activities/ActivitiesIndexView.vue";
 import ActivityEditView from "@/views/Activities/ActivityEditView.vue";
 import ActivityDetailsView from "@/views/Activities/ActivityDetailsView.vue";
+import TasksIndexView from "@/views/Tasks/TasksIndexView.vue";
+import TaskEditView from "@/views/Tasks/TaskEditView.vue";
+import TaskDetailsView from "@/views/Tasks/TaskDetailsView.vue";
 
 
 const routes = [
@@ -60,6 +63,27 @@ const routes = [
     },
 
 
+
+    {
+        path: "/tasks",
+        name: "tasks",
+        component: TasksIndexView,
+    },
+    {
+        path: "/tasks/create",
+        name: "tasks-create",
+        component: TaskEditView,
+    },
+    {
+        path: "/tasks/:id",
+        name: "tasks-details",
+        component: TaskDetailsView,
+    },
+    {
+        path: "/tasks/:id/edit",
+        name: "task-edit",
+        component: TaskEditView,
+    },
     {
         path: "/register",
         name: "register",

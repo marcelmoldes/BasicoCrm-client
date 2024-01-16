@@ -1,6 +1,9 @@
 <template>
   <div class="p-4  border-2 border-gray-300 rounded-md">
-    <h1 class="text-gray-600 text-xl font-bold">My Activities</h1>
+    <div class="justify-between flex">
+      <span class="text-gray-600 text-xl font-bold">My Activities</span>
+      <button @click="addActivity" class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-2 text-white rounded-lg">Add Activity</button>
+    </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
       <tr>
@@ -12,6 +15,7 @@
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Created At</th>
       </tr>
       </thead>
+
       <tbody class="divide-y divide-gray-200">
       <tr v-if="activities.length === 0">
         <td class="text-center text-gray-500 py-2" colspan="6">No activities found</td>
@@ -30,8 +34,11 @@
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ formatters.formatDate(activity.created_at) }}
+
         </td>
+
       </tr>
+
       </tbody>
     </table>
   </div>
@@ -40,11 +47,20 @@
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['activities'],
+  props: ['activities','contactId'],
+  emits:['addActivity'],
+
   data() {
     return {
       formatters
     }
   },
+  methods: {
+    addActivity() {
+      const url = "/activities/create/?contactId=" + this.contactId
+      this.$router.push(url)
+    }
+  }
+
 }
 </script>

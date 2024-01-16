@@ -24,8 +24,8 @@
            href="#">Accounts</a>
         <a class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500"
            href="#">Deals</a>
-        <a class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500"
-           href="#">Tasks</a>
+        <a class="text-sm hover:text-gray-600  hover:underline cursor-pointer  font-semibold leading-6 text-gray-500"
+           @click="$router.push('/tasks')">Tasks</a>
         <a  @click="$router.push('/activities')" class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500">Activities</a>
       </div>
       <div class="lg:flex ml-32 lg:gap-x-12">
