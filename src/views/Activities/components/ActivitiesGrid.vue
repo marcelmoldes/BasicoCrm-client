@@ -125,7 +125,7 @@
       <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
       <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/activities/${record.id}`)">
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
-          {{ formatters.toProperCase(record.subject) }}
+          {{ formatters.toProperCase(record.title) }}
         </td>
         <td class="whitespace-nowrap px-5  text-sm text-gray-500">
           {{ record.Contact ? record.Contact.first_name + ' ' + record.Contact.last_name : '-' }}

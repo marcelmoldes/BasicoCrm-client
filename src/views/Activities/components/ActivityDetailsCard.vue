@@ -6,10 +6,6 @@
       </div>
       <div class="px-4 py-4">
         <dl class="divide-y divide-gray-100">
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
-            <dt class="text-sm font-medium leading-6 text-gray-900">Description</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ activity.description }}</dd>
-          </div>
           <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Activity Date</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
@@ -23,14 +19,14 @@
           <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Account Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {{ formatters.toProperCase(activity.Account.name) }}
+              {{ formatters.toProperCase(activity.Account ? activity.Account.name + ' ' + activity.Account.name : '-') }}
             </dd>
           </div>
 
           <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Contact Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {{ activity.Contact.first_name + ' ' + activity.Contact.last_name }}
+              {{ activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-' }}
             </dd>
           </div>
           <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
@@ -68,7 +64,7 @@
           <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {{ activity.Contact.first_name + ' ' + activity.Contact.last_name }}
+              {{ activity.Contact ? activity.Contact.first_name + ' ' + activity.Contact.last_name : '-' }}
             </dd>
           </div>
           <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">

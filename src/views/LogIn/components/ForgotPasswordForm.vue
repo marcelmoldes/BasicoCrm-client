@@ -1,6 +1,4 @@
 <template>
-
-
   <div class="relative isolate mr-6 ">
     <div
         class="absolute top-0    transform-gpu overflow-hidden blur-xl  ">
@@ -50,15 +48,15 @@
           <div id="form" class="flex flex-col gap-y-6 px-12 py-20 justify-center rounded-md w-full m-3  object-cover shadow-black shadow-2xl">
             <div class="flex flex-col gap-y-1">
               <label class="text-sm font-medium text-gray-600 ml-1" for="email">Email</label>
-              <input id="email"
+              <input v-model="user.email"
                      class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="email"
                      placeholder="basicocrm@example.com"
                      type="email">
-
+              <div class="rounded-md  bg-red-50 p-4 px-10" v-if="error">{{error}}</div>
             </div>
 
 
-            <button id="form"
+            <button @click="forgotPassword"
                     class="font-semibold border border-gray-200 rounded-full py-2 bg-blue-500 hover:opacity-90 text-white "
                     >
               Send Email
@@ -74,18 +72,40 @@
 </template>
 
 <script>
-
-
+import Toastify from "toastify-js";
+import axios from "axios";
 export default {
-
 
   data() {
     return {
-
-
-      error: false
-    }
+      user: {
+        email: "",
+      },
+      error: false,
+    };
   },
-  methods: {}
-}
+  methods: {
+    async forgotPassword() {
+      this.error = false;
+      let response = await axios.post(
+          "http://localhost:8081/auth/" + this.user.id + "/forgotPassword",
+          {
+            email: this.user.email,
+          }
+      );
+      if (response.data.success) {
+        Toastify({
+          text: "Email sended",
+          position: "center",
+          duration: 10000,
+        }).showToast();
+      }  else if (response.data.error) {
+        this.error = response.data.error;
+      }
+    },
+  },
+};
 </script>
+
+<style>
+</style>
