@@ -4,7 +4,7 @@
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
           {{ formatters.toProperCase(activity.title) }}</h2>
-        <h1>Activity for   {{ activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-' }}</h1>
+        <h1>Activity for {{ activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-' }}</h1>
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
         <button @click="$router.push(`/activities/${activity.id}/edit`)"
@@ -24,8 +24,9 @@
           :contact="activity.Contact"
           v-if="activity.Contact"
       ></contact-details-card>
-      <!--deal details card-->
-      <!--account details card-->
+     <deal-details-card :deal="activity.Deal" v-if="activity.Deal">
+      </deal-details-card>
+         <account-details-card :account="activity.Account" v-if="activity.Account"></account-details-card>
     </div>
   </div>
 
@@ -36,10 +37,12 @@ import axios from "axios";
 import formatters from "@/helpers/formatters";
 import ActivityDetailsCard from "@/views/Activities/components/ActivityDetailsCard.vue";
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
+import DealDetailsCard from "@/views/Deals/Components/DealDetailsCard.vue";
+import AccountDetailsCard from "@/views/Accounts/Components/AccountDetailsCard.vue";
 
 
 export default {
-  components: {ContactDetailsCard, ActivityDetailsCard},
+  components: {AccountDetailsCard, DealDetailsCard, ContactDetailsCard, ActivityDetailsCard},
   props: ['user'],
   data() {
     return {

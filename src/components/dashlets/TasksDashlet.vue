@@ -16,7 +16,7 @@
       <tr v-if="tasks.length === 0">
         <td colspan="6" class="text-center text-gray-500 py-2">No tasks found</td>
       </tr>
-      <tr v-for="task in tasks" :key="task">
+      <tr v-for="task in tasks" :key="task" class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/tasks/${task.id}`)">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ task.Contact ? task.Contact.first_name : '-' }}
         </td>

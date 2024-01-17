@@ -24,8 +24,8 @@
           :contact="task.Contact"
           v-if="task.Contact"
       ></contact-details-card>
-      <!--deal details card-->
-      <!--account details card-->
+  <deal-details-card :deal="task.Deal" v-if="task.Contact"></deal-details-card>
+      <account-details-card v-if="task.Account" :account="task.Account"></account-details-card>
     </div>
   </div>
 
@@ -36,10 +36,12 @@ import axios from "axios";
 import formatters from "@/helpers/formatters";
 import TaskDetailsCard from "@/views/Tasks/components/TaskDetailsCard.vue";
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
+import DealDetailsCard from "@/views/Deals/Components/DealDetailsCard.vue";
+import AccountDetailsCard from "@/views/Accounts/Components/AccountDetailsCard.vue";
 
 
 export default {
-  components: {ContactDetailsCard, TaskDetailsCard},
+  components: {AccountDetailsCard, DealDetailsCard, ContactDetailsCard, TaskDetailsCard},
   props: ['user'],
   data() {
     return {

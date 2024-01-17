@@ -37,7 +37,7 @@
             </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Contact Name</label>
-              <select v-model="activity.contact_id" @change="activity.account_id = null" :class="errors.contact_id ? 'border border-red-300' : 'border-0'"
+              <select v-model="activity.contact_id" @change="activity.account_id = null ; activity.deal_id = null"  :class="errors.contact_id ? 'border border-red-300' : 'border-0'"
                   class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option :value="contact.id" v-for="contact in options.contacts" :key="contact">{{ contact.first_name }} {{ contact.last_name }}</option>
               </select>
@@ -45,11 +45,19 @@
             </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Account</label>
-              <select v-model="activity.account_id" @change="activity.contact_id = null" :class="errors.account_id ? 'border border-red-300' : 'border-0'"
+              <select v-model="activity.account_id" @change="activity.contact_id = null; activity.deal_id = null" :class="errors.account_id ? 'border border-red-300' : 'border-0'"
                   class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option :value="account.id" v-for="account in options.accounts" :key="account.id">{{ account.name }}</option>
               </select>
               <div v-if="errors.account_id" class="text-sm text-red-400">{{ errors.account_id }}</div>
+            </div>
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Deal Name</label>
+              <select v-model="activity.deal_id" @change="activity.account_id = null; activity.contact_id = null;" :class="errors.deal_id ? 'border border-red-300' : 'border-0'"
+                      class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option :value="deal.id" v-for="deal in options.deals" :key="deal.id">{{ deal.deal_name }} </option>
+              </select>
+              <div v-if="errors.deal_id" class="text-sm text-red-400">{{ errors.deal_id }}</div>
             </div>
             <div class="sm:col-span-3">
               <label class="font-medium text-gray-900">Completed</label>
@@ -85,7 +93,8 @@ export default {
       options: {
         contacts: [],
         accounts: [],
-        users: []
+        users: [],
+        deals: []
       },
       errors: {}
     }
