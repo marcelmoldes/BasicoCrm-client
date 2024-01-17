@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       formatters,
-      contact: false
+      contact: false,
+
     }
   },
   async mounted() {

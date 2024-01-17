@@ -21,10 +21,11 @@
       <task-details-card
           :task="task"></task-details-card>
       <contact-details-card
-          :contact="task.Contact"
+         :contact="task.Contact"
           v-if="task.Contact"
+         :showViewButton="!showViewButton">
       ></contact-details-card>
-  <deal-details-card :deal="task.Deal" v-if="task.Contact"></deal-details-card>
+      <deal-details-card :deal="task.Deal" v-if="task.Deal"></deal-details-card>
       <account-details-card v-if="task.Account" :account="task.Account"></account-details-card>
     </div>
   </div>
@@ -42,11 +43,12 @@ import AccountDetailsCard from "@/views/Accounts/Components/AccountDetailsCard.v
 
 export default {
   components: {AccountDetailsCard, DealDetailsCard, ContactDetailsCard, TaskDetailsCard},
-  props: ['user'],
+  props: ['user','showViewButton'],
   data() {
     return {
       formatters,
-      task: false
+      task: false,
+
     }
   },
   async mounted() {

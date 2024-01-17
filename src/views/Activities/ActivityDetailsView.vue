@@ -23,6 +23,7 @@
       <contact-details-card
           :contact="activity.Contact"
           v-if="activity.Contact"
+          :showViewButton="!showViewButton"
       ></contact-details-card>
      <deal-details-card :deal="activity.Deal" v-if="activity.Deal">
       </deal-details-card>
@@ -43,7 +44,7 @@ import AccountDetailsCard from "@/views/Accounts/Components/AccountDetailsCard.v
 
 export default {
   components: {AccountDetailsCard, DealDetailsCard, ContactDetailsCard, ActivityDetailsCard},
-  props: ['user'],
+  props: ['user','showViewButton'],
   data() {
     return {
       formatters,
