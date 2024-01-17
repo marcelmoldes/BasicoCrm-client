@@ -20,6 +20,12 @@
     <div class="flex flex-col gap-y-8">
       <task-details-card
           :task="task"></task-details-card>
+      <contact-details-card
+          :contact="task.Contact"
+          v-if="task.Contact"
+      ></contact-details-card>
+      <!--deal details card-->
+      <!--account details card-->
     </div>
   </div>
 
@@ -29,10 +35,11 @@
 import axios from "axios";
 import formatters from "@/helpers/formatters";
 import TaskDetailsCard from "@/views/Tasks/components/TaskDetailsCard.vue";
+import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
 
 
 export default {
-  components: {TaskDetailsCard},
+  components: {ContactDetailsCard, TaskDetailsCard},
   props: ['user'],
   data() {
     return {

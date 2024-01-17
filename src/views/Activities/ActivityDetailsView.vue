@@ -20,6 +20,12 @@
     <div class="flex flex-col gap-y-8">
       <activity-details-card
           :activity="activity"></activity-details-card>
+      <contact-details-card
+          :contact="activity.Contact"
+          v-if="activity.Contact"
+      ></contact-details-card>
+      <!--deal details card-->
+      <!--account details card-->
     </div>
   </div>
 
@@ -29,10 +35,11 @@
 import axios from "axios";
 import formatters from "@/helpers/formatters";
 import ActivityDetailsCard from "@/views/Activities/components/ActivityDetailsCard.vue";
+import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
 
 
 export default {
-  components: {ActivityDetailsCard},
+  components: {ContactDetailsCard, ActivityDetailsCard},
   props: ['user'],
   data() {
     return {

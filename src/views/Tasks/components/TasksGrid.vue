@@ -144,10 +144,12 @@
         </td>
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.status }}</td>
         <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.priority }}</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">
+        <td class="whitespace-nowrap text-center  px-5 text-sm text-gray-500">
           {{ formatters.toProperCase(record.Account ? record.Account.name : '-') }}
         </td>
-        {{ formatters.toProperCase(record.Contact ? record.Contact.first_name + ' ' + record.Contact.last_name : '-') }}
+        <td class="whitespace-nowrap text-center px-5 text-sm text-gray-500">
+          {{ formatters.toProperCase(record.Contact ? record.Contact.first_name + ' ' + record.Contact.last_name : '-') }}
+        </td>
 
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
         <td class="whitespace-nowrap  px-5 text-sm text-gray-500">

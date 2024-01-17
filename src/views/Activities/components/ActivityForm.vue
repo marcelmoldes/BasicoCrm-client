@@ -13,7 +13,7 @@
               <div v-if="errors.title" class="text-sm text-red-400">{{ errors.title }}</div>
             </div>
             <div class="sm:col-span-3">
-              <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Activity Date</label>
+              <label class="block text-sm font-medium leading-6 text-gray-900" >Activity Date</label>
 
               <input v-model="activity.activity_date"
                      :class="errors.activity_date ? 'border border-red-300' : 'border-0'"
