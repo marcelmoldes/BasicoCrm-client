@@ -4,7 +4,9 @@
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
           {{ formatters.toProperCase(activity.title) }}</h2>
-        <h1>Activity for {{ activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-' }}</h1>
+        <h1>Activity for {{
+            activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-'
+          }}</h1>
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
         <button @click="$router.push(`/activities/${activity.id}/edit`)"
@@ -25,9 +27,10 @@
           v-if="activity.Contact"
           :showViewButton="true"
       ></contact-details-card>
-     <deal-details-card :deal="activity.Deal" :showViewButton="true" v-if="activity.Deal">
+      <deal-details-card :deal="activity.Deal" :showViewButton="true" v-if="activity.Deal">
       </deal-details-card>
-         <account-details-card :account="activity.Account" :showViewButton="true" v-if="activity.Account"></account-details-card>
+      <account-details-card :account="activity.Account" :showViewButton="true"
+                            v-if="activity.Account"></account-details-card>
     </div>
   </div>
 

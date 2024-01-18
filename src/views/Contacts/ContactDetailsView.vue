@@ -20,9 +20,9 @@
       <contact-details-card
           :contact="contact"></contact-details-card>
       <contact-address-card :contact="contact"></contact-address-card>
-      <tasks-dashlet :contactId="contact.id" :tasks="contact.Tasks"></tasks-dashlet>
-      <activities-dashlet :contactId="contact.id" :activities="contact.Activities"></activities-dashlet>
-      <attachments-dashlet :attachments="contact.Attachments"></attachments-dashlet>
+      <tasks-dashlet :contactId="contact.id" :tasks="contact.Tasks" :addUrl="`/tasks/create/?contactId=${contact.id}`"></tasks-dashlet>
+      <activities-dashlet :activities="contact.Activities" :addUrl="`/activities/create/?contactId=${contact.id}`"></activities-dashlet>
+      <attachments-dashlet :attachments="contact.Attachments" :addUrl="`/attachments/create/?contactId=${contact.id}`"></attachments-dashlet>
     </div>
   </div>
 
@@ -44,7 +44,6 @@ export default {
     return {
       formatters,
       contact: false,
-
     }
   },
   async mounted() {

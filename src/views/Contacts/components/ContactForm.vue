@@ -205,7 +205,7 @@ export default {
             },
           });
       if (response.data.success) {
-        this.contact = response.data.contact;
+        Object.assign(this.contact, response.data.contact);
       } else {
         this.$emit('sessionExpired');
       }

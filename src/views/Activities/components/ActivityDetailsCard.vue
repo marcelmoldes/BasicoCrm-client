@@ -2,8 +2,8 @@
   <div>
     <div class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
       <div class="flex p-2  justify-between border-b border-1 border-gray-150 text-lg text-gray-900 font-semibold bg-gray-50">
-        <h1 class="p-2">Contact Details</h1>
-        <button v-if="showViewButton" @click="$router.push(`/contacts/${contact.id}`)"  class="bg-blue-600 hover:opacity-90 font-bold text-sm mr-7 py-1  px-6 text-white rounded-lg">View</button>
+        <h1 class="p-2">Activities Details</h1>
+
       </div>
 
       <div class="px-4 py-4">

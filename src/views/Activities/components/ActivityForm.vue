@@ -103,7 +103,12 @@ export default {
     this.loadOptions();
     if (this.$route.query.contactId) {
       this.activity.contact_id = this.$route.query.contactId;
-
+    }
+    if (this.$route.query.dealId) {
+      this.activity.deal_id = this.$route.query.dealId;
+    }
+    if (this.$route.query.accountId) {
+      this.activity.account_id = this.$route.query.accountId;
     }
     if (this.$route.params.id) {
       await this.loadData();
@@ -130,7 +135,7 @@ export default {
             },
           });
       if (response.data.success) {
-        this.activity = response.data.activity;
+        Object.assign(this.activity, response.data.activity);
         this.activity.activity_date = formatters.formatDateYmd(this.activity.activity_date)
 
       } else {

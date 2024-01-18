@@ -64,7 +64,7 @@
         </div>
       </form>
     </div>
-    <div  class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
+    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
       <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Address Information</h2>
       <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
@@ -153,7 +153,6 @@ export default {
   },
   async mounted() {
     this.loadOptions();
-
     if (this.$route.params.id) {
       await this.loadData();
     }
@@ -179,9 +178,7 @@ export default {
             },
           });
       if (response.data.success) {
-        this.account = response.data.account;
-
-
+        Object.assign(this.account, response.data.account);
       } else {
         this.$emit('sessionExpired');
       }

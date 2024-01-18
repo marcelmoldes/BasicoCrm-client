@@ -18,12 +18,12 @@
     </div>
     <div class="flex flex-col gap-y-8">
    <account-details-card :account="account"></account-details-card>
-      <account-address-card  v-if="account.Address" :account="account"></account-address-card>
+      <account-address-card v-if="account.Address" :account="account"></account-address-card>
       <contact-details-card :contact="account.Contact" v-if="account.Contact" :showViewButton="true"></contact-details-card>
-      <tasks-dashlet :tasks="account.Tasks"></tasks-dashlet>
-      <activities-dashlet :activities="account.Activities" :accountId="account.id"></activities-dashlet>
-      <attachments-dashlet :attachments="account.Attachments"></attachments-dashlet>
-      <deals-dashlet :deals="account.Deals" ></deals-dashlet>
+      <deals-dashlet :deals="account.Deals" :addUrl="`/deals/create/?accountId=${account.id}`"></deals-dashlet>
+      <tasks-dashlet :tasks="account.Tasks" :addUrl="`/tasks/create/?accountId=${account.id}`"></tasks-dashlet>
+      <activities-dashlet :activities="account.Activities" :addUrl="`/activities/create/?accountId=${account.id}`"></activities-dashlet>
+      <attachments-dashlet :attachments="account.Attachments" :addUrl="`/attachments/create/?accountId=${account.id}`"></attachments-dashlet>
     </div>
   </div>
 

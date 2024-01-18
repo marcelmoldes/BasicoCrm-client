@@ -1,6 +1,8 @@
 <template>
   <div class="p-4  border-2 border-gray-300 rounded-md">
-    <h1 class="text-gray-600 text-xl font-bold">My Attachments</h1>
+    <div class="justify-between flex">
+      <span class="text-gray-600 text-xl font-bold">My Attachments</span>
+    </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
       <tr>
@@ -36,7 +38,7 @@
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['attachments'],
+  props: ['attachments', 'addUrl'],
   data() {
     return {
       formatters

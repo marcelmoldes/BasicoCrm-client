@@ -2,7 +2,7 @@
   <div class="p-4   border-2 border-gray-300  bg-white rounded-md">
     <div class="justify-between flex">
       <span class="text-gray-600 text-xl font-bold">My Tasks</span>
-      <button @click="addTask" class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-2 text-white rounded-lg">Add Task</button>
+      <button @click="$router.push(addUrl)" class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-2 text-white rounded-lg">Add Task</button>
     </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
@@ -40,18 +40,12 @@
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['tasks','contactId'],
+  props: ['tasks','addUrl'],
   emits:['addActivity'],
   data() {
     return {
       formatters
     }
   },
-  methods: {
-    addTask() {
-      const url = "/tasks/create/?contactId=" + this.contactId
-      this.$router.push(url)
-    }
-  }
 }
 </script>

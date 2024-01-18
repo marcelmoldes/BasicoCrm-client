@@ -83,14 +83,19 @@ export default {
     }
   },
   async mounted() {
-    if (this.$route.params.id) {
-      await this.loadData();
+    this.loadOptions();
+    if (this.$route.query.contactId) {
+      this.deal.contact_id = this.$route.query.contactId;
+    }
+    if (this.$route.query.dealId) {
+      this.deal.deal_id = this.$route.query.dealId;
     }
     if (this.$route.query.accountId) {
       this.deal.account_id = this.$route.query.accountId;
-
     }
-    this.loadOptions();
+    if (this.$route.params.id) {
+      await this.loadData();
+    }
     this.$eventBus.on('saveDeal', this.saveDeal)
   },
   methods: {
@@ -113,7 +118,7 @@ export default {
             },
           });
       if (response.data.success) {
-        this.deal = response.data.deal;
+        Object.assign(this.deal, response.data.deal);
       } else {
         this.$emit('sessionExpired');
       }

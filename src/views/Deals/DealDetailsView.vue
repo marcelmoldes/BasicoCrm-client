@@ -24,9 +24,9 @@
           v-if="deal.Account"
           :showViewButton="true">
         ></account-details-card>
-   <activities-dashlet  :activities="deal.Activities"></activities-dashlet>
-      <tasks-dashlet :tasks="deal.Tasks"></tasks-dashlet>
-      <attachments-dashlet :attachments="deal.Attachments"></attachments-dashlet>
+      <activities-dashlet :activities="deal.Activities" :addUrl="`/activities/create/?dealId=${deal.id}`"></activities-dashlet>
+      <tasks-dashlet :tasks="deal.Tasks" :addUrl="`/tasks/create/?dealId=${deal.id}`"></tasks-dashlet>
+      <attachments-dashlet :attachments="deal.Attachments" :addUrl="`/attachments/create/?dealId=${deal.id}`"></attachments-dashlet>
 
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-         Task {{ formatters.toProperCase(task.name) }}</h2>
+          Task {{ formatters.toProperCase(task.name) }}</h2>
 
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
@@ -21,11 +21,12 @@
       <task-details-card
           :task="task"></task-details-card>
       <contact-details-card
-         :contact="task.Contact"
+          :contact="task.Contact"
           v-if="task.Contact"
-         :showViewButton="true">
-      ></contact-details-card>
-      <deal-details-card :showViewButton="true"  :deal="task.Deal" v-if="task.Deal"></deal-details-card>
+          :showViewButton="true">
+        >
+      </contact-details-card>
+      <deal-details-card :showViewButton="true" :deal="task.Deal" v-if="task.Deal"></deal-details-card>
       <account-details-card v-if="task.Account" :account="task.Account"></account-details-card>
     </div>
   </div>
