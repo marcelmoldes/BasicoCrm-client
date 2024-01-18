@@ -20,7 +20,7 @@
       <contact-details-card
           :contact="contact"></contact-details-card>
       <contact-address-card :contact="contact"></contact-address-card>
-      <tasks-dashlet :tasks="contact.Tasks"></tasks-dashlet>
+      <tasks-dashlet :contactId="contact.id" :tasks="contact.Tasks"></tasks-dashlet>
       <activities-dashlet :contactId="contact.id" :activities="contact.Activities"></activities-dashlet>
       <attachments-dashlet :attachments="contact.Attachments"></attachments-dashlet>
     </div>
@@ -83,5 +83,6 @@ export default {
 
     },
   }
+
 }
 </script>

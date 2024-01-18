@@ -90,7 +90,7 @@ import axios from "axios";
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['user'],
+  props: ['user','contactId'],
   data() {
     return {
       formatters,
@@ -105,10 +105,13 @@ export default {
     }
   },
   async mounted() {
-    this.loadOptions();
+
     if (this.$route.params.id) {
       await this.loadData();
     }
+    if (this.$route.query.contactId) {
+      this.task.contact_id = this.$route.query.contactId;
+    }this.loadOptions();
     this.$eventBus.on('saveTask', this.saveTask)
   },
   methods: {

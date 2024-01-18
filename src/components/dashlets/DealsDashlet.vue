@@ -1,6 +1,9 @@
 <template>
   <div class="p-4  border-2 border-gray-300 rounded-md">
-    <h1 class="text-gray-700 text-xl font-bold">My Deals</h1>
+    <div class="justify-between flex">
+      <span class="text-gray-600 text-xl font-bold">My Deals</span>
+      <button @click="addDeal" class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-1 text-white rounded-lg">Add Deal</button>
+    </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
       <tr>
@@ -13,7 +16,7 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
 
-      <tr v-for="deal in deals" :key="deal">
+      <tr class="hover:bg-gray-100 cursor-pointer" v-for="deal in deals" :key="deal" @click="$router.push(`/deals/${deal.id}`)">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(deal.deal_name) }}
         </td>
@@ -42,5 +45,11 @@ export default {
       formatters
     }
   },
+  methods: {
+    addDeal() {
+      const url = "/deals/create/?contactId=" + this.contactId
+      this.$router.push(url)
+    }
+  }
 }
 </script>

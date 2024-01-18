@@ -103,6 +103,7 @@ export default {
     this.loadOptions();
     if (this.$route.query.contactId) {
       this.activity.contact_id = this.$route.query.contactId;
+
     }
     if (this.$route.params.id) {
       await this.loadData();

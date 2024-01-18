@@ -23,7 +23,7 @@
       <tasks-dashlet :tasks="account.Tasks"></tasks-dashlet>
       <activities-dashlet :activities="account.Activities" :accountId="account.id"></activities-dashlet>
       <attachments-dashlet :attachments="account.Attachments"></attachments-dashlet>
-      <deals-dashlet :deals="account.Deals"></deals-dashlet>
+      <deals-dashlet :deals="account.Deals" ></deals-dashlet>
     </div>
   </div>
 

@@ -20,15 +20,14 @@
     <div class="flex flex-col gap-y-8">
       <activity-details-card
           :activity="activity"></activity-details-card>
-
       <contact-details-card
           :contact="activity.Contact"
           v-if="activity.Contact"
           :showViewButton="true"
       ></contact-details-card>
-     <deal-details-card :deal="activity.Deal" v-if="activity.Deal">
+     <deal-details-card :deal="activity.Deal" :showViewButton="true" v-if="activity.Deal">
       </deal-details-card>
-         <account-details-card :account="activity.Account" v-if="activity.Account"></account-details-card>
+         <account-details-card :account="activity.Account" :showViewButton="true" v-if="activity.Account"></account-details-card>
     </div>
   </div>
 
