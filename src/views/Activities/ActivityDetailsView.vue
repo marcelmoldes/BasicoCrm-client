@@ -20,10 +20,11 @@
     <div class="flex flex-col gap-y-8">
       <activity-details-card
           :activity="activity"></activity-details-card>
+
       <contact-details-card
           :contact="activity.Contact"
           v-if="activity.Contact"
-          :showViewButton="!showViewButton"
+          :showViewButton="true"
       ></contact-details-card>
      <deal-details-card :deal="activity.Deal" v-if="activity.Deal">
       </deal-details-card>
@@ -38,13 +39,13 @@ import axios from "axios";
 import formatters from "@/helpers/formatters";
 import ActivityDetailsCard from "@/views/Activities/components/ActivityDetailsCard.vue";
 import ContactDetailsCard from "@/views/Contacts/components/ContactDetailsCard.vue";
-import DealDetailsCard from "@/views/Deals/Components/DealDetailsCard.vue";
-import AccountDetailsCard from "@/views/Accounts/Components/AccountDetailsCard.vue";
+import DealDetailsCard from "@/views/Deals/components/DealDetailsCard.vue";
+import AccountDetailsCard from "@/views/Accounts/components/AccountDetailsCard.vue";
 
 
 export default {
   components: {AccountDetailsCard, DealDetailsCard, ContactDetailsCard, ActivityDetailsCard},
-  props: ['user','showViewButton'],
+  props: ['user'],
   data() {
     return {
       formatters,

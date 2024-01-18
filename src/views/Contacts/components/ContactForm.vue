@@ -86,7 +86,8 @@
                      class="block p-2 w-full rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <div v-if="errors.annual_revenue" class="text-sm text-red-400">{{ errors.annual_revenue }}</div>
             </div>
-            <div class="sm:col-span-3">
+
+            <div class="sm:col-span-3" >
               <label class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
               <div class="flex items-center justify-center gap-x-1">
                 <select v-model="contact.PhoneNumber.country_code" :class="errors.country_code ? 'border border-red-300' : 'border-0'"
@@ -109,7 +110,7 @@
         </div>
       </form>
     </div>
-    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
+    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3" v-if="contact.Address">
       <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Address Information</h2>
       <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">

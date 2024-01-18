@@ -20,10 +20,10 @@
            @click="$router.push('/dashboard')">Dashboard</a>
         <a class="text-sm hover:text-gray-600  hover:underline  font-semibold cursor-pointer leading-6 text-gray-500"
            @click="$router.push('/contacts')">Contacts</a>
-        <a class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500"
-           href="#">Accounts</a>
-        <a class="text-sm hover:text-gray-600  hover:underline  font-semibold leading-6 text-gray-500"
-           href="#">Deals</a>
+        <a class="text-sm hover:text-gray-600  cursor-pointer hover:underline  font-semibold leading-6 text-gray-500"
+           @click="$router.push('/accounts')">Accounts</a>
+        <a class="text-sm hover:text-gray-600  hover:underline cursor-pointer font-semibold leading-6 text-gray-500"
+           @click="$router.push('/deals')">Deals</a>
         <a class="text-sm hover:text-gray-600  hover:underline cursor-pointer  font-semibold leading-6 text-gray-500"
            @click="$router.push('/tasks')">Tasks</a>
         <a  @click="$router.push('/activities')" class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500">Activities</a>

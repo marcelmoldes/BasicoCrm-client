@@ -13,6 +13,12 @@ import ActivityDetailsView from "@/views/Activities/ActivityDetailsView.vue";
 import TasksIndexView from "@/views/Tasks/TasksIndexView.vue";
 import TaskEditView from "@/views/Tasks/TaskEditView.vue";
 import TaskDetailsView from "@/views/Tasks/TaskDetailsView.vue";
+import AccountsIndexView from "@/views/Accounts/AccountsIndexView.vue";
+import AccountEditView from "@/views/Accounts/AccountEditView.vue";
+import AccountDetailsView from "@/views/Accounts/AccountDetailsView.vue";
+import DealEditView from "@/views/Deals/DealEditView.vue";
+import DealDetailsView from "@/views/Deals/DealDetailsView.vue";
+import DealsIndexView from "@/views/Deals/DealsIndexView.vue";
 
 
 const routes = [
@@ -61,9 +67,6 @@ const routes = [
         name: "activity-edit",
         component: ActivityEditView,
     },
-
-
-
     {
         path: "/tasks",
         name: "tasks",
@@ -84,6 +87,49 @@ const routes = [
         name: "task-edit",
         component: TaskEditView,
     },
+    {
+        path: "/accounts",
+        name: "accounts",
+        component: AccountsIndexView,
+    },
+    {
+        path: "/accounts/create",
+        name: "accounts-create",
+        component: AccountEditView,
+    },
+    {
+        path: "/accounts/:id",
+        name: "accounts-details",
+        component: AccountDetailsView,
+    },
+    {
+        path: "/accounts/:id/edit",
+        name: "accounts-edit",
+        component: AccountEditView,
+    },
+
+
+    {
+        path: "/deals",
+        name: "deals",
+        component: DealsIndexView,
+    },
+    {
+        path: "/deals/create",
+        name: "deals-create",
+        component: DealEditView,
+    },
+    {
+        path: "/deals/:id",
+        name: "deals-details",
+        component: DealDetailsView,
+    },
+    {
+        path: "/deals/:id/edit",
+        name: "deals-edit",
+        component: DealEditView,
+    },
+
     {
         path: "/register",
         name: "register",
