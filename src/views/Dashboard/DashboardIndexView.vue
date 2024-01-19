@@ -5,7 +5,7 @@
       <accounts-dashlet @sessionExpired="$emit('sessionExpired')" :accounts="accounts"></accounts-dashlet>
       <contacts-dashlet @sessionExpired="$emit('sessionExpired')" :contacts="contacts"></contacts-dashlet>
       <deals-dashlet @sessionExpired="$emit('sessionExpired')" :deals="deals"></deals-dashlet>
-      <tasks-dashlet @sessionExpired="$emit('sessionExpired')" :tasks="tasks"></tasks-dashlet>
+      <tasks-dashlet    @sessionExpired="$emit('sessionExpired')" :tasks="tasks"></tasks-dashlet>
       <sales-funnel-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></sales-funnel-dashlet>
       <revenue-chart-dashlet @sessionExpired="$emit('sessionExpired')" :user="user"></revenue-chart-dashlet>
     </div>
@@ -23,7 +23,7 @@ import SalesFunnelDashlet from "@/views/Dashboard/components/SalesFunnelDashlet.
 import axios from "axios";
 
 export default {
-  props: ['user','kpis'],
+  props: ['user','addUrl'],
   components: {
     SalesFunnelDashlet,
     RevenueChartDashlet,
