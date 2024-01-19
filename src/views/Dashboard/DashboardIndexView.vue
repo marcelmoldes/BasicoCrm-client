@@ -1,6 +1,6 @@
 <template>
   <div id="" class="">
-    <kpi-dashlet  @sessionExpired="$emit('sessionExpired')" :user="user"></kpi-dashlet>
+    <kpi-dashlet  @sessionExpired="$emit('sessionExpired')" :user="user"></kpi-dashlet >
     <div class="grid grid-cols-2 gap-12">
       <accounts-dashlet @sessionExpired="$emit('sessionExpired')" :accounts="accounts"></accounts-dashlet>
       <contacts-dashlet @sessionExpired="$emit('sessionExpired')" :contacts="contacts"></contacts-dashlet>
@@ -23,7 +23,7 @@ import SalesFunnelDashlet from "@/views/Dashboard/components/SalesFunnelDashlet.
 import axios from "axios";
 
 export default {
-  props: ['user'],
+  props: ['user','kpis'],
   components: {
     SalesFunnelDashlet,
     RevenueChartDashlet,
