@@ -1,5 +1,5 @@
 <template>
-  <div class=" ml-20 mt-20 ">
+  <div class="ml-20 mt-20 ">
 
     <profile-details-form :user="user"></profile-details-form>
     <change-password-form :user="user"></change-password-form>

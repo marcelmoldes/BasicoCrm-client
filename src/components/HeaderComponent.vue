@@ -26,47 +26,58 @@
            @click="$router.push('/deals')">Deals</a>
         <a class="text-sm hover:text-gray-600  hover:underline cursor-pointer  font-semibold leading-6 text-gray-500"
            @click="$router.push('/tasks')">Tasks</a>
-        <a  @click="$router.push('/activities')" class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500">Activities</a>
+        <a class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500"
+           @click="$router.push('/activities')">Activities</a>
       </div>
-      <div class="lg:flex ml-32 lg:gap-x-12">
+      <div v-if="user" class="lg:flex ml-32 lg:gap-x-12">
+        <div class="relative ml-3">
+          <div>
+            <button id="user-menu-button" aria-expanded="false" aria-haspopup="true"
+                    class="relative flex rounded-full  text-sm" type="button" @click="accountMenuOpen = accountMenuOpen !== true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img alt=""
+                   class="h-14 w-14 rounded-full"
+                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80">
+            </button>
+          </div>
+          <div v-if="accountMenuOpen"
+              aria-labelledby="user-menu-button" aria-orientation="vertical" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu"
+              tabindex="-1">
+            <a id="user-menu-item-0" class="block px-4 py-2 text-sm text-gray-700" href="/personal-account" role="menuitem"
+               tabindex="-1">Your Profile</a>
+            <a id="user-menu-item-1" class="block px-4 py-2 text-sm text-gray-700" href="/users" role="menuitem"
+               tabindex="-1">Users Management</a>
+            <a id="user-menu-item-2" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+               @click="$emit('logUserOut')">Sign out</a>
+          </div>
+        </div>
+
         <div class=" lg:flex gap-x-3 lg:flex-1 lg:justify-end">
-          <button v-if="!user" id="form" class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-600 hover:opacity-90  text-white underline-offset-2 underline-gray"
+          <button v-if="!user" id="form"
+                  class=" font-semibold leading-6 px-8 rounded-full py-2 bg-blue-600 hover:opacity-90  text-white underline-offset-2 underline-gray"
                   @click="$router.push('/login')">
             Login
           </button>
         </div>
+
         <div v-if="!user" class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button id="form" class="px-8 font-semibold hover:opacity-90 rounded-full py-2 bg-blue-600 text-white" href="#"
+          <button id="form" class="px-8 font-semibold hover:opacity-90 rounded-full py-2 bg-blue-600 text-white"
                   @click="$router.push('/register')">
             Register
           </button>
         </div>
-        <div v-if="user" class="hidden py-1 lg:flex lg:flex-1 lg:justify-end">
-          <button id="form" class="px-8 rounded-full leading-6 font-semibold hover:opacity-90  py-1 bg-blue-600 text-white"
-                  @click="$emit('logUserOut')">
-            Logout
-          </button>
-        </div>
-        <span v-if="user" class="relative cursor-pointer inline-block">
-        <a class="hover:opacity-80" @click="$router.push('/personal-account')"><img
-            alt=""
-            class="h-14 w-14 ml-10 border border-gray-200 rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"></a>
-        <span class="absolute right-0  top-0 block h-3 w-3 rounded-full bg-green-400    ring-1 ring-white"></span>
-      </span>
+
+
       </div>
+
+
     </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
     <div v-if="1==2" aria-modal="true" class="lg:hidden" role="dialog">
-      <!-- Background backdrop, show/hide based on slide-over state. -->
       <div class="fixed inset-0 z-10"></div>
       <div
           class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div class="flex items-center justify-between">
-          <a class="-m-1.5 p-1.5" href="#">
-            <span class="sr-only">Your Company</span>
-            <img alt="" class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600">
-          </a>
           <button class="-m-2.5 rounded-md p-2.5 text-gray-700" type="button">
             <span class="sr-only">Close menu</span>
             <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -80,10 +91,10 @@
             <div class="space-y-2   py-6">
               <a class="text-sm font-semibold cursor-pointer leading-6 text-white" @click="$router.push('/dashboard')">Dashboard</a>
               <a class="text-sm font-semibold cursor-pointer leading-6 text-white" @click="$router.push('/contacts')">Contacts</a>
-              <a class="text-sm  font-semibold leading-6 text-white" href="#">Accounts</a>
-              <a class="text-sm font-semibold leading-6 text-white" href="#">Deals</a>
-              <a class="text-sm font-semibold leading-6 text-white" href="#">Tasks</a>
-              <a class="text-sm font-semibold leading-6 text-white" href="#">Activities</a>
+              <a class="text-sm  font-semibold leading-6 text-white" @click="$router.push('/accounts')">Accounts</a>
+              <a class="text-sm font-semibold leading-6 text-white" @click="$router.push('/deals')">Deals</a>
+              <a class="text-sm font-semibold leading-6 text-white" @click="$router.push('/tasks')">Tasks</a>
+              <a class="text-sm font-semibold leading-6 text-white" @click="$router.push('/activities')">Activities</a>
             </div>
             <div class="py-6">
               <a class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
@@ -101,6 +112,14 @@
 </template>
 <script>
 export default {
-  props: ['user']
+  props: ['user'],
+  data() {
+    return {
+      isVisible: true,
+      accountMenuOpen: false
+    }
+  }
 }
+</script>
+<script setup>
 </script>

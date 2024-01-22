@@ -19,6 +19,9 @@ import AccountDetailsView from "@/views/Accounts/AccountDetailsView.vue";
 import DealEditView from "@/views/Deals/DealEditView.vue";
 import DealDetailsView from "@/views/Deals/DealDetailsView.vue";
 import DealsIndexView from "@/views/Deals/DealsIndexView.vue";
+import UsersIndexView from "@/views/Users/UsersIndexView.vue";
+import UserEditView from "@/views/Users/UserEditView.vue";
+import UserDetailsView from "@/views/Users/UserDetailsView.vue";
 
 
 const routes = [
@@ -107,8 +110,6 @@ const routes = [
         name: "accounts-edit",
         component: AccountEditView,
     },
-
-
     {
         path: "/deals",
         name: "deals",
@@ -129,6 +130,29 @@ const routes = [
         name: "deals-edit",
         component: DealEditView,
     },
+
+
+    {
+        path: "/users",
+        name: "users",
+        component: UsersIndexView,
+    },
+    {
+        path: "/users/create",
+        name: "users-create",
+        component: UserEditView,
+    },
+    {
+        path: "/users/:id",
+        name: "users-details",
+        component: UserDetailsView,
+    },
+    {
+        path: "/users/:id/edit",
+        name: "users-edit",
+        component: UserEditView,
+    },
+
 
     {
         path: "/register",
