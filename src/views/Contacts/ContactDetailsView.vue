@@ -20,7 +20,7 @@
       <contact-details-card
           :contact="contact"></contact-details-card>
       <contact-address-card :contact="contact"></contact-address-card>
-      <tasks-dashlet :contactId="contact.id" :tasks="contact.Tasks" :addUrl="`/tasks/create/?contactId=${contact.id}`"></tasks-dashlet>
+      <tasks-dashlet :showViewButton="true" :contactId="contact.id" :tasks="contact.Tasks" :addUrl="`/tasks/create/?contactId=${contact.id}`"></tasks-dashlet>
       <activities-dashlet :activities="contact.Activities" :addUrl="`/activities/create/?contactId=${contact.id}`"></activities-dashlet>
       <attachments-dashlet :attachments="contact.Attachments" :addUrl="`/attachments/create/?contactId=${contact.id}`"></attachments-dashlet>
     </div>

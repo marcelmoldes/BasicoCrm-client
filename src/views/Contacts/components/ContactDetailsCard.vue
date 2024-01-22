@@ -5,9 +5,7 @@
       <div
           class="flex p-2  justify-between border-b border-1 border-gray-150 text-lg text-gray-900 font-semibold bg-gray-50">
         <h1 class="p-2">Contact Details</h1>
-        <button v-if="showViewButton" @click="$router.push(`/contacts/${contact.id}`)"
-                class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-7 text-white rounded-lg">View
-        </button>
+        <button v-if="showViewButton" @click="$router.push(`/contacts/${contact.id}`)"  class="bg-blue-600 hover:opacity-90 font-bold text-sm mr-7 py-1  px-6 text-white rounded-lg">View</button>
       </div>
 
       <div class="px-4 py-4">

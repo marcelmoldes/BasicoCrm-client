@@ -2,7 +2,7 @@
   <div class="p-4  border-2 border-gray-300 rounded-md">
     <div class="justify-between flex">
       <span class="text-gray-600 text-xl font-bold">My Deals</span>
-      <button @click="$router.push(addUrl)" class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-1 text-white rounded-lg">Add Deal</button>
+      <button @click="$router.push(addUrl)" v-if="showViewButton"  class="bg-blue-500 hover:bg-blue-600 font-bold text-sm py-2 px-1 text-white rounded-lg">Add Deal</button>
     </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
@@ -39,7 +39,7 @@
 import formatters from "@/helpers/formatters";
 
 export default {
-  props: ['deals','addUrl'],
+  props: ['deals','addUrl','showViewButton'],
   data() {
     return {
       formatters

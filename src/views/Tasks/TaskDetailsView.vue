@@ -27,7 +27,7 @@
         >
       </contact-details-card>
       <deal-details-card :showViewButton="true" :deal="task.Deal" v-if="task.Deal"></deal-details-card>
-      <account-details-card v-if="task.Account" :account="task.Account"></account-details-card>
+      <account-details-card v-if="task.Account" :showViewButton="true" :account="task.Account"></account-details-card>
     </div>
   </div>
 

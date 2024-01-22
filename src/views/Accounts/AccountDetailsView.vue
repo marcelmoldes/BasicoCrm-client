@@ -3,7 +3,7 @@
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-          {{ formatters.toProperCase(account.name) }}</h2>
+        Account  {{ formatters.toProperCase(account.name) }}</h2>
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
         <button class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
@@ -20,8 +20,8 @@
    <account-details-card :account="account"></account-details-card>
       <account-address-card v-if="account.Address" :account="account"></account-address-card>
       <contact-details-card :contact="account.Contact" v-if="account.Contact" :showViewButton="true"></contact-details-card>
-      <deals-dashlet :deals="account.Deals" :addUrl="`/deals/create/?accountId=${account.id}`"></deals-dashlet>
-      <tasks-dashlet :tasks="account.Tasks" :addUrl="`/tasks/create/?accountId=${account.id}`"></tasks-dashlet>
+      <deals-dashlet :deals="account.Deals" :showViewButton="true"  :addUrl="`/deals/create/?accountId=${account.id}`"></deals-dashlet>
+      <tasks-dashlet :tasks="account.Tasks" :showViewButton="true"  :addUrl="`/tasks/create/?accountId=${account.id}`"></tasks-dashlet>
       <activities-dashlet :activities="account.Activities" :addUrl="`/activities/create/?accountId=${account.id}`"></activities-dashlet>
       <attachments-dashlet :attachments="account.Attachments" :addUrl="`/attachments/create/?accountId=${account.id}`"></attachments-dashlet>
     </div>

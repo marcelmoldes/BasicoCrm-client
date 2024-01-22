@@ -3,7 +3,7 @@
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-          {{ formatters.toProperCase(activity.title) }}</h2>
+          Activity {{ formatters.toProperCase(activity.title) }}</h2>
         <h1>Activity for {{
             activity.Contact ? (activity.Contact.first_name + ' ' + activity.Contact.last_name) : '-'
           }}</h1>

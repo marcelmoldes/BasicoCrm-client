@@ -7,13 +7,6 @@
       </div>
       <div class="px-4 py-4">
         <dl class="divide-y divide-gray-100">
-          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
-            <dt class="text-sm font-medium leading-6 text-gray-900">Deal Name</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {{ deal.deal_name}}
-            </dd>
-          </div>
-
           <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Deal Value</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">${{formatters.formatAmount(deal.deal_value ) }}</dd>

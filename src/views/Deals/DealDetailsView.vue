@@ -2,6 +2,8 @@
   <div v-if="deal">
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
+        <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
+            Deal {{ formatters.toProperCase(deal.deal_name) }}</h2>
 
 
       </div>
@@ -25,7 +27,7 @@
           :showViewButton="true">
         ></account-details-card>
       <activities-dashlet :activities="deal.Activities" :addUrl="`/activities/create/?dealId=${deal.id}`"></activities-dashlet>
-      <tasks-dashlet  :tasks="deal.Tasks" :addUrl="`/tasks/create/?dealId=${deal.id}`"></tasks-dashlet>
+      <tasks-dashlet :showViewButton="true"  :tasks="deal.Tasks" :addUrl="`/tasks/create/?dealId=${deal.id}`"></tasks-dashlet>
       <attachments-dashlet :attachments="deal.Attachments" :addUrl="`/attachments/create/?dealId=${deal.id}`"></attachments-dashlet>
 
     </div>
