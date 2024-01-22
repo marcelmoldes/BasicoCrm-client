@@ -16,7 +16,7 @@
       <tr v-if="contacts.length === 0">
         <td colspan="6" class="text-center text-gray-500 py-2">No contacts found</td>
       </tr>
-      <tr v-for="contact in contacts" :key="contact">
+      <tr v-for="contact in contacts" class="hover:bg-gray-100 cursor-pointer" :key="contact" @click="$router.push(`/contacts/${contact.id}`)">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(contact.first_name) }}
         </td>

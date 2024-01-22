@@ -3,7 +3,7 @@
     <div class="md:flex md:items-center md:justify-between h-24">
       <div class="min-w-0 flex-1">
         <h2 class="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-2xl sm:tracking-tight">
-          {{ contact.first_name }} {{ contact.last_name }}</h2>
+      Contact    {{ contact.first_name }} {{ contact.last_name }}</h2>
       </div>
       <div class="mt-4 flex md:ml-4 md:mt-0">
         <button @click="$router.push(`/contacts/${contact.id}/edit`)"

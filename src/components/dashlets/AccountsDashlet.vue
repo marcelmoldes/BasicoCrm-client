@@ -16,7 +16,7 @@
       <tr v-if="accounts.length === 0">
         <td colspan="6" class="text-center text-gray-500 py-2">No accounts found</td>
       </tr>
-      <tr v-for="account in accounts" :key="account">
+      <tr v-for="account in accounts" class="hover:bg-gray-100 cursor-pointer" :key="account" @click="$router.push(`/accounts/${account.id}`)">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(account.name) }}
         </td>
