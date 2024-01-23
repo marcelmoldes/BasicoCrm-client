@@ -1,7 +1,7 @@
 <template>
   <div class="  py-2 border-2 border-gray-300  rounded-md">
     <h1 class="text-gray-600 text-xl ml-5 font-bold">Revenue Deal Chart</h1>
-    <canvas class="text-lg  text-blue-800 font-bold" id="revenueDeals"></canvas>
+    <canvas class="text-lg mt-10 p-2 text-blue-800 font-bold" id="revenueDeals"></canvas>
 
   </div>
 </template>
@@ -40,7 +40,7 @@ export default {
       });
 
       new Chart(document.getElementById("revenueDeals"), {
-        type: "line",
+        type: "bar",
         data: {
           labels,
           datasets: [

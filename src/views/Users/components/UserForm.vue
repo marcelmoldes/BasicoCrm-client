@@ -20,7 +20,16 @@
                      class="block p-2 w-full rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <div v-if="errors.last_name" class="text-sm text-red-400">{{ errors.last_name }}</div>
             </div>
-
+            <div class="sm:col-span-3">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Role</label>
+              <select v-model="form.role" :class="errors.role ? 'border border-red-300' : 'border-0'"
+                      class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <option v-for="role in options.role" :key="role.value" :value="role.value">
+                  {{ role.label }}
+                </option>
+              </select>
+              <div v-if="errors.role" class="text-sm text-red-400">{{ errors.role }}</div>
+            </div>
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
               <input v-model="form.email" autocomplete="email"
@@ -47,16 +56,34 @@ export default {
     return {
       formatters,
       form: {},
-      errors:{}
+      errors: {},
+      options: {
+        role: [],
+
+      },
     }
+
   },
   async mounted() {
+    this.loadOptions()
     if (this.$route.params.id) {
       await this.loadData();
+
     }
     this.$eventBus.on('saveUser', this.saveUser)
   },
   methods: {
+    async loadOptions() {
+      const response = await axios.get('http://localhost:8081/users/options',
+          {
+            headers: {
+              Authorization: this.token ? "Bearer " + this.token : null,
+            },
+          });
+      if (response.data.success) {
+        this.options = response.data.options;
+      }
+    },
     async loadData() {
       const response = await axios.get('http://localhost:8081/users/' + (this.$route.params.id ? this.$route.params.id : this.form.id),
           {

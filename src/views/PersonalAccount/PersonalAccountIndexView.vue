@@ -1,8 +1,7 @@
 <template>
-  <div class="ml-20 mt-20 ">
-
+  <div class="justify-center flex-1">
     <profile-details-form :user="user"></profile-details-form>
-    <change-password-form :user="user"></change-password-form>
+    <change-password-form :user="user" class=""></change-password-form>
   </div>
 
 

@@ -37,7 +37,8 @@
         <th class=" ml-5 text-sm font-semibold text-gray-900 sm:pl-0" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('first_name')">
             First Name
-            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+            <span :class="params.sortBy === 'first_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none text-center rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                     <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'first_name' && params.sortOrder === 'desc'"/>
                     <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
@@ -55,6 +56,16 @@
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('email')">
             E-mail
+            <span :class="params.sortBy === 'email' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none text-center rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
+                    <ChevronDownIcon v-if="params.sortBy === 'email' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronUpIcon v-else class="h-5 w-5"/>
+                  </span>
+          </a>
+        </th>
+        <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
+          <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('role')">
+            Role
             <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'email' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
                     <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'email' && params.sortOrder === 'desc'"/>
                     <ChevronUpIcon class="h-5 w-5" v-else/>
@@ -64,7 +75,8 @@
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('created_at')">
             Created at
-            <span class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200" :class="params.sortBy === 'created_at' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'">
+            <span :class="params.sortBy === 'created_at' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
+                  class="ml-2 flex-none  rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
                     <ChevronDownIcon class="h-5 w-5" v-if="params.sortBy === 'created_at' && params.sortOrder === 'desc'"/>
                     <ChevronUpIcon class="h-5 w-5" v-else/>
                   </span>
@@ -73,12 +85,20 @@
       </tr>
       <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
       <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/users/${record.id}`)">
-        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
+        <td class="whitespace-nowrap px-5  text-center  text-sm font-medium text-gray-900 ">
           {{ formatters.toProperCase(record.first_name) }}
         </td>
-        <td class="whitespace-nowrap   text-sm text-gray-500">{{ formatters.toProperCase(record.last_name) }}</td>
-        <td class="whitespace-nowrap  py-4 text-sm text-gray-500">{{ record.email }}</td>
-        <td class="whitespace-nowrap   text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
+        <td class="whitespace-nowrap  text-center text-sm text-gray-500">{{
+            formatters.toProperCase(record.last_name)
+          }}
+        </td>
+        <td class="whitespace-nowrap text-center py-4 text-sm text-gray-500">{{ record.email }}</td>
+        <td class="whitespace-nowrap text-center py-4 text-sm text-gray-500">{{ record.role }}</td>
+
+        <td class="whitespace-nowrap  text-center text-sm text-gray-500">{{
+            formatters.formatDate(record.created_at)
+          }}
+        </td>
       </tr>
       </tbody>
     </table>
