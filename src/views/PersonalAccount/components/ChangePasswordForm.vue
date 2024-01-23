@@ -10,20 +10,20 @@
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900" for="email">Current Password</label>
 
-            <input v-model="userPassword.first_name" :class="errors.first_name ? 'border border-red-300' : 'border-0'"
+            <input v-model="userPassword.currentPassword" :class="errors.currentPassword ? 'border border-red-300' : 'border-0'"
                    class="block border-2 w-full p-2 rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                    required
                    type="password">
-            <div v-if="errors.first_name" class="text-sm text-red-400">{{ errors.first_name }}</div>
+            <div v-if="errors.currentPassword" class="text-sm text-red-400">{{ errors.currentPassword }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
 
-            <input v-model="userPassword.last_name" :class="errors.last_name ? 'border border-red-300' : 'border-0'"
+            <input v-model="userPassword.newPassword" :class="errors.newPassword ? 'border border-red-300' : 'border-0'"
                    class="block w-full p-2 rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                    required
                    type="password">
-            <div v-if="errors.last_name" class="text-sm text-red-400">{{ errors.last_name }}</div>
+            <div v-if="errors.newPassword" class="text-sm text-red-400">{{ errors.newPassword }}</div>
           </div>
           <button
               class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
