@@ -6,7 +6,6 @@
         class="absolute top-0    transform-gpu overflow-hidden blur-xl  ">
       <div class="aspect-[651/100]  w-[50.0625rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-40"
            style="clip-path: polygon(6.1% 9.5%, 200% 17.1%, .6% 3%, 48.4% 0%, 44.6% 4.7%, 4.5% 25.3%, 9.8% 49%, 55.2% 57.8%, 4.4% 57.2%, 27.8% 7.9%, 3.1% 8.5%, 7% 97.7%, 39.2% 100%, 35.2% 81.4%, 7.2% 52.8%, 6.1% 29.5%)"></div>
-
       <div
           class="aspect-[801/300] mt-20  w-[50.25rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"
           style="clip-path: polygon(63.1% 9.5%, 200% 17.1%, 7.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"></div>
@@ -87,11 +86,12 @@
             </select>
             <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
           </div>
+        
           <div>
             <label class="block text-sm font-medium leading-6 text-white">Company Name</label>
-            <input v-model="form.company_name" :class="errors.company_name ? 'border-red-300' : 'border-gray-300'"
+            <input v-model="form.name" :class="errors.name ? 'border-red-300' : 'border-gray-300'"
                    class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <div v-if="errors.company_name" class="text-sm text-red-400">{{ errors.company_name }}</div>
+            <div v-if="errors.name" class="text-sm text-red-400">{{ errors.name }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-white" for="email">Website</label>
@@ -146,10 +146,11 @@ export default {
         last_name: "",
         email: "",
         password: "",
+
         employees: "",
         industry: "",
         annual_revenue: "",
-        company_name: "",
+        name: "",
         website: ""
       },
       errors: false,
@@ -160,7 +161,7 @@ export default {
     async save() {
       this.errors = false;
       this.error = false;
-      const response = await axios.post("http://localhost:8081/auth/register", + this.form);
+      const response = await axios.post("http://localhost:8081/auth/register", this.form);
 
       if (response.data.success) {
         this.$router.push("/login?action=registered");
