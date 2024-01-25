@@ -76,12 +76,7 @@
                    class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <div v-if="errors.annual_revenue" class="text-sm text-red-400">{{ errors.annual_revenue }}</div>
           </div>
-          <div class="">
-            <label class="block text-sm font-medium leading-6 text-white">Phone</label>
-            <input v-model="form.phone" :class="errors.phone ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <div v-if="errors.phone" class="text-sm text-red-400">{{ errors.phone }}</div>
-          </div>
+
           <div>
             <label class="block text-sm font-medium text-white">Industry</label>
             <select v-model="form.industry" :class="errors.industry ? 'border-red-300' : 'border-gray-300'"
@@ -147,7 +142,6 @@ export default {
   data() {
     return {
       form: {
-
         first_name: "",
         last_name: "",
         email: "",
@@ -166,7 +160,7 @@ export default {
     async save() {
       this.errors = false;
       this.error = false;
-      const response = await axios.post("http://localhost:8081/auth/register", +this.form);
+      const response = await axios.post("http://localhost:8081/auth/register", + this.form);
 
       if (response.data.success) {
         this.$router.push("/login?action=registered");
