@@ -86,7 +86,7 @@
             </select>
             <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
           </div>
-        
+
           <div>
             <label class="block text-sm font-medium leading-6 text-white">Company Name</label>
             <input v-model="form.name" :class="errors.name ? 'border-red-300' : 'border-gray-300'"

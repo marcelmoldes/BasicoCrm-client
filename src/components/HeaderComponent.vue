@@ -29,8 +29,8 @@
         <a class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500"
            @click="$router.push('/activities')">Activities</a>
       </div>
-      <div v-if="user" class="lg:flex ml-32 lg:gap-x-12">
-        <div class="relative ml-3">
+      <div class="lg:flex ml-32 lg:gap-x-12">
+        <div class="relative ml-3"  v-if="user">
           <div>
             <button id="user-menu-button" aria-expanded="false" aria-haspopup="true"
                     class="relative flex rounded-full  text-sm" type="button" @click="accountMenuOpen = accountMenuOpen !== true">
