@@ -22,9 +22,16 @@ import DealsIndexView from "@/views/Deals/DealsIndexView.vue";
 import UsersIndexView from "@/views/Users/UsersIndexView.vue";
 import UserEditView from "@/views/Users/UserEditView.vue";
 import UserDetailsView from "@/views/Users/UserDetailsView.vue";
+import HomeIndexView from "@/views/Home/HomeIndexView.vue";
 
 
 const routes = [
+    {
+        path: "/home",
+        name: "home",
+        component: HomeIndexView,
+    },
+
     {
         path: "/dashboard",
         name: "dashboard",

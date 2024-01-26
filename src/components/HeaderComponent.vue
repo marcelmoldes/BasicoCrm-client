@@ -1,9 +1,8 @@
 <template>
-  <header id="form" class="bg-gray-50">
+  <header id="form" class="">
     <nav class="hidden lg:flex items-center justify-between p-3.5 lg:px-12">
-
-      <a class="" href="/dashboard">
-        <img alt="" class="w-16 mr-20  rounded-md border border-gray-200" src="../assets/images/basico-logo.jpeg">
+      <a class="" href="/home">
+        <img alt="" class="w-28 rounded-md mr-20  " src="../assets/images/logo.png">
       </a>
 
       <div class="flex lg:hidden">

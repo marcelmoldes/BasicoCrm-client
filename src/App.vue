@@ -5,14 +5,17 @@
       <router-view :user="user" @sessionExpired="logUserOut(true)" @userLoggedIn="authenticateUser"/>
     </div>
   </div>
+  <footer-component v-if="!user"></footer-component>
 </template>
 
 <script>
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import Cookies from "js-cookie";
+import FooterComponent from "@/components/FooterComponent.vue";
 
 export default {
   components: {
+    FooterComponent,
     HeaderComponent
   },
   data() {
