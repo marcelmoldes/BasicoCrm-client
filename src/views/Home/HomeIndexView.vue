@@ -1,6 +1,10 @@
 <template>
- <home-description-card ></home-description-card>
-  <home-faq-card></home-faq-card>
+  <div class="text-center">
+    <home-description-card ></home-description-card>
+<home-get-started-card></home-get-started-card>
+    <home-faq-card></home-faq-card>
+  </div>
+
 
 
 
@@ -8,10 +12,12 @@
 <script>
 import HomeDescriptionCard from "@/views/Home/components/HomeDescriptionCard.vue";
 import HomeFaqCard from "@/views/Home/components/HomeFaqCard.vue";
+import HomeGetStartedCard from "@/views/Home/components/HomeGetStartedCard.vue";
+
 
 
 export  default  {
-  components:{HomeFaqCard, HomeDescriptionCard},
+  components:{HomeGetStartedCard, HomeFaqCard, HomeDescriptionCard},
   data() {
     return {
 

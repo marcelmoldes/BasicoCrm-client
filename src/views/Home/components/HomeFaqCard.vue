@@ -10,7 +10,7 @@
               <button aria-controls="faq-0" aria-expanded="false"
                       class="flex w-full items-start justify-between text-left text-gray-900" type="button"
                       @click="menuOpen1 = menuOpen1 ==! true">
-                <span class="text-base font-semibold leading-7">What&#039;s the best thing about Switzerland?</span>
+                <span class="text-base font-semibold leading-7">What problems does Basic Crm solve?</span>
                 <span class="ml-6 flex h-7 items-center">
 
                 <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -24,9 +24,19 @@
               </span>
               </button>
             </dt>
-            <dd v-if="menuOpen1" id="faq-0" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+            <dd v-if="menuOpen1" class="mt-2 pr-12">
+              <p class="text-base leading-7 text-gray-600">BasicoCrm solves these problems that you may have within your
+                company:
+                Long waiting time,
+                Lack of knowledge about products and services,
+                Schematic treatment of the customer,
+                No after-sale contact,
+                No customer history,
+                No interest in the customer's needs,
+                No contact-enabling tools,
+                Self-service,
+                Organization of the service office work
+              </p>
             </dd>
           </div>
           <div class="pt-6">
@@ -35,7 +45,7 @@
               <button aria-controls="faq-0" aria-expanded="false"
                       class="flex w-full items-start justify-between text-left text-gray-900" type="button"
                       @click="menuOpen2 = menuOpen2 ==! true">
-                <span class="text-base font-semibold leading-7">What&#039;s the best thing about Switzerland?</span>
+                <span class="text-base font-semibold leading-7">When BasicoCrm was created and for what reason?</span>
                 <span class="ml-6 flex h-7 items-center">
 
                 <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -50,8 +60,10 @@
               </button>
             </dt>
             <dd v-if="menuOpen2" id="faq-0" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+              <p class="text-base leading-7 text-gray-600">It was created in 2023, as part of an improvement and
+                experience project, by Marcel Moldes, choosing a CRM software as the one indicated, the most useful and
+                complete, where it can also solve problems in companies.
+              </p>
             </dd>
           </div>
           <div class="pt-6">
@@ -60,7 +72,7 @@
               <button aria-controls="faq-0" aria-expanded="false"
                       class="flex w-full items-start justify-between text-left text-gray-900" type="button"
                       @click="menuOpen3 = menuOpen3 ==! true">
-                <span class="text-base font-semibold leading-7">What&#039;s the best thing about Switzerland?</span>
+                <span class="text-base font-semibold leading-7">I need to pay to have BasicoCrm services?</span>
                 <span class="ml-6 flex h-7 items-center">
 
                 <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -75,8 +87,8 @@
               </button>
             </dt>
             <dd v-if="menuOpen3" id="faq-0" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+              <p class="text-base leading-7 text-gray-600">No, you do not need to pay, at the moment this CRM is completely free with all its functions, we need your support and trust to grow!
+             </p>
             </dd>
           </div>
           <div class="pt-6">
@@ -85,7 +97,7 @@
               <button aria-controls="faq-0" aria-expanded="false"
                       class="flex w-full items-start justify-between text-left text-gray-900" type="button"
                       @click="menuOpen4 = menuOpen4 ==! true">
-                <span class="text-base font-semibold leading-7">What&#039;s the best thing about Switzerland?</span>
+                <span class="text-base font-semibold leading-7">What functions are there in Basic Crm?</span>
                 <span class="ml-6 flex h-7 items-center">
 
                 <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -100,8 +112,7 @@
               </button>
             </dt>
             <dd v-if="menuOpen4" id="faq-0" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-600">I don&#039;t know, but the flag is a big plus. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.</p>
+              <p class="text-base leading-7 text-gray-600">A Dashboard with different grids, and visual tools, being able to create, edit, view and delete contacts, users, activities, your personal account where you can edit your information and password, some privileges like admin and more new things!</p>
             </dd>
           </div>
         </dl>
