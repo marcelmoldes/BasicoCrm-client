@@ -1,10 +1,13 @@
 <template>
-  <div class="bg-white mt-20">
-    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+  <div class="w-full mt-36">
+
+    <div class="mx-auto max-w-7xl  py-24 sm:py-32 lg:px-8 lg:py-40">
       <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
-        <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
-        <dl class="mt-10 space-y-6 divide-y divide-gray-900/10">
+     <img class="w-96 ml-60 " src="@/assets/images/Questions-bro.png">
+        <h2 class="text-2xl mt-3 font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
+        <dl class="mt-9 space-y-6 divide-y divide-gray-900/10">
           <div class="pt-6">
+
             <dt>
               <!-- Expand/collapse question button -->
               <button aria-controls="faq-0" aria-expanded="false"
@@ -87,7 +90,8 @@
               </button>
             </dt>
             <dd v-if="menuOpen3" id="faq-0" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-600">No, you do not need to pay, at the moment this CRM is completely free with all its functions, we need your support and trust to grow!
+              <p class="text-base leading-7 text-gray-600">No, you don't need to pay, at the moment this CRM is
+                completely free with all its functions, we need your support and trust to grow!
              </p>
             </dd>
           </div>

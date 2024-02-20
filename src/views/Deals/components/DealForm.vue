@@ -119,6 +119,7 @@ export default {
           });
       if (response.data.success) {
         Object.assign(this.deal, response.data.deal);
+        this.deal.close_date = formatters.formatDateYmd(this.deal.close_date)
       } else {
         this.$emit('sessionExpired');
       }

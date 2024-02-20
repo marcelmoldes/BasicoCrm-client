@@ -11,7 +11,7 @@
             <div>
               <label class="block text-sm font-medium leading-6 text-gray-900" for="email">First Name</label>
 
-              <input v-model="form.first_name" :class="errors.first_name ? 'border border-red-300' : 'border-0'"
+              <input value="first-name" v-model="form.first_name" :class="errors.first_name ? 'border border-red-300' : 'border-0'"
                      class="block border-2 w-full p-2 rounded-md  py-1.5 text-gray-900 shadow-sm    placeholder:text-gray-400 sm:text-sm sm:leading-6"
                      required>
             <div v-if="errors.first_name" class="text-sm text-red-400">{{ errors.first_name }}</div>

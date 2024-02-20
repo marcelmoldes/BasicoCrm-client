@@ -102,22 +102,25 @@
           </a>
         </th>
       </tr>
-      <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
-      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/contacts/${record.id}`)">
-        <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
-          {{ formatters.toProperCase(record.first_name) }}
-        </td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(record.last_name) }}</td>
-        <td class="whitespace-nowrap px-5  text-sm text-gray-500">
-          {{ formatters.formatPhoneNumber(record.PhoneNumber ? record.PhoneNumber.number : '-') }}
-        </td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.email }}</td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.website }}</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.lead_source }}</td>
+      <tbody class=" divide-y divide-blue-100 ">
+        <tr v-if="records.length === 0">
+          <td colspan="8" class="text-center text-gray-500 py-2">No contacts found</td>
+        </tr>
+        <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/contacts/${record.id}`)" v-for="record in records" :key="record">
+          <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
+            {{ formatters.toProperCase(record.first_name) }}
+          </td>
+          <td class="whitespace-nowrap px-5  text-sm text-gray-500">{{ formatters.toProperCase(record.last_name) }}</td>
+          <td class="whitespace-nowrap px-5  text-sm text-gray-500">
+            {{ formatters.formatPhoneNumber(record.PhoneNumber ? record.PhoneNumber.number : '-') }}
+          </td>
+          <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.email }}</td>
+          <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">{{ record.website }}</td>
+          <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.lead_source }}</td>
 
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}</td>
-        <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
-      </tr>
+          <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}</td>
+          <td class="whitespace-nowrap  px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
+        </tr>
       </tbody>
     </table>
     <div class="flex items-center justify-between">

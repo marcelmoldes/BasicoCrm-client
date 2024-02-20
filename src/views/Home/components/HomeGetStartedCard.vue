@@ -15,7 +15,7 @@
     <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
       <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
 
-        <h1 class="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">A basic and complete CRM</h1>
+        <h1 class="mt-10  max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">A basic and complete CRM</h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">Improve the organization of your company, control your clients, contacts, your sales, improve your business relationships, do it better!</p>
 
         <div class="mt-10 flex items-center gap-x-6">
@@ -24,7 +24,8 @@
       </div><img src="@/assets/images/working.jpg">
     </div>
     <div class="text-center">
-      <a href="/register" class="rounded-full bg-blue-600 hover:opacity-90  px-64 py-5 ml-40 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+
+      <a href="/register" class="rounded-full bg-blue-600 animate-pulse hover:opacity-90  px-64 py-5 ml-10 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
     </div>
 
   </div>
@@ -32,3 +33,7 @@
 
 
 </template>
+
+<style>
+
+</style>

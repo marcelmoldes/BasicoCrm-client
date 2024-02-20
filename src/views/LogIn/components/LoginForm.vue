@@ -48,12 +48,12 @@
         class="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
       <div class="mt-40 w-full mr-36 max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
         <div class="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
-          <div id="form" class="flex flex-col gap-y-6 px-12 py-12 justify-center inset-0 w-ful rounded-md shadow-gray-600 bg-blue-600 object-cover shadow-2xl">
+          <form @submit.prevent="login" class="flex flex-col gap-y-6 px-12 py-12 justify-center inset-0 w-ful rounded-md shadow-gray-600 bg-blue-600 object-cover shadow-2xl">
 
             <div class="flex flex-col gap-y-1">
               <label class="text-sm font-medium text-white ml-1" for="email">Email</label>
               <input id="email" v-model="user.email"
-                     class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="email"
+                     class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6" name="email"
                      placeholder="basicocrm@example.com"
                      type="email">
 
@@ -63,20 +63,20 @@
               <label class="text-sm font-medium text-white ml-1" for="password">Password</label>
 
               <input id="password" v-model="user.password"
-                     class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                     class="rounded-md px-5 border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                      placeholder="*******"
                      type="password">
 
             </div>
             <div v-if="error" class="bg-red-500 text-white  py-1 text-center text-sm">{{ error }}</div>
-            <button id="form"
+            <button
                     class="font-semibold border-gray-200 border rounded-full py-2 bg-blue-500 hover:opacity-90 text-white"
-                    @click="login" >
+                    type="submit">
             Login
             </button>
             <a href="/forgot-password"><h1 class="text-white text-center text-md">Forgot Password?
             </h1></a>
-          </div>
+          </form>
         </div>
       </div>
     </div>

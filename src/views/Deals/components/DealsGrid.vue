@@ -42,7 +42,8 @@
             <span
                 :class="params.sortBy === 'deal_name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                 class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
-                    <ChevronDownIcon v-if="params.sortBy === 'deal_name' && params.sortOrder === 'desc'" class="h-5 w-5"/>
+                    <ChevronDownIcon v-if="params.sortBy === 'deal_name' && params.sortOrder === 'desc'"
+                                     class="h-5 w-5"/>
                     <ChevronUpIcon v-else class="h-5 w-5"/>
                   </span>
           </a>
@@ -86,7 +87,7 @@
         </th>
         <th class=" py-3.5  text-sm font-semibold text-gray-900" scope="col">
           <a class="group inline-flex cursor-pointer" href.prevent="#" @click="toggleSortOrder('name')">
-         Account Name
+            Account Name
             <span
                 :class="params.sortBy === 'name' ? 'group-hover:bg-gray-200' : 'invisible group-hover:visible group-focus:visible'"
                 class="ml-2 flex-none rounded bg-gray-100 text-gray-900 group-hover:bg-gray-200">
@@ -122,25 +123,35 @@
                   </span>
           </a>
         </th>
-
       </tr>
-      <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
-      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/deals/${record.id}`)">
+      <tbody class=" divide-y divide-blue-100">
+      <tr v-if="records.length === 0">
+        <td colspan="7" class="text-center text-gray-500 py-2">No deals found</td>
+      </tr>
+      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/deals/${record.id}`)"
+          v-for="record in records" :key="record">
         <td class="whitespace-nowrap px-5 p  text-sm font-medium text-gray-900 ">
           {{ formatters.toProperCase(record.deal_name) }}
         </td>
-        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">${{ formatters.formatAmount(record.deal_value) }}</td>
+        <td class="whitespace-nowrap px-5 py-4 text-sm text-gray-500">${{
+            formatters.formatAmount(record.deal_value)
+          }}
+        </td>
         <td class="whitespace-nowrap text-center px-5 py-4 text-sm text-gray-500">{{ record.status }}</td>
 
         <td class="whitespace-nowrap px-5 text-center text-sm text-gray-500">
           {{ formatters.formatDate(record.close_date) }}
-        </td>    <td class="whitespace-nowrap text-center  px-5 text-sm text-gray-500">
+        </td>
+        <td class="whitespace-nowrap text-center  px-5 text-sm text-gray-500">
           {{ formatters.toProperCase(record.Account ? record.Account.name : '-') }}
         </td>
         <td class="whitespace-nowrap text-center px-5 text-sm text-gray-500">
           {{ record.User ? record.User.first_name + ' ' + record.User.last_name : '-' }}
         </td>
-        <td class="whitespace-nowrap text-center px-5 text-sm text-gray-500">{{ formatters.formatDate(record.created_at) }}</td>
+        <td class="whitespace-nowrap text-center px-5 text-sm text-gray-500">{{
+            formatters.formatDate(record.created_at)
+          }}
+        </td>
       </tr>
       </tbody>
     </table>

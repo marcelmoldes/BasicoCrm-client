@@ -6,13 +6,13 @@
       </div>
       <div class="px-4 py-4">
         <dl class="divide-y divide-gray-100">
-          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Due Date</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ formatters.formatDate(task.due_date) }}
             </dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Status</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ task.status }}</dd>
           </div>
@@ -20,7 +20,7 @@
             <dt class="text-sm font-medium leading-6 text-gray-900">Priority</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ task.priority }}</dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Account Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ formatters.toProperCase(task.Account ? task.Account.name + ' ' + task.Account.name : '-') }}
@@ -32,7 +32,7 @@
               {{ formatters.toProperCase(task.Deal ? task.Deal.deal_name + ' ' + task.Deal.deal_name : '-') }}
             </dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Contact Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ task.Contact ? (task.Contact.first_name + ' ' + task.Contact.last_name) : '-' }}

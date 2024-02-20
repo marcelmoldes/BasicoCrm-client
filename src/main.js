@@ -4,9 +4,10 @@ import "./assets/main.css";
 import store from "./store";
 import router from './router'
 import mitt from 'mitt'
+import clickoutside from './directives/v-click-outside'
 
 createApp(App).use(router).use(store).use({
     install: (app) => {
         app.config.globalProperties.$eventBus = mitt();
     }
-}).mount("#app");
+}).directive('click-outside', clickoutside).mount("#app");

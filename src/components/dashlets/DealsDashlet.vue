@@ -15,7 +15,9 @@
       </tr>
       </thead>
       <tbody class="divide-y divide-gray-200">
-
+      <tr v-if="deals.length === 0">
+        <td colspan="5" class="text-center text-gray-500 py-2">No deals found</td>
+      </tr>
       <tr class="hover:bg-gray-100 cursor-pointer" v-for="deal in deals" :key="deal" @click="$router.push(`/deals/${deal.id}`)">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(deal.deal_name) }}

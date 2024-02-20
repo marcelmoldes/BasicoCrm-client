@@ -27,8 +27,8 @@ import HomeIndexView from "@/views/Home/HomeIndexView.vue";
 
 const routes = [
     {
-        path: "/home",
-        name: "home",
+        path: "/BasicoCrm",
+        name: "BasicoCrm",
         component: HomeIndexView,
     },
 

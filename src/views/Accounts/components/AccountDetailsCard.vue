@@ -23,7 +23,7 @@
             </dd>
           </div>
 
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Industry</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ account.industry }}</dd>
           </div>
@@ -34,7 +34,7 @@
               {{ account.User ? account.User.first_name : '-' }}
             </dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Notes</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ account.notes }}

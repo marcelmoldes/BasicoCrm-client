@@ -1,10 +1,12 @@
 <template>
   <header id="form" class="">
     <nav class="hidden lg:flex items-center justify-between p-3.5 lg:px-12">
-      <a class="" href="/home">
+      <a v-if="!user"  href="/BasicoCrm">
         <img alt="" class="w-28 rounded-md mr-20  " src="../assets/images/logo.png">
       </a>
-
+      <a  v-if="user"  href="/dashboard">
+        <img alt="" class="w-28 rounded-md mr-20  " src="../assets/images/logo.png">
+      </a>
       <div class="flex lg:hidden">
         <button class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-indigo-300" type="button">
           <span class="sr-only">Open main menu</span>
@@ -28,7 +30,8 @@
         <a class="text-sm hover:text-gray-600 cursor-pointer  hover:underline  font-semibold leading-6 text-gray-500"
            @click="$router.push('/activities')">Activities</a>
       </div>
-      <div class="lg:flex ml-32 lg:gap-x-12">
+      <div class="lg:flex ml-32 lg:gap-x-12"
+           v-click-outside="closeMenu">
         <div class="relative ml-3"  v-if="user">
           <div>
             <button id="user-menu-button" aria-expanded="false" aria-haspopup="true"
@@ -42,12 +45,13 @@
           </div>
           <div v-if="accountMenuOpen"
               aria-labelledby="user-menu-button" aria-orientation="vertical" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu"
-              tabindex="-1">
+              tabindex="-1"
+          >
             <a id="user-menu-item-0" class="block px-4 py-2 text-sm text-gray-700" href="/personal-account" role="menuitem"
                tabindex="-1">Your Profile</a>
             <a id="user-menu-item-1" class="block px-4 py-2 text-sm text-gray-700" href="/users" role="menuitem"
-               tabindex="-1">Users Management</a>
-            <a id="user-menu-item-2" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+               tabindex="-1" v-if="user.role === 'admin'">Users Management</a>
+            <a id="user-menu-item-2" class="block cursor-pointer px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                @click="$emit('logUserOut')">Sign out</a>
           </div>
         </div>
@@ -116,6 +120,11 @@ export default {
     return {
       isVisible: true,
       accountMenuOpen: false
+    }
+  },
+  methods: {
+    closeMenu() {
+      this.accountMenuOpen = false;
     }
   }
 }

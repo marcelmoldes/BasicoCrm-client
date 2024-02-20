@@ -8,13 +8,13 @@
 
       <div class="px-4 py-4">
         <dl class="divide-y divide-gray-100">
-          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Activity Date</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ formatters.formatDate(activity.activity_date) }}
             </dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Location</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ activity.location }}</dd>
           </div>
@@ -24,7 +24,7 @@
               {{ formatters.toProperCase(activity.Account ? activity.Account.name + ' ' + activity.Account.name : '-') }}
             </dd>
           </div>
-          <div class="bg-white px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
+          <div class="bg-gray-50 px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-3">
             <dt class="text-sm font-medium leading-6 text-gray-900">Deal Name</dt>
             <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {{ formatters.toProperCase(activity.Deal ? activity.Deal.deal_name + ' ' + activity.Deal.deal_name : '-') }}

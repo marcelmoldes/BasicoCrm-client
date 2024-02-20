@@ -6,7 +6,7 @@
     </div>
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
-      <tr >
+      <tr>
         <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0" scope="col">Title</th>
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Activity Date</th>
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Notes</th>

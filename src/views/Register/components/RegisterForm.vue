@@ -46,33 +46,33 @@
 
   <div class="flex-col flex   justify-center  lg:px-36">
 
-    <div id="form" class="py-4 px-4 shadow-2xl shadow-gray-700 bg-blue-600 sm:mx-auto  rounded-md ">
+    <div class="py-4 px-4 shadow-2xl shadow-gray-700 bg-blue-600 sm:mx-auto  rounded-md ">
 
-      <form action="#" class="flex flex-col space-y-4" method="POST">
+      <form class="flex flex-col space-y-4" @submit.prevent="save">
         <div class="grid grid-cols-2 gap-x-4 gap-y-2">
           <div class="">
             <label class="block text-sm font-medium leading-6 text-white" for="email">First
               Name</label>
             <input v-model="form.first_name" :class="errors.first_name ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6">
             <div v-if="errors.first_name" class="text-sm text-red-400">{{ errors.first_name }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-white">Last Name</label>
             <input v-model="form.last_name" :class="errors.last_name ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6">
             <div v-if="errors.last_name" class="text-sm text-red-400">{{ errors.last_name }}</div>
           </div>
           <div class="">
             <label class="block text-sm font-medium leading-6 text-white">Number Of Employees</label>
             <input v-model="form.employees" :class="errors.employees ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6">
             <div v-if="errors.employees" class="text-sm text-red-400">{{ errors.employees }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-white" for="email">Annual Revenue</label>
             <input v-model="form.annual_revenue" :class="errors.annual_revenue ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 f sm:text-sm sm:leading-6">
             <div v-if="errors.annual_revenue" class="text-sm text-red-400">{{ errors.annual_revenue }}</div>
           </div>
 
@@ -90,19 +90,19 @@
           <div>
             <label class="block text-sm font-medium leading-6 text-white">Company Name</label>
             <input v-model="form.name" :class="errors.name ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
             <div v-if="errors.name" class="text-sm text-red-400">{{ errors.name }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-white" for="email">Website</label>
             <input v-model="form.website" :class="errors.website ? 'border-red-300' : 'border-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6">
             <div v-if="errors.website" class="text-sm text-red-400">{{ errors.website }}</div>
           </div>
           <div>
             <label class="block text-sm font-medium leading-6 text-white" for="email">Email address</label>
             <input v-model="form.email" :class="errors.email ? 'border-red-300' : 'ring-gray-300'"
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                    type="email">
             <div v-if="errors.email" class="text-sm text-red-400">{{ errors.email }}</div>
           </div>
@@ -111,7 +111,7 @@
               <label class="block text-sm font-medium leading-6 text-white" for="password">Password</label>
             </div>
             <input v-model="form.password" :class="errors.password ? 'border-red-300' : 'border-gray-300' "
-                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   class="p-3 rounded-md border-2 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
                    type="password">
             <div v-if="errors.password" class="text-sm text-red-400">{{ errors.password }}</div>
           </div>
@@ -122,8 +122,7 @@
         </div>
         <button
                 class="font-semibold border-gray-200 border rounded-full py-2 bg-blue-500 hover:opacity-90 text-white"
-                type="button"
-                @click="save">
+                type="submit">
           Register
         </button>
       </form>
@@ -146,7 +145,6 @@ export default {
         last_name: "",
         email: "",
         password: "",
-
         employees: "",
         industry: "",
         annual_revenue: "",

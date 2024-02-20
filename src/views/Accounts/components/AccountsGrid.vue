@@ -109,8 +109,11 @@
           </a>
         </th>
       </tr>
-      <tbody v-for="record in records" :key="record" class=" divide-y divide-blue-100 ">
-      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/accounts/${record.id}`)">
+      <tbody class=" divide-y divide-blue-100">
+      <tr v-if="records.length === 0">
+        <td colspan="8" class="text-center text-gray-500 py-2">No accounts found</td>
+      </tr>
+      <tr class="hover:bg-gray-100 cursor-pointer" @click="$router.push(`/accounts/${record.id}`)" v-for="record in records" :key="record">
         <td class="whitespace-nowrap px-5 p text-center  text-sm font-medium text-gray-900 ">
           {{ record.name}}
         </td>
