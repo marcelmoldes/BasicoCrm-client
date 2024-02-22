@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     async getTasks() {
-      const response = await axios.get('http://localhost:8081/tasks?recordsPerPage=5',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'tasks?recordsPerPage=5',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -66,7 +66,7 @@ export default {
       }
     },
     async getDeals() {
-      const response = await axios.get('http://localhost:8081/deals?recordsPerPage=5',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'deals?recordsPerPage=5',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -79,7 +79,7 @@ export default {
       }
     },
     async getContacts() {
-      const response = await axios.get('http://localhost:8081/contacts?recordsPerPage=5',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'contacts?recordsPerPage=5',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -92,7 +92,7 @@ export default {
       }
     },
     async getAccounts() {
-      const response = await axios.get('http://localhost:8081/accounts?recordsPerPage=5',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'accounts?recordsPerPage=5',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,

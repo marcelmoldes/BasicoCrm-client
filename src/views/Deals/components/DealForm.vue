@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     async loadOptions() {
-      const response = await axios.get('http://localhost:8081/deals/options',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'deals/options',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -111,7 +111,7 @@ export default {
       }
     },
     async loadData() {
-      const response = await axios.get('http://localhost:8081/deals/' + (this.$route.params.id ? this.$route.params.id : this.deal.id),
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'deals/' + (this.$route.params.id ? this.$route.params.id : this.deal.id),
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,

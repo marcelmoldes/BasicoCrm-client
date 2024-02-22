@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     async loadOptions() {
-      const response = await axios.get('http://localhost:8081/activities/options',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'activities/options',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -128,7 +128,7 @@ export default {
       }
     },
     async loadData() {
-      const response = await axios.get('http://localhost:8081/activities/' + (this.$route.params.id ? this.$route.params.id : this.activity.id),
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'activities/' + (this.$route.params.id ? this.$route.params.id : this.activity.id),
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,

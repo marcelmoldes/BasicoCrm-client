@@ -180,7 +180,7 @@ export default {
   },
   methods: {
     async fetchRecords() {
-      const response = await axios.get('http://localhost:8081/users',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'users',
           {
             params: this.params,
             headers: {

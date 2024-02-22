@@ -42,7 +42,7 @@ export  default  {
   },
   methods: {
     async getKpis() {
-      const response = await axios.get('http://localhost:8081/analytics/kpis',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'analytics/kpis',
 
           {
             headers: {

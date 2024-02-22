@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     async loadData() {
-      const response = await axios.get('http://localhost:8081/tasks/' + this.$route.params.id,
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'tasks/' + this.$route.params.id,
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,

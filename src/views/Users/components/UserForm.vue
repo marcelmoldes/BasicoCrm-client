@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     async loadOptions() {
-      const response = await axios.get('http://localhost:8081/users/options',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'users/options',
           {
             headers: {
               Authorization: this.token ? "Bearer " + this.token : null,
@@ -85,7 +85,7 @@ export default {
       }
     },
     async loadData() {
-      const response = await axios.get('http://localhost:8081/users/' + (this.$route.params.id ? this.$route.params.id : this.form.id),
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'users/' + (this.$route.params.id ? this.$route.params.id : this.form.id),
           {
             headers: {
               Authorization: this.token ? "Bearer " + this.token : null,

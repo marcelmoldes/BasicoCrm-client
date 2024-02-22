@@ -213,7 +213,7 @@ export default {
   },
   methods: {
     async fetchRecords() {
-      const response = await axios.get('http://localhost:8081/accounts',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'accounts',
           {
             params: this.params,
             headers: {

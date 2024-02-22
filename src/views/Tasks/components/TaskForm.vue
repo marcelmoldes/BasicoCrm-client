@@ -139,7 +139,7 @@ export default {
   },
   methods: {
     async loadOptions() {
-      const response = await axios.get('http://localhost:8081/tasks/options',
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'tasks/options',
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -150,7 +150,7 @@ export default {
       }
     },
     async loadData() {
-      const response = await axios.get('http://localhost:8081/tasks/' + (this.$route.params.id ? this.$route.params.id : this.task.id),
+      const response = await axios.get(process.env.VUE_APP_API_URL + 'tasks/' + (this.$route.params.id ? this.$route.params.id : this.task.id),
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
