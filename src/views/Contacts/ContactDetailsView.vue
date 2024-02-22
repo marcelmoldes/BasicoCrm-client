@@ -69,7 +69,7 @@ export default {
       );
       if (confirmDelete) {
         await axios.delete(
-            "http://localhost:8081/contacts/" + contactId,
+            process.env.VUE_APP_API_URL + "/contacts/" + contactId,
             {
               headers: {
                 Authorization: this.user ? "Bearer " + this.user.token : null,

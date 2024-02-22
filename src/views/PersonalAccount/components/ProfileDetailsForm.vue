@@ -79,7 +79,7 @@ export default {
 
     async loadData() {
       let response = await axios.get(
-          "http://localhost:8081/users/" + this.user.id,
+          process.env.VUE_APP_API_URL + "/users/" + this.user.id,
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
@@ -91,7 +91,7 @@ export default {
     async save() {
       this.error = false;
       let response = await axios.put(
-          "http://localhost:8081/users/" + this.user.id,
+          process.env.VUE_APP_API_URL + "/users/" + this.user.id,
           this.form,
           {
             headers: {
@@ -118,7 +118,7 @@ export default {
       );
       if (confirmDelete) {
         await axios.delete(
-            "http://localhost:8081/users/" + userId,
+            process.env.VUE_APP_API_URL + "/users/" + userId,
 
             {
               headers: {

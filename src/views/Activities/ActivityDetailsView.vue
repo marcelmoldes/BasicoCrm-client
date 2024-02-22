@@ -77,7 +77,7 @@ export default {
       );
       if (confirmDelete) {
         await axios.delete(
-            "http://localhost:8081/activities/" + activityId,
+            process.env.VUE_APP_API_URL + "/activities/" + activityId,
             {
               headers: {
                 Authorization: this.user ? "Bearer " + this.user.token : null,

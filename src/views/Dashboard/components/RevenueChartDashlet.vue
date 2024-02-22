@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     async drawDealsChart() {
-      const response = await axios.get("http://localhost:8081/analytics/stats", {
+      const response = await axios.get(process.env.VUE_APP_API_URL + "/analytics/stats", {
         headers: {
           Authorization: this.user ? "Bearer " + this.user.token : null,
         },

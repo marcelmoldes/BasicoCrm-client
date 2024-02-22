@@ -169,7 +169,7 @@ export default {
       this.errors = {}
       if (this.task.id) {
         response = await axios.put(
-            "http://localhost:8081/tasks/" + this.task.id,
+            process.env.VUE_APP_API_URL + "/tasks/" + this.task.id,
             this.task,
             {
               headers: {
@@ -179,7 +179,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/tasks/",
+            process.env.VUE_APP_API_URL + "/tasks/",
             this.task,
             {
               headers: {

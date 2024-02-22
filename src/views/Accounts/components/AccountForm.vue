@@ -189,7 +189,7 @@ export default {
       this.errors = {}
       if (this.account.id) {
         response = await axios.put(
-            "http://localhost:8081/accounts/" + this.account.id,
+            process.env.VUE_APP_API_URL + "/accounts/" + this.account.id,
             this.account,
             {
               headers: {
@@ -199,7 +199,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/accounts/",
+            process.env.VUE_APP_API_URL + "/accounts/",
             this.account,
             {
               headers: {

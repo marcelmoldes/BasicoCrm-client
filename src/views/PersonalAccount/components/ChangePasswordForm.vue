@@ -69,7 +69,7 @@ export default {
   methods: {
     async changePassword() {
       this.error = false
-      let response = await axios.post("http://localhost:8081/auth/" + this.user.id + "/changePassword",
+      let response = await axios.post(process.env.VUE_APP_API_URL + "/auth/" + this.user.id + "/changePassword",
           {
             currentPassword: this.userPassword.currentPassword,
             newPassword: this.userPassword.newPassword

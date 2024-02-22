@@ -103,7 +103,7 @@ export default {
   methods: {
     async login() {
       this.error = false;
-      const response = await axios.post("http://localhost:8081/auth/login",{
+      const response = await axios.post(process.env.VUE_APP_API_URL + "/auth/login",{
         email: this.user.email,
         password: this.user.password
       });

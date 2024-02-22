@@ -103,7 +103,7 @@ export default {
       this.errors = {}
       if (this.form.id) {
         response = await axios.put(
-            "http://localhost:8081/users/" + this.form.id,
+            process.env.VUE_APP_API_URL + "/users/" + this.form.id,
             this.form,
             {
               headers: {
@@ -113,7 +113,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/users/",
+            process.env.VUE_APP_API_URL + "/users/",
             this.form,
             {
               headers: {

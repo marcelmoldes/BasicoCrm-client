@@ -84,7 +84,7 @@ export default {
     async forgotPassword() {
       this.error = false;
       let response = await axios.post(
-          "http://localhost:8081/auth/" + this.user.id + "/forgotPassword",
+          process.env.VUE_APP_API_URL + "/auth/" + this.user.id + "/forgotPassword",
           {
             email: this.user.email,
           }

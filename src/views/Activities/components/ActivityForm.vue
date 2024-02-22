@@ -148,7 +148,7 @@ export default {
       this.errors = {}
       if (this.activity.id) {
         response = await axios.put(
-            "http://localhost:8081/activities/" + this.activity.id,
+            process.env.VUE_APP_API_URL + "/activities/" + this.activity.id,
             this.activity,
             {
               headers: {
@@ -158,7 +158,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/activities/",
+            process.env.VUE_APP_API_URL + "/activities/",
             this.activity,
             {
               headers: {

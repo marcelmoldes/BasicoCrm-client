@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async dealsFunnel() {
-      const response = await axios.get("http://localhost:8081/analytics/funnelDealStats", {
+      const response = await axios.get(process.env.VUE_APP_API_URL + "/analytics/funnelDealStats", {
         headers: {
           Authorization: this.user ? "Bearer " + this.user.token : null,
         },

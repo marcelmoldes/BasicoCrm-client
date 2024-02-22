@@ -130,7 +130,7 @@ export default {
       this.errors = {}
       if (this.deal.id) {
         response = await axios.put(
-            "http://localhost:8081/deals/" + this.deal.id,
+            process.env.VUE_APP_API_URL + "/deals/" + this.deal.id,
             this.deal,
             {
               headers: {
@@ -140,7 +140,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/deals/",
+            process.env.VUE_APP_API_URL + "/deals/",
             this.deal,
             {
               headers: {

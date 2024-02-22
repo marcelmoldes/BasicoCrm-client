@@ -159,7 +159,7 @@ export default {
     async save() {
       this.errors = false;
       this.error = false;
-      const response = await axios.post("http://localhost:8081/auth/register", this.form);
+      const response = await axios.post(process.env.VUE_APP_API_URL + "/auth/register", this.form);
 
       if (response.data.success) {
         this.$router.push("/login?action=registered");

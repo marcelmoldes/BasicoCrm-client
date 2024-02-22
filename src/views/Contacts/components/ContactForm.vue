@@ -216,7 +216,7 @@ export default {
       this.errors = {}
       if (this.contact.id) {
         response = await axios.put(
-            "http://localhost:8081/contacts/" + this.contact.id,
+            process.env.VUE_APP_API_URL + "/contacts/" + this.contact.id,
             this.contact,
             {
               headers: {
@@ -226,7 +226,7 @@ export default {
         );
       } else {
         response = await axios.post(
-            "http://localhost:8081/contacts/",
+            process.env.VUE_APP_API_URL + "/contacts/",
             this.contact,
             {
               headers: {
