@@ -198,7 +198,7 @@ export default {
   },
   methods: {
     async fetchRecords() {
-      const response = await axios.get(process.env.VUE_APP_API_URL + 'contacts',
+      const response = await axios.get(process.env.VUE_APP_API_URL + '/contacts',
           {
             params: this.params,
             headers: {

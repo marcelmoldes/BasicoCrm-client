@@ -198,7 +198,7 @@ export default {
   },
   methods: {
     async loadData() {
-      const response = await axios.get(process.env.VUE_APP_API_URL + 'contacts/' + (this.$route.params.id ? this.$route.params.id : this.contact.id),
+      const response = await axios.get(process.env.VUE_APP_API_URL + '/contacts/' + (this.$route.params.id ? this.$route.params.id : this.contact.id),
           {
             headers: {
               Authorization: this.user ? "Bearer " + this.user.token : null,
