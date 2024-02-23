@@ -34,8 +34,7 @@
             type="submit">
           Login
         </button>
-        <a href="/forgot-password"><h1 class="text-white text-center text-md">Forgot Password?
-        </h1></a>
+        <a href="/forgot-password" class="text-white text-center text-md">Forgot Password?</a>
       </form>
     </div>
   </div>

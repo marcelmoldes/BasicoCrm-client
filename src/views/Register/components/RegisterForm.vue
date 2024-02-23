@@ -73,6 +73,7 @@
             type="submit">
           Register
         </button>
+        <a href="/login" class="text-white text-center text-md">Already have an account? Click here</a>
       </form>
     </div>
   </div>

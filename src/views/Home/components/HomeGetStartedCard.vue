@@ -23,9 +23,8 @@
           <img src="@/assets/images/logo.png" class=" w-20 " alt=""> </div>
       </div><img src="@/assets/images/working.jpg">
     </div>
-    <div class="text-center">
-
-      <a href="/register" class="rounded-full bg-blue-600 animate-pulse hover:opacity-90  px-24 md:px-64 py-5 ml-10 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+    <div class="text-center mt-12 md:mt-0 ">
+      <button         @click="$router.push('/register')" class="bg-blue-400 delay-150 transition ease-in-out hover:-translate-y-1 hover:scale-110  animate-bounce hover:bg-blue-500  text-pretty text-lg font-bold px-36 py-4 rounded text-white"  >Get started</button>
     </div>
 
   </div>
@@ -34,6 +33,16 @@
 
 </template>
 
-<style>
+<style scoped>
+button {
+  display: inline-block;
+
+  cursor: pointer;
+  transition: background-color 1s ease;
+}
+
+
 
 </style>
+<script setup>
+</script>
