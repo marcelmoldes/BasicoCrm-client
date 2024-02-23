@@ -185,7 +185,6 @@ export default {
   props: ['user'],
   data() {
     return {
-      options,
       formatters,
       contact: {
         PhoneNumber: {
@@ -193,6 +192,7 @@ export default {
         },
         Address: {}
       },
+
       errors: {}
     }
   },
