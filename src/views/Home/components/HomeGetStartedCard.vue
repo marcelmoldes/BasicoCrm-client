@@ -22,6 +22,7 @@
           <img src="@/assets/images/logo.png" class=" w-20 " alt=""> </div>
       </div><img src="@/assets/images/working.jpg">
     </div>
+<<<<<<< HEAD
 
     <div class="text-center mt-12 md:mt-0 ">
       <button         @click="$router.push('/register')" class="bg-blue-400 delay-150 transition ease-in-out hover:-translate-y-1 hover:scale-110  animate-bounce hover:bg-blue-500  text-pretty text-lg font-bold px-36 py-4 rounded text-white"  >Get started</button>
@@ -29,6 +30,15 @@
     <div class="text-center mt-12 md:mt-0 px-12 md:px-0">
       <a href="/register" class="rounded-full bg-blue-600 block w-full md:px-64 py-5 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
 
+=======
+<<<<<<< HEAD
+    <div class="text-center mt-12 md:mt-0 ">
+      <button         @click="$router.push('/register')" class="bg-blue-400 delay-150 transition ease-in-out hover:-translate-y-1 hover:scale-110  animate-bounce hover:bg-blue-500  text-pretty text-lg font-bold px-36 py-4 rounded text-white"  >Get started</button>
+=======
+    <div class="text-center mt-12 md:mt-0 px-12 md:px-0">
+      <a href="/register" class="rounded-full bg-blue-600 block w-full md:px-64 py-5 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+>>>>>>> origin/main
+>>>>>>> origin/main
     </div>
 
   </div>

@@ -1,9 +1,22 @@
 <template>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/main
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">BasicoCRM</span>
         <img class="h-16 w-auto" src="../assets/images/logo.png" alt="">
+<<<<<<< HEAD
+=======
+=======
+  <header id="form" class="">
+    <nav class="hidden lg:flex items-center justify-between p-3.5 lg:px-12">
+      <a v-if="!user"  href="/">
+        <img alt="" class="w-28 rounded-md mr-20  " src="../assets/images/logo.png">
+>>>>>>> origin/main
+>>>>>>> origin/main
       </a>
     </div>
     <div class="flex lg:hidden">
