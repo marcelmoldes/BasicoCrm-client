@@ -70,8 +70,6 @@
         </button>
       </div>
     </div>
-
-
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
   <div class="lg:hidden" role="dialog" aria-modal="true" v-if="mobileMenuOpen">
