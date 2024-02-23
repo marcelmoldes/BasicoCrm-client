@@ -184,8 +184,15 @@ import formatters from "@/helpers/formatters";
 export default {
   props: ['user'],
   data() {
+
     return {
       formatters,
+      options:{
+        industry: [],
+        lead_source: [],
+        lead_status: [],
+
+      },
       contact: {
         PhoneNumber: {
           country_code: "01"
@@ -198,6 +205,7 @@ export default {
   },
   async mounted() {
     this.loadOptions()
+
     if (this.$route.params.id) {
       await this.loadData();
     }
