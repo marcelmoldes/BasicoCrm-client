@@ -1,13 +1,9 @@
 <template>
   <div class="text-center">
     <home-description-card ></home-description-card>
-<home-get-started-card></home-get-started-card>
+    <home-get-started-card></home-get-started-card>
     <home-faq-card></home-faq-card>
   </div>
-
-
-
-
 </template>
 <script>
 import HomeDescriptionCard from "@/views/Home/components/HomeDescriptionCard.vue";

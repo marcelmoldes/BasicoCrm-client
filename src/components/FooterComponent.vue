@@ -1,11 +1,11 @@
 <template>
-  <footer class="bg-gray-50 mt-56">
+  <footer class="bg-gray-50 mt-12 md:mt-56">
     <div class="mx-auto max-w-7xl overflow-hidden px-6 py-10 sm:py-10 lg:px-8">
       <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
-        <div class="pb-6">
+        <div class="pb-6 text-center">
           <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">About</a>
         </div>
-        <div class="pb-6">
+        <div class="pb-6 text-center">
           <a href="#" class="text-sm leading-6 text-gray-600 hover:text-gray-900">CRM</a>
         </div>
 

@@ -1,6 +1,5 @@
 <template>
-  <div class="flex ml-20 mt-20">
-
+  <div class="mx-auto text-center max-w-xl px-4">
     <forgot-password-form :user="user"></forgot-password-form>
   </div>
 

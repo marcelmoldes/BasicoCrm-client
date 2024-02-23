@@ -1,10 +1,10 @@
 <template>
   <div class="space-y-10 divide-y divide-gray-900/10">
-    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
-      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Account Information</h2>
-      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+    <div class="grid mr-2 md:grid-cols-3">
+      <h2 class="text-lg px-3 font-semibold leading-7 ml-2 text-gray-900">Account Information</h2>
+      <form class="bg-white  shadow-sm m-2 ml-4 ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
-          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="grid max-w-xl grid-cols-1  gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Account Name</label>
               <input v-model="account.name" :class="errors.name ? 'border border-red-300' : 'border-0'"
@@ -49,8 +49,6 @@
                      class="block w-full p-2 rounded-md  py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <div v-if="errors.employees" class="text-sm text-red-400">{{ errors.employees }}</div>
             </div>
-
-
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900">Notes</label>
               <textarea v-model="account.notes" :class="errors.notes ? 'border border-red-300' : 'border-0 '"
@@ -59,16 +57,14 @@
               <div v-if="errors.notes" class="text-sm text-red-400">{{ errors.notes }}</div>
             </div>
           </div>
-
-
         </div>
       </form>
     </div>
-    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
-      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Address Information</h2>
-      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3" v-if="account.Address">
+      <h2 class="text-lg px-3 ml-2 font-semibold leading-7 text-gray-900">Address Information</h2>
+      <form class="bg-white ml-4 mt-3 shadow-sm m-2 ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
-          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="grid max-w-xl m4 gap-x-6 gap-y-8 grid-cols-1  sm:grid-cols-6">
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">StreetAddress 1</label>
               <input v-model="account.Address.street_address1"

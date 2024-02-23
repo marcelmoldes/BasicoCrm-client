@@ -1,5 +1,5 @@
 <template>
-  <div class="flex ml-20 mt-20">
+  <div class="mx-auto text-center max-w-2xl px-4">
     <register-form></register-form>
   </div>
 </template>

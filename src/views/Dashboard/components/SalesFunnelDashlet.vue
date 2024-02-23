@@ -59,8 +59,8 @@ export default {
 
 <style scoped>
 #salesDealFunnel {
-  height: 1164px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: auto;
 }
 </style>

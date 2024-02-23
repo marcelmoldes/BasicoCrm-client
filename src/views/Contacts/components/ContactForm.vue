@@ -1,11 +1,11 @@
 <template>
   <div class="space-y-10 divide-y divide-gray-900/10">
-    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
-      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Contact Information</h2>
+    <div class="grid mr-2  md:grid-cols-3">
+      <h2 class="text-lg px-5 font-semibold leading-7 text-gray-900">Contact Information</h2>
 
-      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+      <form class="bg-white shadow-sm m-2 ml-4  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
-          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="grid max-w-xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">First name</label>
 
@@ -116,10 +116,10 @@
       </form>
     </div>
     <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3" v-if="contact.Address">
-      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Address Information</h2>
-      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+      <h2 class="text-lg px-5 font-semibold leading-7 text-gray-900">Address Information</h2>
+      <form class="bg-white shadow-sm ml-4 mt-3  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
-          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="grid max-w-xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900" for="first-name">StreetAddress 1</label>
               <input v-model="contact.Address.street_address1" :class="errors.street_address1 ? 'border border-red-300' : 'border-0 '"
@@ -191,7 +191,6 @@ export default {
         industry: [],
         lead_source: [],
         lead_status: [],
-
       },
       contact: {
         PhoneNumber: {

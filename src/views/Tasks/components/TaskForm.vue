@@ -1,10 +1,10 @@
 <template>
   <div class="space-y-10 divide-y divide-gray-900/10">
-    <div class="grid mr-2 grid-cols-1 pt-10 md:grid-cols-3">
-      <h2 class="text-lg px-36 font-semibold leading-7 text-gray-900">Task Information</h2>
-      <form class="bg-white shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
+    <div class="grid mr-2  md:grid-cols-3">
+      <h2 class="text-lg px-5 font-semibold leading-7 text-gray-900">Task Information</h2>
+      <form class="bg-white m-2 ml-4  shadow-sm  ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
         <div class="px-4 py-6 sm:p-8">
-          <div class="grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="grid max-w-xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
             <div class="sm:col-span-3">
               <label class="block text-sm font-medium leading-6 text-gray-900" for="last-name">Due Date</label>

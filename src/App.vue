@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-component :user="user" @logUserOut="logUserOut"></header-component>
-    <div class="px-12 pb-12">
+    <div class="md:px-12 pb-12">
       <router-view :user="user" @sessionExpired="logUserOut(true)" @userLoggedIn="authenticateUser"/>
     </div>
   </div>

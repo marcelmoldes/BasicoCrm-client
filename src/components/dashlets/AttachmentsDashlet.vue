@@ -8,7 +8,7 @@
       <tr>
         <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0" scope="col">Name</th>
         <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Path</th>
-        <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Date Added</th>
+        <th class=" hidden md:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900" scope="col">Date Added</th>
 
 
       </tr>
@@ -24,7 +24,7 @@
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ attachment.path }}
         </td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+        <td class="hidden md:table-cell whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ formatters.formatDate(attachment.created_at) }}
         </td>
 

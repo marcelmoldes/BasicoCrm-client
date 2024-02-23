@@ -5,10 +5,10 @@
       <thead>
       <tr>
         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Account Name</th>
-        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Phone</th>
-        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Website</th>
-        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Address</th>
-        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Industry</th>
+        <th scope="col" class="hidden md:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Phone</th>
+        <th scope="col" class="hidden md:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Website</th>
+        <th scope="col" class="hidden md:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Address</th>
+        <th scope="col" class=" px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Industry</th>
         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Revenue</th>
       </tr>
       </thead>
@@ -20,14 +20,14 @@
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
           {{ formatters.toProperCase(account.name) }}
         </td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+        <td class="hidden md:table-cell whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ formatters.formatPhoneNumber(account.PhoneNumber ? account.PhoneNumber.number : '-') }}
         </td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ account.website }}</td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+        <td class="hidden md:table-cell whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ account.website }}</td>
+        <td class="hidden md:table-cell whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ account.Address ? account.Address.street_address1 : '-' }}
         </td>
-        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ account.industry }}</td>
+        <td class=" whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ account.industry }}</td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
           {{ formatters.formatAmount(account.annual_revenue, '$') }}
         </td>

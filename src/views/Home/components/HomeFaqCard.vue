@@ -1,9 +1,9 @@
 <template>
   <div class="w-full mt-36">
 
-    <div class="mx-auto max-w-7xl  py-24 sm:py-32 lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-7xl px-4 md:px-12 sm:py-32 lg:px-8 lg:py-40">
       <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
-     <img class="w-96 ml-60 " src="@/assets/images/Questions-bro.png">
+     <img class="w-96 md:ml-60 " src="@/assets/images/Questions-bro.png">
         <h2 class="text-2xl mt-3 font-bold leading-10 tracking-tight text-gray-900">Frequently asked questions</h2>
         <dl class="mt-9 space-y-6 divide-y divide-gray-900/10">
           <div class="pt-6">
