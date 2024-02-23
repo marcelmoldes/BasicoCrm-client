@@ -44,7 +44,9 @@
 
               <select v-model="contact.lead_source" :class="errors.lead_source ? 'border border-red-300' : 'border-0'"
                       class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>{{ contact.lead_source }}</option>
+                <option :value="lead_source.value" v-for="lead_source in options.lead_source" :key="lead_source.value">
+                  {{ lead_source.label }}
+                </option>
 
               </select>
               <div v-if="errors.lead_source" class="text-sm text-red-400">{{ errors.lead_source }}</div>
@@ -63,7 +65,9 @@
               <label class="block text-sm font-medium leading-6 text-gray-900">Industry</label>
               <select v-model="contact.industry" :class="errors.industry ? 'border border-red-300' : 'border-0'"
                       class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>{{ contact.industry }}</option>
+                <option :value="industry.value" v-for="industry in options.industry" :key="industry.value">
+                  {{ industry.label }}
+                </option>
 
               </select>
               <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
@@ -74,8 +78,9 @@
               <label class="block text-sm font-medium leading-6 text-gray-900">Lead Status</label>
               <select v-model="contact.lead_status" :class="errors.lead_status ? 'border border-red-300' : 'border-0'"
                       class="bg-white py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>{{ contact.lead_status }}</option>
-
+                <option :value="lead_status.value" v-for="lead_status in options.lead_status" :key="lead_status.value">
+                  {{ lead_status.label }}
+                </option>
               </select>
               <div v-if="errors.lead_status" class="text-sm text-red-400">{{ errors.lead_status }}</div>
             </div>
@@ -180,7 +185,7 @@ export default {
   props: ['user'],
   data() {
     return {
-
+      options,
       formatters,
       contact: {
         PhoneNumber: {
