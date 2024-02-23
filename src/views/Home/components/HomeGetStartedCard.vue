@@ -23,9 +23,8 @@
           <img src="@/assets/images/logo.png" class=" w-20 " alt=""> </div>
       </div><img src="@/assets/images/working.jpg">
     </div>
-    <div class="text-center">
-
-      <a href="/register" class="rounded-full bg-blue-600 animate-pulse hover:opacity-90  px-24 md:px-64 py-5 ml-10 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+    <div class="text-center mt-12 md:mt-0 px-12 md:px-0">
+      <a href="/register" class="rounded-full bg-blue-600 block w-full md:px-64 py-5 text-l font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
     </div>
 
   </div>

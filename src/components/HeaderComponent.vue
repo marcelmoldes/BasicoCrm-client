@@ -1,7 +1,7 @@
 <template>
   <header id="form" class="">
     <nav class="hidden lg:flex items-center justify-between p-3.5 lg:px-12">
-      <a v-if="!user"  href="/BasicoCrm">
+      <a v-if="!user"  href="/">
         <img alt="" class="w-28 rounded-md mr-20  " src="../assets/images/logo.png">
       </a>
       <a  v-if="user"  href="/dashboard">
