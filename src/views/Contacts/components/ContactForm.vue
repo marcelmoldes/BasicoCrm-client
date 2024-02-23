@@ -44,7 +44,7 @@
 
               <select v-model="contact.lead_source" :class="errors.lead_source ? 'border border-red-300' : 'border-0'"
                       class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>frfrf</option>
+                <option>{{ contact.lead_source }}</option>
 
               </select>
               <div v-if="errors.lead_source" class="text-sm text-red-400">{{ errors.lead_source }}</div>
@@ -64,7 +64,7 @@
               <select v-model="contact.industry" :class="errors.industry ? 'border border-red-300' : 'border-0'"
                       class="bg-white  py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                 <option>{{ contact.industry }}</option>
-                <option>rfrfr</option>
+
               </select>
               <div v-if="errors.industry" class="text-sm text-red-400">{{ errors.industry }}</div>
             </div>
@@ -74,7 +74,7 @@
               <label class="block text-sm font-medium leading-6 text-gray-900">Lead Status</label>
               <select v-model="contact.lead_status" :class="errors.lead_status ? 'border border-red-300' : 'border-0'"
                       class="bg-white py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 block p-2 w-full rounded-md  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                <option>fsrfsrf</option>
+                <option>{{ contact.lead_status }}</option>
 
               </select>
               <div v-if="errors.lead_status" class="text-sm text-red-400">{{ errors.lead_status }}</div>
@@ -180,6 +180,7 @@ export default {
   props: ['user'],
   data() {
     return {
+
       formatters,
       contact: {
         PhoneNumber: {
@@ -191,12 +192,25 @@ export default {
     }
   },
   async mounted() {
+    this.loadOptions()
     if (this.$route.params.id) {
       await this.loadData();
     }
     this.$eventBus.on('saveContact', this.saveContact)
   },
   methods: {
+    async loadOptions() {
+      const response = await axios.get(process.env.VUE_APP_API_URL + '/contacts/options',
+          {
+            headers: {
+              Authorization: this.user ? "Bearer " + this.user.token : null,
+            },
+          });
+      if (response.data.success) {
+        this.options = response.data.options;
+      }
+    },
+
     async loadData() {
       const response = await axios.get(process.env.VUE_APP_API_URL + '/contacts/' + (this.$route.params.id ? this.$route.params.id : this.contact.id),
           {
