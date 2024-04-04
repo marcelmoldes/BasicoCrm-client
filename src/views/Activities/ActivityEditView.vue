@@ -21,7 +21,7 @@
 import ActivityForm from "@/views/Activities/components/ActivityForm.vue";
 
 export default {
-  props: ['user',],
+  props: ['user'],
   emits: ['saveActivity'],
   components: {
     ActivityForm,
